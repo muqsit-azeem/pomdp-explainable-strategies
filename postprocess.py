@@ -3,6 +3,7 @@ import re
 
 # hardcoding paths for now
 action_mapping_path = "action_mapping.txt"
+ordered_observation_path = "ordered_observations.txt"
 decision_trees_dir = "../decision_trees/default"
 
 # action mapping dictionary
@@ -12,8 +13,15 @@ with open(action_mapping_path, "r") as f:
         action, number = line.strip().split(" <-> ")
         action_mapping[number] = action
 
+
+# observation mapping list
+observation_mapping = []
+with open(ordered_observation_path, "r") as f:
+    observation_mapping = [line.strip() for line in f]
+
+
 # Function to replace action numbers with action names in a .dot file
-def replace_actions(dot_file_path, action_mapping):
+def replace_actions_and_observations(dot_file_path, action_mapping, observation_mapping):
     with open(dot_file_path, "r") as file:
         content = file.read()
 
@@ -21,12 +29,17 @@ def replace_actions(dot_file_path, action_mapping):
     for number, action in action_mapping.items():
         content = re.sub(rf'(?<=\[label="){number}(?="])', action, content)
 
+    # Replace x_i with corresponding observations
+    for i, obs in enumerate(observation_mapping):
+        content = content.replace(f"x_{i}", obs)
+
     with open(dot_file_path, "w") as file:
         file.write(content)
+
 
 # Iterate through the directories and files
 for root, dirs, files in os.walk(decision_trees_dir):
     for file in files:
         if file.endswith(".dot"):
             dot_file_path = os.path.join(root, file)
-            replace_actions(dot_file_path, action_mapping)
+            replace_actions_and_observations(dot_file_path, action_mapping, observation_mapping)
