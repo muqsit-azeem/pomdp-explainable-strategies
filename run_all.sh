@@ -20,7 +20,7 @@ if [ $? -ne 0 ]; then
     exit 1
 fi
 
-# postprocess to with actual obs-action names
+# postprocess to get actual obs-action names
 echo "Running postprocess.py..."
 python3 postprocess.py
 
