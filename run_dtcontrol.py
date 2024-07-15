@@ -49,9 +49,20 @@ def process_model_files(model_hash, base_dir):
         print(f"Schedulers directory does not exist: {schedulers_dir}", file=sys.stderr)
         return
 
+    transition_dir = os.path.join(model_hash_dir, "memory-transitions")
+    if not os.path.exists(transition_dir):
+        print(f"Schedulers directory does not exist: {transition_dir}", file=sys.stderr)
+        return
+
     for filename in os.listdir(schedulers_dir):
         if filename.endswith(".csv"):
             csv_path = os.path.join(schedulers_dir, filename)
+            print(f"Processing {csv_path}")
+            run_dtcontrol(csv_path, model_hash)
+
+    for filename in os.listdir(transition_dir):
+        if filename.endswith(".csv"):
+            csv_path = os.path.join(transition_dir, filename)
             print(f"Processing {csv_path}")
             run_dtcontrol(csv_path, model_hash)
 
