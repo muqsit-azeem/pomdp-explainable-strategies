@@ -26,7 +26,8 @@ def run_storm_pomdp(timeout_command, storm_pomdp, model_dir, model, params=None)
     command = [
         timeout_command, storm_pomdp,
         "--prism", f"{model_dir}/{model}",
-        '--prop', '"Pmax=? [!\\"bad\\" U \\"goal\\"]"',
+        '--prop', '"Pmax=? [\\"notbad\\" U \\"goal\\"]"',
+        # '--prop', '"Pmax=? [!\\"bad\\" U \\"goal\\"]"',
         const_str,
         "--buildstateval",
         "--buildobsval",
@@ -63,6 +64,7 @@ def main(storm_build_dir, model_dir, timeout):
 
     benchmarks = [
         ("maze1.prism", {}),
+        ("obstacle.nm", {"N": 6}),
         # Uncomment and add other benchmarks here
         # ("model2.prism", {"N": 6}),
         # ("model3.prism", {"N": 7, "RADIUS": 1}),
