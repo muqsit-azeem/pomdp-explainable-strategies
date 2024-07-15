@@ -23,9 +23,9 @@ def read_model_hash(wr_file_path):
                 return line.split(":")[1].strip()
     return None
 
-def run_dtcontrol(csv_path):
+def run_dtcontrol(csv_path, model_hash):
     try:
-        command = f"dtcontrol --input {csv_path}"
+        command = f"dtcontrol --input {csv_path} --rerun --output {model_hash}"
         print(f"Executing command: {command}")
         subprocess.run(command, shell=True, check=True, capture_output=True)
         print(f"Execution successful for {csv_path}")
@@ -48,7 +48,7 @@ def process_model_files(model_hash, base_dir):
         if filename.endswith(".csv"):
             csv_path = os.path.join(schedulers_dir, filename)
             print(f"Processing {csv_path}")
-            run_dtcontrol(csv_path)
+            run_dtcontrol(csv_path, model_hash)
 
 def main(base_dir):
     winningregion_dir = os.path.join(base_dir, "winningregion")

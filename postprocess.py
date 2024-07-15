@@ -4,7 +4,8 @@ import re
 # hardcoding paths for now
 action_mapping_path = "action_mapping.txt"
 ordered_observation_path = "ordered_observations.txt"
-decision_trees_dir = "../decision_trees/default"
+# decision_trees_dir = "../decision_trees/default"
+decision_trees_dir = "default"
 
 # action mapping dictionary
 action_mapping = {}
@@ -31,7 +32,9 @@ def replace_actions_and_observations(dot_file_path, action_mapping, observation_
 
     # Replace x_i with corresponding observations
     for i, obs in enumerate(observation_mapping):
-        content = content.replace(f"x_{i}", obs)
+        # the first one is for memory therefore observations start at x_1
+        print (f"replacing x_{i+1} by {obs}")
+        content = content.replace(f"x_{i+1}", obs)
 
     with open(dot_file_path, "w") as file:
         file.write(content)
