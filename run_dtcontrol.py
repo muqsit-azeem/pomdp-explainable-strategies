@@ -2,6 +2,7 @@ import os
 import subprocess
 import sys
 
+
 def check_directory_exists(directory):
     if not os.path.exists(directory):
         print(f"{directory} not found", file=sys.stderr)
@@ -10,10 +11,12 @@ def check_directory_exists(directory):
         print(f"{directory} not a directory", file=sys.stderr)
         sys.exit(1)
 
+
 def check_file_exists(file_path):
     if not os.path.exists(file_path):
         print(f"{file_path} not found", file=sys.stderr)
         sys.exit(1)
+
 
 def read_model_hash(wr_file_path):
     with open(wr_file_path, 'r') as file:
@@ -22,6 +25,7 @@ def read_model_hash(wr_file_path):
             if line.startswith("model hash:"):
                 return line.split(":")[1].strip()
     return None
+
 
 def run_dtcontrol(csv_path, model_hash):
     try:
@@ -32,6 +36,7 @@ def run_dtcontrol(csv_path, model_hash):
     except subprocess.CalledProcessError as e:
         print(f"Execution failed for {csv_path}")
         print(e.stderr.decode(), file=sys.stderr)
+
 
 def process_model_files(model_hash, base_dir):
     model_hash_dir = os.path.join(base_dir, model_hash)
@@ -50,6 +55,7 @@ def process_model_files(model_hash, base_dir):
             print(f"Processing {csv_path}")
             run_dtcontrol(csv_path, model_hash)
 
+
 def main(base_dir):
     winningregion_dir = os.path.join(base_dir, "winningregion")
     if not os.path.exists(winningregion_dir):
@@ -66,6 +72,7 @@ def main(base_dir):
                 process_model_files(model_hash, base_dir)
             else:
                 print(f"No model hash found in {wr_file_path}", file=sys.stderr)
+
 
 if __name__ == "__main__":
     if len(sys.argv) != 2:

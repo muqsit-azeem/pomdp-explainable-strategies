@@ -22,7 +22,7 @@ fi
 
 # postprocess to get actual obs-action names
 echo "Running postprocess.py..."
-python3 postprocess.py
+python3 postprocess.py .
 
 # check for successful run
 if [ $? -ne 0 ]; then
