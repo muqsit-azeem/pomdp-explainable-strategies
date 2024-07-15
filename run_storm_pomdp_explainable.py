@@ -54,7 +54,6 @@ def run_storm_pomdp(timeout_command, storm_pomdp, model_dir, model, params=None)
 def main(storm_build_dir, model_dir, timeout):
     check_directory_exists(storm_build_dir)
     check_directory_exists(model_dir)
-    check_directory_exists("logfiles/iterative")
     check_directory_exists("winningregion")
 
     storm_pomdp = os.path.join(storm_build_dir, "bin", "storm-pomdp")

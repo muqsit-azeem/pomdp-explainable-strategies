@@ -1,6 +1,7 @@
 import os
 import sys
 
+
 def read_model_hash(wr_file_path):
     with open(wr_file_path, 'r') as file:
         lines = file.readlines()
@@ -8,6 +9,7 @@ def read_model_hash(wr_file_path):
             if line.startswith("model hash:"):
                 return line.split(":")[1].strip()
     return None
+
 
 def process_model_files(model_hash, base_dir):
     model_hash_dir = os.path.join(base_dir, model_hash)
@@ -29,6 +31,7 @@ def process_model_files(model_hash, base_dir):
                 content = csv_file.read()
                 print(content)
 
+
 def main(base_dir):
     winningregion_dir = os.path.join(base_dir, "winningregion")
     if not os.path.exists(winningregion_dir):
@@ -45,6 +48,7 @@ def main(base_dir):
                 process_model_files(model_hash, base_dir)
             else:
                 print(f"No model hash found in {wr_file_path}", file=sys.stderr)
+
 
 if __name__ == "__main__":
     if len(sys.argv) != 2:
