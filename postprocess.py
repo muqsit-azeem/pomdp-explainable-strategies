@@ -17,7 +17,6 @@ def read_action_mapping(action_mapping_path):
 # observation mapping to list
 def read_observation_mapping(observation_mapping_path):
     print(f"Reading observation mapping from {observation_mapping_path}")
-    observation_mapping = []
     with open(observation_mapping_path, "r") as f:
         observation_mapping = [line.strip() for line in f]
     return observation_mapping
@@ -92,13 +91,26 @@ def process_dt_files(model_hash, base_dir):
     # print(f"Action mapping: {action_mapping}")
     # print(f"Observation mapping: {observation_mapping}")
 
-    dts_dir = os.path.join(model_hash_dir, "default")
+    dts_dir = os.path.join(model_hash_dir, "schedulers", "default")
     if not os.path.exists(dts_dir):
         print(f"DT schedulers directory does not exist: {dts_dir}", file=sys.stderr)
         return
 
     # Iterate through the directories and files
     for root, dirs, files in os.walk(dts_dir):
+        for file in files:
+            if file.endswith(".dot"):
+                dot_file_path = os.path.join(root, file)
+                print(f"Processing {dot_file_path}")
+                replace_actions_and_observations(dot_file_path, action_mapping, observation_mapping)
+
+    mem_transition_dir = os.path.join(model_hash_dir, "memory-transitions", "default")
+    if not os.path.exists(dts_dir):
+        print(f"DT schedulers directory does not exist: {mem_transition_dir}", file=sys.stderr)
+        return
+
+    # Iterate through the directories and files
+    for root, dirs, files in os.walk(mem_transition_dir):
         for file in files:
             if file.endswith(".dot"):
                 dot_file_path = os.path.join(root, file)
