@@ -1,0 +1,12 @@
+digraph {
+0;
+__init [label="", style=invis, width=0];
+__init -> 0;
+0 -> 0 [label="[started	& !finish	& !r1taken	& !r1lastobs	& !r2taken	& !r2lastobs	& x=0	& y=4]/south"];
+0 -> 0 [label="[started	& !finish	& !r1taken	& !r1lastobs	& !r2taken	& !r2lastobs	& x=0	& y=3]/south"];
+0 -> 0 [label="[started	& !finish	& !r1taken	& !r1lastobs	& !r2taken	& !r2lastobs	& x=0	& y=2]/south"];
+0 -> 0 [label="[started	& !finish	& !r1taken	& !r1lastobs	& !r2taken	& !r2lastobs	& x=0	& y=1]/south"];
+0 -> 0 [label="[started	& !finish	& !r1taken	& !r1lastobs	& !r2taken	& !r2lastobs	& x=0	& y=0]/south"];
+0 -> 0 [label="[!started	& !finish	& !r1taken	& !r1lastobs	& !r2taken	& !r2lastobs	& x=0	& y=0]/placement"];
+0 -> 0 [label="[started	& !finish	& !r1taken	& !r1lastobs	& !r2taken	& !r2lastobs	& x=0	& y=5]/south"];
+}

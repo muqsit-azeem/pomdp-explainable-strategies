@@ -1,0 +1,10 @@
+digraph {
+6;
+3;
+0;
+__init [label="", style=invis, width=0];
+__init -> 0;
+6 -> 6 [label="[o=1]/south"];
+3 -> 6 [label="[o=1]/east"];
+0 -> 3 [label="[o=1]/east"];
+}

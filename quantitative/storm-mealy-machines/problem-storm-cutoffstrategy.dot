@@ -1,0 +1,13 @@
+digraph {
+5;
+3;
+0;
+__init [label="", style=invis, width=0];
+__init -> 0;
+5 -> 5 [label="[goal=1	& in=0	& o0=0]/"];
+5 -> 5 [label="[goal=0	& in=0	& o0=1]/ {0.5 -> r | 0.5 -> l }"];
+5 -> 5 [label="[goal=0	& in=1	& o0=0]/in"];
+3 -> 5 [label="[goal=0	& in=0	& o0=1]/l"];
+0 -> 3 [label="[goal=0	& in=0	& o0=1]/l"];
+0 -> 0 [label="[goal=0	& in=1	& o0=0]/in"];
+}

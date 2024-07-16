@@ -1,0 +1,38 @@
+digraph {
+16;
+0;
+5;
+6;
+7;
+9;
+__init [label="", style=invis, width=0];
+__init -> 0;
+16 -> 5 [label="[obs=3]/(n)"];
+16 -> 6 [label="[obs=1]/(w)"];
+16 -> 16 [label="[obs=5]/(n)"];
+16 -> 16 [label="[obs=0]/(n)"];
+16 -> 6 [label="[obs=2]/(e)"];
+0 -> 0 [label="[obs=6]/(init)"];
+0 -> 5 [label="[obs=3]/(n)"];
+0 -> 6 [label="[obs=1]/(w)"];
+0 -> 7 [label="[obs=2]/(e)"];
+0 -> 9 [label="[obs=0]/(n)"];
+0 -> 0 [label="[obs=7]/(n)"];
+0 -> 16 [label="[obs=4]/(n)"];
+0 -> 16 [label="[obs=5]/(n)"];
+5 -> 5 [label="[obs=3]/(n)"];
+5 -> 5 [label="[obs=0]/(e)"];
+6 -> 6 [label="[obs=1]/(w)"];
+6 -> 6 [label="[obs=0]/(n)"];
+6 -> 6 [label="[obs=2]/(n)"];
+6 -> 16 [label="[obs=5]/(n)"];
+6 -> 16 [label="[obs=4]/(n)"];
+7 -> 6 [label="[obs=1]/(w)"];
+7 -> 6 [label="[obs=2]/(e)"];
+7 -> 6 [label="[obs=0]/(n)"];
+7 -> 16 [label="[obs=4]/(n)"];
+9 -> 5 [label="[obs=3]/(n)"];
+9 -> 6 [label="[obs=2]/(e)"];
+9 -> 16 [label="[obs=5]/(n)"];
+9 -> 16 [label="[obs=0]/(e)"];
+}

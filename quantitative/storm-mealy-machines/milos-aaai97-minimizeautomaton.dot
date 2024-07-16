@@ -1,0 +1,10 @@
+digraph {
+7;
+0;
+__init [label="", style=invis, width=0];
+__init -> 0;
+7 -> 7 [label="[obs=0]/(a1)"];
+0 -> 0 [label="[obs=9]/(a3)"];
+0 -> 0 [label="[obs=8]/(init)"];
+0 -> 7 [label="[obs=0]/(a3)"];
+}

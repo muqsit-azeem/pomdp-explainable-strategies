@@ -1,0 +1,17 @@
+digraph {
+9;
+7;
+5;
+0;
+__init [label="", style=invis, width=0];
+__init -> 0;
+9 -> 9 [label="[obs=0]/(steady)"];
+9 -> 9 [label="[obs=1]/(restrict)"];
+7 -> 9 [label="[obs=0]/(unrestrict)"];
+5 -> 7 [label="[obs=1]/(reboot)"];
+5 -> 9 [label="[obs=0]/(steady)"];
+0 -> 9 [label="[obs=0]/(steady)"];
+0 -> 5 [label="[obs=1]/(restrict)"];
+0 -> 0 [label="[obs=3]/(unrestrict)"];
+0 -> 0 [label="[obs=2]/(init)"];
+}

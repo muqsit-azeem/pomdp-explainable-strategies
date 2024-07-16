@@ -1,0 +1,36 @@
+digraph {
+13;
+0;
+2;
+3;
+10;
+11;
+12;
+__init [label="", style=invis, width=0];
+__init -> 0;
+13 -> 13 [label="[blue=0	& goal=1	& oo0=0	& ooin=0	& purp=0	& sink=1	& yell=0]/"];
+13 -> 13 [label="[blue=0	& goal=1	& oo0=0	& ooin=0	& purp=1	& sink=0	& yell=0]/"];
+13 -> 13 [label="[blue=1	& goal=1	& oo0=0	& ooin=0	& purp=0	& sink=0	& yell=0]/"];
+13 -> 13 [label="[blue=0	& goal=0	& oo0=1	& ooin=0	& purp=1	& sink=0	& yell=0]/ {0.5 -> R | 0.5 -> L }"];
+13 -> 13 [label="[blue=0	& goal=0	& oo0=0	& ooin=1	& purp=0	& sink=1	& yell=0]/in"];
+13 -> 13 [label="[blue=1	& goal=0	& oo0=1	& ooin=0	& purp=0	& sink=0	& yell=0]/{1.000000 -> R}"];
+13 -> 13 [label="[blue=0	& goal=0	& oo0=0	& ooin=1	& purp=1	& sink=0	& yell=0]/in"];
+13 -> 13 [label="[blue=0	& goal=0	& oo0=0	& ooin=0	& purp=1	& sink=0	& yell=0]/ {0.5 -> B | 0.5 -> A }"];
+13 -> 13 [label="[blue=0	& goal=0	& oo0=1	& ooin=0	& purp=0	& sink=1	& yell=0]/ {0.5 -> R | 0.5 -> L }"];
+13 -> 13 [label="[blue=0	& goal=0	& oo0=0	& ooin=0	& purp=0	& sink=0	& yell=1]/{1.000000 -> B}"];
+13 -> 13 [label="[blue=0	& goal=0	& oo0=0	& ooin=0	& purp=0	& sink=1	& yell=0]/ {0.25 -> B | 0.25 -> D | 0.25 -> C | 0.25 -> A }"];
+13 -> 13 [label="[blue=1	& goal=0	& oo0=0	& ooin=1	& purp=0	& sink=0	& yell=0]/{1.000000 -> in}"];
+13 -> 13 [label="[blue=1	& goal=0	& oo0=0	& ooin=0	& purp=0	& sink=0	& yell=0]/{0.333333 -> B | 0.333333 -> A | 0.333333 -> C}"];
+0 -> 2 [label="[blue=1	& goal=0	& oo0=0	& ooin=0	& purp=0	& sink=0	& yell=0]/C"];
+0 -> 10 [label="[blue=1	& goal=0	& oo0=1	& ooin=0	& purp=0	& sink=0	& yell=0]/R"];
+2 -> 3 [label="[blue=0	& goal=0	& oo0=0	& ooin=0	& purp=0	& sink=0	& yell=1]/B"];
+2 -> 2 [label="[blue=1	& goal=0	& oo0=0	& ooin=0	& purp=0	& sink=0	& yell=0]/A"];
+2 -> 2 [label="[blue=1	& goal=0	& oo0=0	& ooin=1	& purp=0	& sink=0	& yell=0]/in"];
+2 -> 0 [label="[blue=1	& goal=0	& oo0=1	& ooin=0	& purp=0	& sink=0	& yell=0]/R"];
+3 -> 3 [label="[blue=1	& goal=0	& oo0=0	& ooin=0	& purp=0	& sink=0	& yell=0]/B"];
+3 -> 10 [label="[blue=1	& goal=0	& oo0=1	& ooin=0	& purp=0	& sink=0	& yell=0]/R"];
+3 -> 3 [label="[blue=1	& goal=0	& oo0=0	& ooin=1	& purp=0	& sink=0	& yell=0]/in"];
+10 -> 11 [label="[blue=1	& goal=0	& oo0=1	& ooin=0	& purp=0	& sink=0	& yell=0]/R"];
+11 -> 12 [label="[blue=1	& goal=0	& oo0=1	& ooin=0	& purp=0	& sink=0	& yell=0]/R"];
+12 -> 13 [label="[blue=1	& goal=0	& oo0=1	& ooin=0	& purp=0	& sink=0	& yell=0]/{1.000000 -> R}"];
+}

@@ -1,0 +1,16 @@
+digraph {
+4;
+3;
+2;
+0;
+__init [label="", style=invis, width=0];
+__init -> 0;
+4 -> 3 [label="[blue=1	& yellow=0]/a"];
+4 -> 2 [label="[blue=0	& yellow=1]/a"];
+3 -> 4 [label="[blue=0	& yellow=1]/b"];
+3 -> 0 [label="[blue=1	& yellow=0]/b"];
+2 -> 3 [label="[blue=1	& yellow=0]/a"];
+2 -> 4 [label="[blue=0	& yellow=1]/b"];
+0 -> 2 [label="[blue=0	& yellow=1]/a"];
+0 -> 0 [label="[blue=1	& yellow=0]/b"];
+}

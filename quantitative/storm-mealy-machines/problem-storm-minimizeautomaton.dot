@@ -1,0 +1,7 @@
+digraph {
+0;
+__init [label="", style=invis, width=0];
+__init -> 0;
+0 -> 0 [label="[goal=0	& in=1	& o0=0]/in"];
+0 -> 0 [label="[goal=0	& in=0	& o0=1]/l"];
+}

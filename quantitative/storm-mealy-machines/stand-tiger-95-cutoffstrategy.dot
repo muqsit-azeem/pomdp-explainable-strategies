@@ -1,0 +1,24 @@
+digraph {
+9;
+6;
+4;
+0;
+__init [label="", style=invis, width=0];
+__init -> 0;
+9 -> 9 [label="[obs=1]/(listen)"];
+9 -> 9 [label="[obs=0]/(listen)"];
+9 -> 9 [label="[obs=3]/(open-right)"];
+9 -> 9 [label="[obs=2]/(open-right)"];
+6 -> 9 [label="[obs=0]/(stand-up)"];
+6 -> 9 [label="[obs=1]/(listen)"];
+4 -> 9 [label="[obs=0]/(listen)"];
+4 -> 9 [label="[obs=3]/(open-left)"];
+4 -> 9 [label="[obs=2]/(open-left)"];
+4 -> 4 [label="[obs=1]/(stand-up)"];
+0 -> 4 [label="[obs=1]/(listen)"];
+0 -> 6 [label="[obs=0]/(listen)"];
+0 -> 9 [label="[obs=3]/(open-left)"];
+0 -> 9 [label="[obs=2]/(open-left)"];
+0 -> 0 [label="[obs=5]/(listen)"];
+0 -> 0 [label="[obs=4]/(init)"];
+}

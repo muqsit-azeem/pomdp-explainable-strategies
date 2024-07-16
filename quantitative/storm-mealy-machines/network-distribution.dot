@@ -1,0 +1,26 @@
+digraph {
+9;
+8;
+7;
+6;
+5;
+0;
+__init [label="", style=invis, width=0];
+__init -> 0;
+9 -> 6 [label="[obs=0]/(steady)"];
+9 -> 6 [label="[obs=1]/(restrict)"];
+8 -> 8 [label="[obs=4]/(discount_sink)"];
+8 -> 8 [label="[obs=0]/{0.250000 -> (unrestrict) | 0.750000 -> (steady)}"];
+8 -> 8 [label="[obs=1]/{0.333333 -> (reboot) | 0.666667 -> (restrict)}"];
+8 -> 8 [label="[obs=3]/{1.000000 -> (unrestrict)}"];
+8 -> 8 [label="[obs=2]/{1.000000 -> (init)}"];
+7 -> 6 [label="[obs=0]/(unrestrict)"];
+6 -> 8 [label="[obs=0]/{0.250000 -> (unrestrict) | 0.750000 -> (steady)}"];
+6 -> 8 [label="[obs=1]/{0.333333 -> (reboot) | 0.666667 -> (restrict)}"];
+5 -> 6 [label="[obs=0]/(steady)"];
+5 -> 7 [label="[obs=1]/(reboot)"];
+0 -> 9 [label="[obs=0]/(steady)"];
+0 -> 5 [label="[obs=1]/(restrict)"];
+0 -> 0 [label="[obs=3]/(unrestrict)"];
+0 -> 0 [label="[obs=2]/(init)"];
+}
