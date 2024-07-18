@@ -65,6 +65,11 @@ def main(storm_build_dir, model_dir, timeout):
     benchmarks = [
         ("maze1.prism", {}),
         ("obstacle.nm", {"N": 6}),
+        ("rocks2.nm", {"N": 4}),
+        ("avoid.nm", {"N": 6, "RADIUS": 3}),
+        ("evade.nm", {"N": 6, "RADIUS": 2}),
+        ("intercept.nm", {"N": 7, "RADIUS": 1}),
+        ("refuel.nm", {"N": 6, "ENERGY": 8})
         # Uncomment and add other benchmarks here
         # ("model2.prism", {"N": 6}),
         # ("model3.prism", {"N": 7, "RADIUS": 1}),
