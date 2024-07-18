@@ -45,11 +45,9 @@ def generate_table(base_dir):
             if model_hash:
                 dt_dir = os.path.join(base_dir, model_hash, "schedulers", "default")
                 mem_transitions_dir = os.path.join(base_dir, model_hash, "memory-transitions", "default")
-                # fsc_dot_file = os.path.join(base_dir, model_hash, "mem_fun.dot")
-                if os.path.exists(dt_dir) and os.path.exists(mem_transitions_dir): # and os.path.exists(fsc_dot_file):
+                if os.path.exists(dt_dir) and os.path.exists(mem_transitions_dir):
                     dt_num, dt_total, dt_min, dt_max = analyze_dot_files(dt_dir)
                     mt_num, mt_total, mt_min, mt_max = analyze_dot_files(mem_transitions_dir)
-                    #fsc_nodes = count_nodes_with_gc(fsc_dot_file) - 1  # subtract 1 for the initial state
                     benchmark_name = filename.replace("-fixpoint.wr", "")
                     benchmarks.append((benchmark_name, dt_num, dt_total, dt_min, dt_max, mt_total, mt_min, mt_max))
                 else:
@@ -57,19 +55,32 @@ def generate_table(base_dir):
                         print(f"DT directory does not exist: {dt_dir}", file=sys.stderr)
                     if not os.path.exists(mem_transitions_dir):
                         print(f"Memory transitions directory does not exist: {mem_transitions_dir}", file=sys.stderr)
-                    # if not os.path.exists(fsc_dot_file):
-                    #    print(f"FSC dot file does not exist: {fsc_dot_file}", file=sys.stderr)
             else:
                 print(f"No model hash found in {wr_file_path}", file=sys.stderr)
     return benchmarks
 
 
 def print_table(benchmarks):
-    header = f"{'Benchmark':<25} {'{# of DTs or Memory Nodes or States in FSC}':<45} {'Sch. Total Nodes':<20} {'Sch. Min Nodes':<20} {'Sch. Max Nodes':<20} {'Mem. Total Nodes':<20} {'Mem. Min Nodes':<20} {'Mem. Max Nodes':<20}"
+    header = f"{'Benchmark':<25} {'#FSC Nodes':<10} {'Sch. Total Nodes':<20} {'Sch. Min Nodes':<20} {'Sch. Max Nodes':<20} {'Mem. Total Nodes':<20} {'Mem. Min Nodes':<20} {'Mem. Max Nodes':<20}"
     print(header)
     for benchmark, dt_num, scheduler_total_nodes, scheduler_min_nodes, scheduler_max_nodes, memory_total_nodes, memory_min_nodes, memory_max_nodes in benchmarks:
         print("=" * len(header))
-        print(f"{benchmark:<25} {dt_num:<45} {scheduler_total_nodes:<20} {scheduler_min_nodes:<20} {scheduler_max_nodes:<20} {memory_total_nodes:<20} {memory_min_nodes:<20} {memory_max_nodes:<20}")
+        print(f"{benchmark:<25} {dt_num:<10} {scheduler_total_nodes:<20} {scheduler_min_nodes:<20} {scheduler_max_nodes:<20} {memory_total_nodes:<20} {memory_min_nodes:<20} {memory_max_nodes:<20}")
+
+
+def generate_latex_table(benchmarks):
+    print("\\begin{table}[ht]")
+    print("\\centering")
+    print("\\begin{tabular}{|l|r|r|r|}")
+    print("\\hline")
+    print("Benchmark & \\#FSC-nodes & Sch. Nodes (Min, Max) & Mem. Nodes (Min, Max) \\\\ \\hline")
+    for benchmark, dt_num, scheduler_total_nodes, scheduler_min_nodes, scheduler_max_nodes, memory_total_nodes, memory_min_nodes, memory_max_nodes in benchmarks:
+        print(f"{benchmark} & {dt_num} & {scheduler_total_nodes} ({scheduler_min_nodes}, {scheduler_max_nodes}) & {memory_total_nodes} ({memory_min_nodes}, {memory_max_nodes}) \\\\ \\hline")
+    print("\\end{tabular}")
+    print("\\caption{CAV 21 results}")
+    print("\\label{tab:cav-benchmark}")
+    print("\\end{table}")
+
 
 
 def read_model_hash(wr_file_path):
@@ -82,10 +93,13 @@ def read_model_hash(wr_file_path):
 
 
 if __name__ == "__main__":
-    if len(sys.argv) != 2:
-        print(f"Usage: {sys.argv[0]} BASEDIR", file=sys.stderr)
+    if len(sys.argv) < 2 or len(sys.argv) > 3:
+        print(f"Usage: {sys.argv[0]} BASEDIR [latex]", file=sys.stderr)
         sys.exit(1)
 
     base_dir = sys.argv[1]
     benchmarks = generate_table(base_dir)
     print_table(benchmarks)
+
+    if len(sys.argv) == 3 and sys.argv[2] == "latex":
+        generate_latex_table(benchmarks)
