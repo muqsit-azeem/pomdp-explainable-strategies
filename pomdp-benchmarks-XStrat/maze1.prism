@@ -98,4 +98,5 @@ label "goal" = o=7;
 
 // bad state observation
 label "bad" = o=6;
+label "notbad" = !(o=6);
 

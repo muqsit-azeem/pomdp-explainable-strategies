@@ -30,5 +30,16 @@ if [ $? -ne 0 ]; then
     exit 1
 fi
 
+
+# analyze DTs and FSC to generate the table
+echo "Running create_table.py..."
+python3 create_table.py .
+
+# check for successful run
+if [ $? -ne 0 ]; then
+    echo "analyze_dts.py failed. Exiting."
+    exit 1
+fi
+
 echo "All scripts ran successfully."
 
