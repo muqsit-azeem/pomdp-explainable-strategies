@@ -9,7 +9,8 @@ const int xMAX = N-1;
 const int yMAX = N-1;
 const int xMIN = 0;
 const int yMIN = 0;
-const double slippery = 0.1;
+// const double slippery = 0.1;
+const double slippery = 0.0;
 // Rock positions
 const r1x = xMIN+1;
 const r1y = yMAX-1;
@@ -25,7 +26,7 @@ observable "seefinish" = finish;
 formula r1dist = max(r1x-x,x-r1x) + max(r1y-y,y-r1y);
 // max distance
 formula maxdist = xMAX-xMIN+yMAX-yMIN;
-// Distance between r1 and the robot
+// Distance between r2 and the robot
 formula r2dist = max(r2x-x,x-r2x) + max(r2y-y,y-r2y);
 formula bad = (r1dist=0 & !r1qual) | (r2dist=0 & !r2qual);
 observable "seebad" = bad;

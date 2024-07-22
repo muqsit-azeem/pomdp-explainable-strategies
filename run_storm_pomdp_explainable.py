@@ -64,10 +64,10 @@ def main(storm_build_dir, model_dir, timeout):
     timeout_command = f"timeout {timeout}"
 
     benchmarks = [
-        ("maze-fancy-observations.nm", {}),
+        # ("maze-fancy-observations.nm", {}),
         # ("maze1.prism", {}),
         # ("obstacle.nm", {"N": 6}),
-        # ("rocks2.nm", {"N": 4}),
+        ("rocks2.nm", {"N": 6}),
         # ("avoid.nm", {"N": 6, "RADIUS": 3}),
         # ("evade.nm", {"N": 6, "RADIUS": 2}),
         # ("intercept.nm", {"N": 7, "RADIUS": 1}),
