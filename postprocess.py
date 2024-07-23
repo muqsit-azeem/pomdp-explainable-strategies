@@ -56,8 +56,8 @@ def replace_actions_and_observations(dot_file_path, action_mapping, observation_
     # replace x_i with corresponding observations
     for i, obs in enumerate(observation_mapping):
         # the first one is for memory therefore observations start at x_1
-        placeholder = f"x_{i + 1}"
-        new_content = content.replace(placeholder, obs)
+        placeholder = f"x_{i + 1} "
+        new_content = content.replace(placeholder, f"{obs} ")
         if new_content != content:
             print(f"Replaced {placeholder} with {obs} in {dot_file_path}")
         content = new_content
@@ -115,7 +115,8 @@ def process_dt_files(model_hash, base_dir):
             if file.endswith(".dot"):
                 dot_file_path = os.path.join(root, file)
                 print(f"Processing {dot_file_path}")
-                replace_actions_and_observations(dot_file_path, action_mapping, observation_mapping)
+                # only replace observations
+                replace_actions_and_observations(dot_file_path, {}, observation_mapping)
 
 
 def main(base_dir):

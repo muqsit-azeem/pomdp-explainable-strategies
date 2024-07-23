@@ -82,7 +82,6 @@ def generate_latex_table(benchmarks):
     print("\\end{table}")
 
 
-
 def read_model_hash(wr_file_path):
     with open(wr_file_path, 'r') as file:
         lines = file.readlines()

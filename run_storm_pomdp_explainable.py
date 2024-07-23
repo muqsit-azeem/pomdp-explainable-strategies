@@ -12,6 +12,15 @@ def check_directory_exists(directory):
         sys.exit(1)
 
 
+def create_directory_if_not_exists(directory):
+    if not os.path.exists(directory):
+        print(f"{directory} not found. Creating directory.", file=sys.stderr)
+        os.makedirs(directory)
+    elif not os.path.isdir(directory):
+        print(f"{directory} exists but is not a directory", file=sys.stderr)
+        sys.exit(1)
+
+
 def check_file_exists(file_path):
     if not os.path.exists(file_path):
         print(f"{file_path} not found", file=sys.stderr)
@@ -35,6 +44,7 @@ def run_storm_pomdp(timeout_command, storm_pomdp, model_dir, model, params=None)
         "--qualitative-analysis",
         "--memlesssearch", "iterative",
         "--pomdpQualitative:nographprocessing ",
+        "--onlydeterministic",
         "-stats",
         "--trace",
         "--winningregion",
@@ -56,7 +66,7 @@ def run_storm_pomdp(timeout_command, storm_pomdp, model_dir, model, params=None)
 def main(storm_build_dir, model_dir, timeout):
     check_directory_exists(storm_build_dir)
     check_directory_exists(model_dir)
-    check_directory_exists("winningregion")
+    create_directory_if_not_exists("winningregion")
 
     storm_pomdp = os.path.join(storm_build_dir, "bin", "storm-pomdp")
     check_file_exists(storm_pomdp)
@@ -66,12 +76,14 @@ def main(storm_build_dir, model_dir, timeout):
     benchmarks = [
         # ("maze-fancy-observations.nm", {}),
         # ("maze1.prism", {}),
-        # ("obstacle.nm", {"N": 6}),
-        ("rocks2.nm", {"N": 6}),
+        ("obstacle.nm", {"N": 6}),
+        # ("rocks2.nm", {"N": 6}),
         # ("avoid.nm", {"N": 6, "RADIUS": 3}),
         # ("evade.nm", {"N": 6, "RADIUS": 2}),
         # ("intercept.nm", {"N": 7, "RADIUS": 1}),
-        # ("refuel.nm", {"N": 6, "ENERGY": 8})
+        # ("refuel.nm", {"N": 6, "ENERGY": 8}),
+        # ("refuel-tiny.nm", {"N": 4, "ENERGY": 4}),
+        # ("refuel-wierd.nm", {"N": 4, "ENERGY": 4})
         # Uncomment and add other benchmarks here
         # ("model2.prism", {"N": 6}),
         # ("model3.prism", {"N": 7, "RADIUS": 1}),

@@ -1,94 +1,86 @@
-// state space (value of variable "s")
-
-//  0  1  2  3  4
-//  5     6     7
-//  8     9    10
-
-// (state,observation) in the maze
-//  (0,north,west)  (1,north,south)  (2,north)  (3,north,south)  (4,north,east)
-//  (5,east,west)                    (6,east,west)               (7,east,west)
-//  (8,east,west,south)              (9,target)                  (10,east,west,south)
-
-// 9 is the target
-// 8 and 10 are the bad states
-
 pomdp
 
-// can observe the walls and target
-observables
-	north, south, east, west, target
-endobservables
+// 3 | x x x x x
+// 2 | x   x   x
+// 1 | x   x   x
+// 0 | x   x   x
+// y ____________
+//   x 0 1 2 3 4
+
+// can go in this direction
+formula u = y<3;
+formula r = y=3 & x<4;
+formula d = y>0 & (x=0 | x=2 | x=4);
+formula l = y=3 & x>0;
+
+// target cell
+formula goal = x=2 & y=0;
+formula bad = (x=0 | x=4) & y=0;
+
+// updates of coordinates (if possible)
+formula yu = u ? (y+1) : y;
+formula xr = r ? (x+1) : x;
+formula yd = d ? (y-1) : y;
+formula xl = l ? (x-1) : x;
+
+// corresponding observables
+observable "CanGoUp" = clk=1 & u;
+observable "CanGoRight" = clk=1 & r;
+observable "CanGoDown" = clk=1 & d;
+observable "CanGoLeft" = clk=1 & l;
+observable "goal" = goal;
+observable "bad" = bad;
+
+
+// modules
+
+module clock
+    // 0 - init, 1 - drive
+    clk : [0..1] init 0;
+
+    // random placement
+    [place] clk=0 -> (clk'=1);
+
+    // drive
+    [up] 	clk=1 -> true;
+    [right] clk=1 -> true;
+    [down] 	clk=1 -> true;
+    [left]  clk=1 -> true;
+endmodule
 
 module maze
 
-	s : [-1..10] init -1;
-	north : bool;
-	south : bool;
-	east : bool;
-	west : bool;
-	target : bool;
+	x : [0..4] init 0;
+    y : [0..3] init 0;
 
 	// initialisation
-	[INIT] s=-1 -> 1/8 : (s'=0) & (north'=true) & (south'=false) & (east'=false) & (west'=true) & (target'=false)
-			 + 1/8 : (s'=1) & (north'=true) & (south'=true) & (east'=false) & (west'=false) & (target'=false)
-			 + 1/8 : (s'=2) & (north'=true) & (south'=false) & (east'=false) & (west'=false) & (target'=false)
-			 + 1/8 : (s'=3) & (north'=true) & (south'=true) & (east'=false) & (west'=false) & (target'=false)
-			 + 1/8 : (s'=4) & (north'=true) & (south'=false) & (east'=true) & (west'=false) & (target'=false)
-			 + 1/8 : (s'=5) & (north'=false) & (south'=false) & (east'=true) & (west'=true) & (target'=false)
-			 + 1/8 : (s'=6) & (north'=false) & (south'=false) & (east'=true) & (west'=true) & (target'=false)
-			 + 1/8 : (s'=7) & (north'=false) & (south'=false) & (east'=true) & (west'=true) & (target'=false);
+	[place] true ->
+          1/13 :    (x'=0)&(y'=0)
+        + 1/13 :    (x'=0)&(y'=1)
+		+ 1/13 :    (x'=0)&(y'=2)
+		+ 1/13 :    (x'=0)&(y'=3)
+		+ 1/13 :    (x'=1)&(y'=3)
+		+ 1/13 :    (x'=2)&(y'=0)
+		+ 1/13 :    (x'=2)&(y'=1)
+		+ 1/13 :    (x'=2)&(y'=2)
+		+ 1/13 :    (x'=2)&(y'=3)
+		+ 1/13 :    (x'=3)&(y'=3)
+		+ 1/13 :    (x'=4)&(y'=1)
+		+ 1/13 :    (x'=4)&(y'=2)
+		+ 1/13 :    (x'=4)&(y'=3);
 
-	// moving around the maze
-	[east] s=0 -> (s'=1) & (north'=true) & (south'=true) & (east'=false) & (west'=false) & (target'=false);
-	[west] s=0 -> (s'=0);
-	[north] s=0 -> (s'=0);
-	[south] s=0 -> (s'=5) & (north'=false) & (south'=false) & (east'=true) & (west'=true) & (target'=false);
+	// moving around the maze (all combinations)
 
-	[east] s=1 -> (s'=2) & (north'=true) & (south'=false) & (east'=false) & (west'=false) & (target'=false);
-	[west] s=1 -> (s'=0) & (north'=true) & (south'=false) & (east'=false) & (west'=true) & (target'=false);
-	[north] s=1 -> (s'=1);
-	[south] s=1 -> (s'=1);
-
-	[east] s=2 -> (s'=3) & (north'=true) & (south'=true) & (east'=false) & (west'=false) & (target'=false);
-	[west] s=2 -> (s'=1) & (north'=true) & (south'=true) & (east'=false) & (west'=false) & (target'=false);
-	[north] s=2 -> (s'=2);
-	[south] s=2 -> (s'=6) & (north'=false) & (south'=false) & (east'=true) & (west'=true) & (target'=false);
-
-	[east] s=3 -> (s'=4) & (north'=true) & (south'=false) & (east'=true) & (west'=false) & (target'=false);
-	[west] s=3 -> (s'=2) & (north'=true) & (south'=false) & (east'=false) & (west'=false) & (target'=false);
-	[north] s=3 -> (s'=3);
-	[south] s=3 -> (s'=3);
-
-	[east] s=4 -> (s'=4);
-	[west] s=4 -> (s'=3) & (north'=true) & (south'=true) & (east'=false) & (west'=false) & (target'=false);
-	[north] s=4 -> (s'=4);
-	[south] s=4 -> (s'=7) & (north'=false) & (south'=false) & (east'=true) & (west'=true) & (target'=false);
-
-	[east] s=5 -> (s'=5);
-	[west] s=5 -> (s'=5);
-	[north] s=5 -> (s'=0) & (north'=true) & (south'=false) & (east'=false) & (west'=true) & (target'=false);
-	[south] s=5 -> (s'=8) & (north'=false) & (south'=true) & (east'=true) & (west'=true) & (target'=false);
-
-	[east] s=6 -> (s'=6);
-	[west] s=6 -> (s'=6);
-	[north] s=6 -> (s'=2) & (north'=true) & (south'=false) & (east'=false) & (west'=false) & (target'=false);
-	[south] s=6 -> (s'=9) & (north'=false) & (south'=false) & (east'=false) & (west'=false) & (target'=true);
-
-	[east] s=7 -> (s'=7);
-	[west] s=7 -> (s'=7);
-	[north] s=7 -> (s'=4) & (north'=true) & (south'=false) & (east'=true) & (west'=false) & (target'=false);
-	[south] s=7 -> (s'=10) & (north'=false) & (south'=true) & (east'=true) & (west'=true) & (target'=false);
-
-	// loop when we reach the sink (a target or a bad state)
-	[done] s=8 -> true;
-	[done] s=9 -> true;
-	[done] s=10 -> true;
+    [up]        true -> 1: (y'=yu); //0.8: (y'=yu) + 0.08: (x'=xr) + 0.08: (x'=xl) + 0.04: (y'=yd);
+    [right]     true -> 1: (x'=xr); //0.8: (x'=xr) + 0.08: (y'=yu) + 0.08: (y'=yd) + 0.04: (x'=xl);
+    [down]      true -> 1: (y'=yd); //0.8: (y'=yd) + 0.08: (x'=xr) + 0.08: (x'=xl) + 0.04: (y'=yu);
+    [left]      true -> 1: (x'=xl); //0.8: (x'=xl) + 0.08: (y'=yu) + 0.08: (y'=yd) + 0.04: (x'=xr);
 
 endmodule
 
+
 // target observation
-label "goal" = target=true;
+label "goal" = goal;
 
 // bad state observation
-label "bad" = (north=false) & (south=true) & (east=true) & (west=true) & !target;
-label "notbad" = !((north=false) & (south=true) & (east=true) & (west=true) & !target);
+label "notbad" = !(bad & clk=1);
