@@ -1,7 +1,10 @@
 import os
 import subprocess
 import sys
-
+from dtcontrol.benchmark_suite import BenchmarkSuite
+from dtcontrol.decision_tree.decision_tree import DecisionTree
+from dtcontrol.decision_tree.splitting.axis_aligned import AxisAlignedSplittingStrategy
+from dtcontrol.decision_tree.impurity.entropy import Entropy
 
 def check_directory_exists(directory):
     if not os.path.exists(directory):

@@ -76,7 +76,8 @@ def main(storm_build_dir, model_dir, timeout):
     benchmarks = [
         # ("maze-fancy-observations.nm", {}),
         # ("maze1.prism", {}),
-        ("obstacle.nm", {"N": 6}),
+        ("meet-professor.nm", {}),
+        # ("obstacle.nm", {"N": 6}),
         # ("rocks2.nm", {"N": 6}),
         # ("avoid.nm", {"N": 6, "RADIUS": 3}),
         # ("evade.nm", {"N": 6, "RADIUS": 2}),
