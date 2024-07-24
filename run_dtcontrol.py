@@ -12,7 +12,7 @@ def check_directory_exists(directory):
         sys.exit(1)
 
 
-def check_directory_exists(file_path):
+def check_file_exists(file_path):
     if not os.path.exists(file_path):
         print(f"File {file_path} not found", file=sys.stderr)
         sys.exit(1)
