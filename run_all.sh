@@ -19,8 +19,8 @@ echo "Activating virtual environment..."
 source $VENV_PATH
 
 # run dtcontrol
-echo "Running run_dtcontrol.py..."
-python3 run_dtcontrol.py .
+# echo "Running run_dtcontrol.py..."
+# python3 run_dtcontrol.py .
 
 # check for successful run
 if [ $? -ne 0 ]; then
@@ -29,8 +29,8 @@ if [ $? -ne 0 ]; then
 fi
 
 # postprocess to get actual obs-action names
-echo "Running postprocess.py..."
-python3 postprocess.py .
+#echo "Running postprocess.py..."
+# python3 postprocess.py .
 
 # check for successful run
 if [ $? -ne 0 ]; then
@@ -40,8 +40,8 @@ fi
 
 
 # analyze DTs and FSC to generate the table
-echo "Running create_table.py..."
-python3 create_table.py .
+#echo "Running create_table.py..."
+# python3 create_table.py .
 
 # check for successful run
 if [ $? -ne 0 ]; then
