@@ -3,6 +3,15 @@ import subprocess
 import sys
 
 
+def check_directory_exists(directory):
+    if not os.path.exists(directory):
+        print(f"Directory {directory} not found", file=sys.stderr)
+        sys.exit(1)
+    if not os.path.isdir(directory):
+        print(f"Directory{directory} not a directory", file=sys.stderr)
+        sys.exit(1)
+
+
 def count_nodes_with_gc(dot_file_path):
     try:
         result = subprocess.run(["gc", "-n", dot_file_path], capture_output=True, text=True, check=True)
@@ -41,22 +50,16 @@ def generate_table(base_dir):
     for filename in os.listdir(winningregion_dir):
         if filename.endswith("-fixpoint.wr"):
             wr_file_path = os.path.join(winningregion_dir, filename)
-            model_hash = read_model_hash(wr_file_path)
-            if model_hash:
-                dt_dir = os.path.join(base_dir, model_hash, "schedulers", "default")
-                mem_transitions_dir = os.path.join(base_dir, model_hash, "memory-transitions", "default")
-                if os.path.exists(dt_dir) and os.path.exists(mem_transitions_dir):
-                    dt_num, dt_total, dt_min, dt_max = analyze_dot_files(dt_dir)
-                    mt_num, mt_total, mt_min, mt_max = analyze_dot_files(mem_transitions_dir)
-                    benchmark_name = filename.replace("-fixpoint.wr", "")
-                    benchmarks.append((benchmark_name, dt_num, dt_total, dt_min, dt_max, mt_total, mt_min, mt_max))
-                else:
-                    if not os.path.exists(dt_dir):
-                        print(f"DT directory does not exist: {dt_dir}", file=sys.stderr)
-                    if not os.path.exists(mem_transitions_dir):
-                        print(f"Memory transitions directory does not exist: {mem_transitions_dir}", file=sys.stderr)
-            else:
-                print(f"No model hash found in {wr_file_path}", file=sys.stderr)
+            benchmark_folder = wr_file_path[:wr_file_path.rfind("-")]
+            check_directory_exists(benchmark_folder)
+            dt_dir = os.path.join(benchmark_folder, "schedulers")
+            mem_transitions_dir = os.path.join(benchmark_folder, "memory-transitions")
+            check_directory_exists(dt_dir)
+            check_directory_exists(mem_transitions_dir)
+            dt_num, dt_total, dt_min, dt_max = analyze_dot_files(dt_dir)
+            mt_num, mt_total, mt_min, mt_max = analyze_dot_files(mem_transitions_dir)
+            benchmark_name = filename.replace("-fixpoint.wr", "")
+            benchmarks.append((benchmark_name, dt_num, dt_total, dt_min, dt_max, mt_total, mt_min, mt_max))
     return benchmarks
 
 
@@ -80,15 +83,6 @@ def generate_latex_table(benchmarks):
     print("\\caption{CAV 21 results}")
     print("\\label{tab:cav-benchmark}")
     print("\\end{table}")
-
-
-def read_model_hash(wr_file_path):
-    with open(wr_file_path, 'r') as file:
-        lines = file.readlines()
-        for line in lines:
-            if line.startswith("model hash:"):
-                return line.split(":")[1].strip()
-    return None
 
 
 if __name__ == "__main__":
