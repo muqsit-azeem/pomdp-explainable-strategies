@@ -27,16 +27,15 @@ def check_file_exists(file_path):
         sys.exit(1)
 
 
-def run_storm_pomdp(timeout_command, storm_pomdp, model_dir, model, params=None):
+def run_storm_pomdp(timeout_command, storm_pomdp, model, params=None):
     const_str = ""
     if params:
         const_str = "-const " + ",".join(f"{key}={value}" for key, value in params.items())
 
     command = [
         timeout_command, storm_pomdp,
-        "--prism", f"{model_dir}/{model}",
+        "--prism", f"{model}",
         '--prop', '"Pmax=? [\\"notbad\\" U \\"goal\\"]"',
-        # '--prop', '"Pmax=? [!\\"bad\\" U \\"goal\\"]"',
         const_str,
         "--buildstateval",
         "--buildobsval",
@@ -49,7 +48,7 @@ def run_storm_pomdp(timeout_command, storm_pomdp, model_dir, model, params=None)
         "--trace",
         "--winningregion",
         "--exportwinningregion",
-        f"winningregion/{model.split('.')[0]}-fixpoint.wr"
+        f"winningregion/{os.path.basename(model).split('.')[0]}-fixpoint.wr"
     ]
 
     command_str = " ".join(command)
@@ -63,44 +62,29 @@ def run_storm_pomdp(timeout_command, storm_pomdp, model_dir, model, params=None)
         print(e.stderr.decode(), file=sys.stderr)
 
 
-def main(storm_build_dir, model_dir, timeout):
-    check_directory_exists(storm_build_dir)
-    check_directory_exists(model_dir)
+def main(timeout, storm_pomdp_ex, model, params_str):
+    print(f"storm_pomdp_ex: {storm_pomdp_ex}")
+    print(f"model: {model}")
+    print(f"timeout: {timeout}")
+    print(f"params string: {params_str}")
+    check_file_exists(storm_pomdp_ex)
+    check_file_exists(model)
     create_directory_if_not_exists("winningregion")
-
-    storm_pomdp = os.path.join(storm_build_dir, "bin", "storm-pomdp")
-    check_file_exists(storm_pomdp)
 
     timeout_command = f"timeout {timeout}"
 
-    benchmarks = [
-        # ("maze-fancy-observations.nm", {}),
-        # ("maze1.prism", {}),
-        ("meet-professor.nm", {}),
-        # ("obstacle.nm", {"N": 6}),
-        # ("rocks2.nm", {"N": 6}),
-        # ("avoid.nm", {"N": 6, "RADIUS": 3}),
-        # ("evade.nm", {"N": 6, "RADIUS": 2}),
-        # ("intercept.nm", {"N": 7, "RADIUS": 1}),
-        # ("refuel.nm", {"N": 6, "ENERGY": 8}),
-        # ("refuel-tiny.nm", {"N": 4, "ENERGY": 4}),
-        # ("refuel-wierd.nm", {"N": 4, "ENERGY": 4})
-        # Uncomment and add other benchmarks here
-        # ("model2.prism", {"N": 6}),
-        # ("model3.prism", {"N": 7, "RADIUS": 1}),
-    ]
-
-    for model, params in benchmarks:
-        run_storm_pomdp(timeout_command, storm_pomdp, model_dir, model, params)
+    run_storm_pomdp(timeout_command, storm_pomdp_ex, model, params_str)
 
 
 if __name__ == "__main__":
-    if len(sys.argv) != 4:
-        print(f"Usage: {sys.argv[0]} STORMBUILDDIR MODELSDIR TIMEOUT", file=sys.stderr)
+    print(len(sys.argv))
+    if len(sys.argv) < 4 or len(sys.argv) > 5:
+        print(f"Usage: {sys.argv[0]} TIMEOUT STORMPOMDPEX INPUTMODEL [PARAMS_STR]", file=sys.stderr)
         sys.exit(1)
 
-    storm_build_dir = sys.argv[1]
-    model_dir = sys.argv[2]
-    timeout = sys.argv[3]
+    timeout = sys.argv[1]
+    storm_pomdp_exe = sys.argv[2]
+    model = sys.argv[3]
+    params = sys.argv[4] if len(sys.argv) == 5 else {}
 
-    main(storm_build_dir, model_dir, timeout)
+    main(timeout, storm_pomdp_exe, model, params)
