@@ -37,8 +37,8 @@ def run_command(command):
         sys.exit(1)
 
 
-def run_storm_pomdp(storm_pomdp_exe, input_file, params_str, timeout=10000):
-    command = f"python3 run_storm_pomdp_explainable.py {timeout} {storm_pomdp_exe} {input_file} {params_str}"
+def run_storm_pomdp(timeout, storm_pomdp_exe, input_file, params_dict):
+    command = f"python3 run_storm_pomdp_explainable.py {timeout} {storm_pomdp_exe} {input_file} \"{params_dict}\""
     print(f"Running command: {command}")
     run_command(command)
 
@@ -77,7 +77,7 @@ def main():
         # Uncomment and add other benchmarks here
         # ("maze-fancy-observations.nm", {}),
         # ("maze1.prism", {}),
-        # ("obstacle.nm", {"N": 6}),
+        ("obstacle.nm", {"N": 6}),
         # ("rocks2.nm", {"N": 6}),
         # ("avoid.nm", {"N": 6, "RADIUS": 3}),
         # ("evade.nm", {"N": 6, "RADIUS": 2}),
@@ -91,16 +91,16 @@ def main():
 
     for model, params in benchmarks:
         input_file_path = os.path.join(model_dir, model)
-        storm_pomdp_exe = os.path.join(storm_build_dir, "bin", "storm-pomdp")
-        print("params:", params)
-        params_str = ""
-        if params:
-            params_str = "-const " + ",".join(f"{key}={value}" for key, value in params.items())
-        run_storm_pomdp(timeout, storm_pomdp_exe, input_file_path, params_str)
-        run_dtcontrol(model_dir)
-        postprocess(model_dir)
+        storm_pomdp_exec = os.path.join(storm_build_dir, "bin", "storm-pomdp")
+        print("model: ", model, "params: ", params)
+        # params_str = ""
+        # if params:
+        #     params_str = "-const " + ",".join(f"{key}={value}" for key, value in params.items())
+        run_storm_pomdp(timeout, storm_pomdp_exec, input_file_path, params)
+        run_dtcontrol(os.getcwd())
+        postprocess(os.getcwd())
 
-    create_table(model_dir)
+    create_table(os.getcwd())
     print("All scripts ran successfully.")
 
 

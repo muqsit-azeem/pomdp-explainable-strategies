@@ -12,7 +12,6 @@ def check_directory_exists(directory):
         sys.exit(1)
 
 
-
 def run_dtcontrol(csv_path, output_file):
     try:
         command = f"dtcontrol --input {csv_path} --rerun --output {output_file}"

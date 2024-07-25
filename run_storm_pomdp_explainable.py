@@ -27,10 +27,12 @@ def check_file_exists(file_path):
         sys.exit(1)
 
 
-def run_storm_pomdp(timeout_command, storm_pomdp, model, params=None):
+def run_storm_pomdp(timeout_command, storm_pomdp, model, params_dict_string):
+    params_dict = eval(params_dict_string)
+    print("In RUN STROM POMDP", params_dict)
     const_str = ""
-    if params:
-        const_str = "-const " + ",".join(f"{key}={value}" for key, value in params.items())
+    if params_dict:
+        const_str = "-const " + ",".join(f"{key}={value}" for key, value in params_dict.items())
 
     command = [
         timeout_command, storm_pomdp,
@@ -62,29 +64,29 @@ def run_storm_pomdp(timeout_command, storm_pomdp, model, params=None):
         print(e.stderr.decode(), file=sys.stderr)
 
 
-def main(timeout, storm_pomdp_ex, model, params_str):
+def main(timeout, storm_pomdp_ex, model, params_dict):
     print(f"storm_pomdp_ex: {storm_pomdp_ex}")
     print(f"model: {model}")
     print(f"timeout: {timeout}")
-    print(f"params string: {params_str}")
+    print(f"params dict: {params_dict}")
     check_file_exists(storm_pomdp_ex)
     check_file_exists(model)
     create_directory_if_not_exists("winningregion")
 
     timeout_command = f"timeout {timeout}"
-
-    run_storm_pomdp(timeout_command, storm_pomdp_ex, model, params_str)
+    run_storm_pomdp(timeout_command, storm_pomdp_ex, model, params_dict)
 
 
 if __name__ == "__main__":
     print(len(sys.argv))
-    if len(sys.argv) < 4 or len(sys.argv) > 5:
-        print(f"Usage: {sys.argv[0]} TIMEOUT STORMPOMDPEX INPUTMODEL [PARAMS_STR]", file=sys.stderr)
+    if len(sys.argv) < 5 or len(sys.argv) > 6:
+        print(f"Usage: {sys.argv[0]} TIMEOUT STORMPOMDPEX INPUTMODEL PARAMS_DICT", file=sys.stderr)
         sys.exit(1)
 
     timeout = sys.argv[1]
     storm_pomdp_exe = sys.argv[2]
     model = sys.argv[3]
-    params = sys.argv[4] if len(sys.argv) == 5 else {}
+    params_dict = sys.argv[4] if len(sys.argv) == 5 else {}
+    print(f"ADDDDADADADAADADADADADADAD{params_dict}")
 
-    main(timeout, storm_pomdp_exe, model, params)
+    main(timeout, storm_pomdp_exe, model, params_dict)
