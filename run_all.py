@@ -43,8 +43,8 @@ def run_storm_pomdp(storm_pomdp_exe, input_file, params_str, timeout=10000):
     run_command(command)
 
 
-def run_dtcontrol(base_dir):
-    command = f"python3 run_dtcontrol.py {base_dir}"
+def run_dtcontrol(base_dir, venv_path):
+    command = f"python3 run_dtcontrol.py {base_dir} {venv_path}"
     run_command(command)
 
 
@@ -60,12 +60,14 @@ def create_table(base_dir):
 
 def main():
     if len(sys.argv) > 2:
-        print(f"Usage: {sys.argv[0]} STORMBUILDDIR MODELSDIR TIMEOUT", file=sys.stderr)
+        print(f"Usage: {sys.argv[0]}", file=sys.stderr)
         sys.exit(1)
 
     # storm_build_dir = sys.argv[1]
     storm_build_dir = os.path.join(os.getcwd(), "storm/build")
     model_dir = os.path.join(os.getcwd(), "pomdp-benchmarks-XStrat")
+    # virtual environment path
+    venv_path = "./venv/bin/activate"
     timeout = 10000
 
     check_directory_exists(storm_build_dir)
@@ -97,10 +99,10 @@ def main():
         if params:
             params_str = "-const " + ",".join(f"{key}={value}" for key, value in params.items())
         run_storm_pomdp(timeout, storm_pomdp_exe, input_file_path, params_str)
-        run_dtcontrol(model_dir)
-        postprocess(model_dir)
+        run_dtcontrol(os.getcwd(), venv_path)
+        postprocess(os.getcwd())
 
-    create_table(model_dir)
+    create_table(os.getcwd())
     print("All scripts ran successfully.")
 
 

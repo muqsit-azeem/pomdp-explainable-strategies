@@ -79,12 +79,12 @@ def main(timeout, storm_pomdp_ex, model, params_str):
 if __name__ == "__main__":
     print(len(sys.argv))
     if len(sys.argv) < 4 or len(sys.argv) > 5:
-        print(f"Usage: {sys.argv[0]} TIMEOUT STORMPOMDPEX INPUTMODEL [PARAMS_STR]", file=sys.stderr)
+        print(f"Usage: {sys.argv[0]} TIMEOUT STORM_POMDP_EXEC INPUT_MODEL [PARAMS_STR]", file=sys.stderr)
         sys.exit(1)
 
     timeout = sys.argv[1]
-    storm_pomdp_exe = sys.argv[2]
+    storm_pomdp_exec = sys.argv[2]
     model = sys.argv[3]
     params = sys.argv[4] if len(sys.argv) == 5 else {}
 
-    main(timeout, storm_pomdp_exe, model, params)
+    main(timeout, storm_pomdp_exec, model, params)

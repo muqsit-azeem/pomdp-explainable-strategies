@@ -12,6 +12,20 @@ def check_directory_exists(directory):
         sys.exit(1)
 
 
+def run_command(command):
+    try:
+        print(f"Executing command: {command}")
+        subprocess.run(command, shell=True, check=True, capture_output=True)
+        print("Execution successful")
+    except subprocess.CalledProcessError as e:
+        print(f"Execution failed: {e.stderr.decode()}", file=sys.stderr)
+        sys.exit(1)
+
+
+def activate_venv(venv_path):
+    command = f"source {venv_path}"
+    run_command(command)
+
 
 def run_dtcontrol(csv_path, output_file):
     try:
@@ -38,8 +52,10 @@ def move_dts_from_default(benchmark_dir):
         print(e.stderr.decode(), file=sys.stderr)
 
 
-def process_model_files(model_folder):
-    # model_hash_dir = os.path.join(base_dir, model_hash)
+def process_model_files(model_folder, venv_path):
+    print(f"Activating venv: {venv_path}")
+    activate_venv(venv_path)
+
     check_directory_exists(model_folder)
 
     schedulers_dir = os.path.join(model_folder, "schedulers")
@@ -61,7 +77,7 @@ def process_model_files(model_folder):
             run_dtcontrol(csv_path, transition_dir)
 
 
-def main(base_dir):
+def main(base_dir, ven_path):
     winningregion_dir = os.path.join(base_dir, "winningregion")
     check_directory_exists(winningregion_dir)
 
@@ -74,17 +90,18 @@ def main(base_dir):
                 benchmark_folder = wr_file_path[:last_dash]
                 print(f"Benchmark folder: {benchmark_folder}")
                 check_directory_exists(benchmark_folder)
-                process_model_files(benchmark_folder)
+                process_model_files(benchmark_folder, venv_path)
                 move_dts_from_default(benchmark_folder)
             else:
                 print(f"No benchmark folder found for {wr_file_path}", file=sys.stderr)
 
 
 if __name__ == "__main__":
-    if len(sys.argv) != 2:
-        print(f"Usage: {sys.argv[0]} BASEDIR", file=sys.stderr)
+    if len(sys.argv) != 3:
+        print(f"Usage: {sys.argv[0]} BASE_DIR VENV_PATH", file=sys.stderr)
         sys.exit(1)
 
     base_dir = sys.argv[1]
-    main(base_dir)
+    venv_path = sys.argv[2]
+    main(base_dir, venv_path)
 
