@@ -87,6 +87,6 @@ if __name__ == "__main__":
     storm_pomdp_exe = sys.argv[2]
     model = sys.argv[3]
     params_dict = sys.argv[4] if len(sys.argv) == 5 else {}
-    print(f"ADDDDADADADAADADADADADADAD{params_dict}")
+    # print(f"{params_dict}")
 
     main(timeout, storm_pomdp_exe, model, params_dict)

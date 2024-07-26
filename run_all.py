@@ -63,6 +63,7 @@ def main():
         print(f"Usage: {sys.argv[0]} STORMBUILDDIR MODELSDIR TIMEOUT", file=sys.stderr)
         sys.exit(1)
 
+    # todo: parameter in shell script
     # storm_build_dir = sys.argv[1]
     storm_build_dir = os.path.join(os.getcwd(), "storm/build")
     model_dir = os.path.join(os.getcwd(), "pomdp-benchmarks-XStrat")
@@ -73,11 +74,12 @@ def main():
     create_directory_if_not_exists("winningregion")
 
     benchmarks = [
-        ("meet-professor.nm", {}),
-        # Uncomment and add other benchmarks here
-        # ("maze-fancy-observations.nm", {}),
-        # ("maze1.prism", {}),
-        ("obstacle.nm", {"N": 6}),
+        # ("obstacle-5.nm", {"N": 5}),
+        # ("meet-professor.nm", {}),
+        # # Uncomment and add other benchmarks here
+        ("maze-fancy-observations.nm", {}),
+        ("maze1.prism", {}),
+        # ("obstacle.nm", {"N": 6}),
         # ("rocks2.nm", {"N": 6}),
         # ("avoid.nm", {"N": 6, "RADIUS": 3}),
         # ("evade.nm", {"N": 6, "RADIUS": 2}),
@@ -85,8 +87,6 @@ def main():
         # ("refuel.nm", {"N": 6, "ENERGY": 8}),
         # ("refuel-tiny.nm", {"N": 4, "ENERGY": 4}),
         # ("refuel-wierd.nm", {"N": 4, "ENERGY": 4}),
-        # ("model2.prism", {"N": 6}),
-        # ("model3.prism", {"N": 7, "RADIUS": 1}),
     ]
 
     for model, params in benchmarks:
