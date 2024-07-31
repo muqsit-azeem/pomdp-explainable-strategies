@@ -55,7 +55,7 @@ class DTEngine:
 					s = s.replace(f"[label=\"{i}\"];", f"[label=\"{a}\"];")
 
 			for i in range(len(self.stateVars)): # replace the state variable names in the dot files
-				s = s.replace(f"label=\"x_{i}", f"label=\"{self.stateVars[i].strip()}")
+				s = s.replace(f"label=\"x_{i} ", f"label=\"{self.stateVars[i].strip()}")
 
 			fUpdated.write(s)
 			fUpdated.close()
