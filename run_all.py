@@ -77,14 +77,14 @@ def main():
         # ("obstacle-5.nm", {"N": 5}),
         # ("meet-professor.nm", {}),
         # # Uncomment and add other benchmarks here
-        ("maze-fancy-observations.nm", {}),
-        ("maze1.prism", {}),
+        # ("maze-fancy-observations.nm", {}),
+        # ("maze1.prism", {}),
         # ("obstacle.nm", {"N": 6}),
         # ("rocks2.nm", {"N": 6}),
         # ("avoid.nm", {"N": 6, "RADIUS": 3}),
         # ("evade.nm", {"N": 6, "RADIUS": 2}),
         # ("intercept.nm", {"N": 7, "RADIUS": 1}),
-        # ("refuel.nm", {"N": 6, "ENERGY": 8}),
+        ("refuel.nm", {"N": 7, "ENERGY": 7}),
         # ("refuel-tiny.nm", {"N": 4, "ENERGY": 4}),
         # ("refuel-wierd.nm", {"N": 4, "ENERGY": 4}),
     ]

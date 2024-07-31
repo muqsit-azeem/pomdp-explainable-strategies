@@ -7,6 +7,11 @@ pomdp
 // y ____________
 //   x 0 1 2 3 4
 
+
+observables
+	clk
+endobservables
+
 // can go in this direction
 formula u = y<3;
 formula r = y=3 & x<4;
@@ -15,13 +20,14 @@ formula l = y=3 & x>0;
 
 // target cell
 formula goal = x=2 & y=0;
-formula bad = (x=0 | x=4) & y=0;
+formula bad = (x=0 | x=4) & y=0 & clk=1;
 
 // updates of coordinates (if possible)
 formula yu = u ? (y+1) : y;
 formula xr = r ? (x+1) : x;
 formula yd = d ? (y-1) : y;
 formula xl = l ? (x-1) : x;
+
 
 // corresponding observables
 observable "CanGoUp" = clk=1 & u;
@@ -82,4 +88,4 @@ endmodule
 label "goal" = goal;
 
 // bad state observation
-label "notbad" = !(bad & clk=1);
+label "notbad" = !bad;
