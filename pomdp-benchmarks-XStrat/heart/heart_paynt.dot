@@ -1,0 +1,21 @@
+digraph G {
+  0 -> 0 [label="start	& !done	& test1Result=2	& test2Result=2	& isCured=0	& symptoms=1/test1"];
+  1 -> 0 [label="start	& !done	& test1Result=2	& test2Result=2	& isCured=0	& symptoms=1/test1"];
+  0 -> 0 [label="start	& !done	& test1Result=0	& test2Result=2	& isCured=1	& symptoms=0/test1"];
+  0 -> 0 [label="start	& !done	& test1Result=1	& test2Result=0	& isCured=0	& symptoms=1/surgery"];
+  0 -> 0 [label="start	& !done	& test1Result=0	& test2Result=0	& isCured=1	& symptoms=0/Done"];
+  0 -> 0 [label="start	& !done	& test1Result=2	& test2Result=2	& isCured=1	& symptoms=0/test1"];
+  0 -> 0 [label="start	& !done	& test1Result=1	& test2Result=2	& isCured=0	& symptoms=1/test1"];
+  0 -> 1 [label="start	& !done	& test1Result=0	& test2Result=0	& isCured=0	& symptoms=1/test1"];
+  1 -> 1 [label="start	& !done	& test1Result=0	& test2Result=0	& isCured=0	& symptoms=1/test1"];
+  0 -> 0 [label="start	& !done	& test1Result=1	& test2Result=2	& isCured=1	& symptoms=0/test1"];
+  0 -> 0 [label="start	& !done	& test1Result=1	& test2Result=1	& isCured=1	& symptoms=0/test1"];
+  0 -> 0 [label="start	& !done	& test1Result=0	& test2Result=2	& isCured=0	& symptoms=1/test1"];
+  1 -> 0 [label="start	& !done	& test1Result=0	& test2Result=2	& isCured=0	& symptoms=1/test1"];
+  0 -> 0 [label="start	& !done	& test1Result=2	& test2Result=0	& isCured=0	& symptoms=1/surgery"];
+  1 -> 0 [label="start	& !done	& test1Result=2	& test2Result=0	& isCured=0	& symptoms=1/medicine"];
+  0 -> 0 [label="start	& !done	& test1Result=1	& test2Result=0	& isCured=1	& symptoms=0/Done"];
+  0 -> 0 [label="start	& !done	& test1Result=2	& test2Result=0	& isCured=1	& symptoms=0/Done"];
+  0 -> 0 [label="start	& !done	& test1Result=2	& test2Result=1	& isCured=1	& symptoms=0/test1"];
+  0 -> 0 [label="start	& !done	& test1Result=0	& test2Result=1	& isCured=1	& symptoms=0/test1"];
+}

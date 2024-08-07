@@ -1,0 +1,36 @@
+digraph {
+5;
+0;
+__init [label="", style=invis, width=0];
+__init -> 0;
+5 -> 5 [label="[start	& done	& test1Result=2	& test2Result=2	& isCured=1	& symptoms=0]/"];
+5 -> 5 [label="[start	& done	& test1Result=2	& test2Result=0	& isCured=1	& symptoms=0]/"];
+5 -> 5 [label="[start	& !done	& test1Result=2	& test2Result=1	& isCured=1	& symptoms=0]/Done"];
+5 -> 5 [label="[start	& !done	& test1Result=2	& test2Result=2	& isCured=1	& symptoms=0]/Done"];
+5 -> 5 [label="[start	& done	& test1Result=0	& test2Result=2	& isCured=1	& symptoms=0]/"];
+5 -> 5 [label="[start	& !done	& test1Result=1	& test2Result=2	& isCured=1	& symptoms=0]/Done"];
+5 -> 5 [label="[start	& !done	& test1Result=0	& test2Result=2	& isCured=1	& symptoms=0]/Done"];
+5 -> 5 [label="[!start	& !done	& test1Result=0	& test2Result=0	& isCured=0	& symptoms=0]/start"];
+5 -> 5 [label="[start	& done	& test1Result=2	& test2Result=1	& isCured=1	& symptoms=0]/"];
+5 -> 5 [label="[start	& !done	& test1Result=0	& test2Result=1	& isCured=1	& symptoms=0]/Done"];
+5 -> 5 [label="[start	& !done	& test1Result=0	& test2Result=0	& isCured=0	& symptoms=1]/test1"];
+5 -> 5 [label="[start	& !done	& test1Result=2	& test2Result=2	& isCured=0	& symptoms=1]/ {0.666667 -> surgery | 0.333333 -> medicine }"];
+5 -> 5 [label="[start	& !done	& test1Result=1	& test2Result=0	& isCured=0	& symptoms=1]/surgery"];
+5 -> 5 [label="[start	& done	& test1Result=1	& test2Result=2	& isCured=1	& symptoms=0]/"];
+5 -> 5 [label="[start	& done	& test1Result=1	& test2Result=1	& isCured=1	& symptoms=0]/"];
+5 -> 5 [label="[start	& !done	& test1Result=0	& test2Result=2	& isCured=0	& symptoms=1]/ {0.666667 -> surgery | 0.333333 -> medicine }"];
+5 -> 5 [label="[start	& done	& test1Result=0	& test2Result=1	& isCured=1	& symptoms=0]/"];
+5 -> 5 [label="[start	& !done	& test1Result=2	& test2Result=0	& isCured=0	& symptoms=1]/ {0.666667 -> surgery | 0.333333 -> medicine }"];
+5 -> 5 [label="[start	& !done	& test1Result=1	& test2Result=0	& isCured=1	& symptoms=0]/Done"];
+5 -> 5 [label="[start	& done	& test1Result=0	& test2Result=0	& isCured=1	& symptoms=0]/"];
+5 -> 5 [label="[start	& !done	& test1Result=1	& test2Result=1	& isCured=1	& symptoms=0]/Done"];
+5 -> 5 [label="[start	& done	& test1Result=1	& test2Result=0	& isCured=1	& symptoms=0]/"];
+5 -> 5 [label="[start	& !done	& test1Result=2	& test2Result=0	& isCured=1	& symptoms=0]/Done"];
+5 -> 5 [label="[start	& !done	& test1Result=0	& test2Result=0	& isCured=1	& symptoms=0]/Done"];
+5 -> 5 [label="[start	& !done	& test1Result=1	& test2Result=2	& isCured=0	& symptoms=1]/surgery"];
+0 -> 5 [label="[start	& !done	& test1Result=2	& test2Result=0	& isCured=0	& symptoms=1]/medicine"];
+0 -> 0 [label="[start	& !done	& test1Result=0	& test2Result=0	& isCured=0	& symptoms=1]/test1"];
+0 -> 0 [label="[!start	& !done	& test1Result=0	& test2Result=0	& isCured=0	& symptoms=0]/start"];
+0 -> 5 [label="[start	& !done	& test1Result=0	& test2Result=0	& isCured=1	& symptoms=0]/Done"];
+0 -> 5 [label="[start	& !done	& test1Result=1	& test2Result=0	& isCured=0	& symptoms=1]/surgery"];
+}
