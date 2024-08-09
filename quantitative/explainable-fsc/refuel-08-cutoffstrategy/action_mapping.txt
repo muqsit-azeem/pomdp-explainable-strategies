@@ -1,0 +1,7 @@
+refuel <-> 0
+west <-> 1
+south <-> 2
+east <-> 3
+ <-> 4
+placement <-> 5
+north <-> 6

@@ -1,0 +1,16 @@
+digraph {
+0 [label="test3Result <= 0.5"];
+1 [label="complication <= 0.5"];
+2 [label="isCured <= 0.5"];
+3 [label="start"];
+2 -> 3 [label="True"];
+4 [label="test1"];
+2 -> 4 [style="dashed", label="False"];
+1 -> 2 [label="True"];
+5 [label="medicine"];
+1 -> 5 [style="dashed", label="False"];
+0 -> 1 [label="True"];
+6 [label="Done"];
+0 -> 6 [style="dashed", label="False"];
+
+}

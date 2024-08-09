@@ -1,0 +1,8 @@
+digraph {
+0 [label="test3Result <= 0.5"];
+1 [label="{0.674534 -> pcta | 0.325466 -> medicine }"];
+0 -> 1 [label="True"];
+2 [label="Done"];
+0 -> 2 [style="dashed", label="False"];
+
+}

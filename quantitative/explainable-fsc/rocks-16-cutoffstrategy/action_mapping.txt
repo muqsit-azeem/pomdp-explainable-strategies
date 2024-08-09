@@ -1,0 +1,9 @@
+ <-> 0
+north <-> 1
+finish <-> 2
+south <-> 3
+east <-> 4
+west <-> 5
+r2sample <-> 6
+r1sample <-> 7
+placement <-> 8

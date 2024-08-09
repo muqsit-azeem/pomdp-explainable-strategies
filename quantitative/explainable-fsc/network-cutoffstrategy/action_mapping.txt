@@ -1,0 +1,6 @@
+(steady) <-> 0
+(restrict) <-> 1
+(unrestrict) <-> 2
+(discount_sink) <-> 3
+(init) <-> 4
+(reboot) <-> 5

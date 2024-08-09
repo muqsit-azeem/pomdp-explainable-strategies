@@ -1,0 +1,4 @@
+(Query-0) <-> 0
+(Query-1) <-> 1
+(discount_sink) <-> 2
+(init) <-> 3

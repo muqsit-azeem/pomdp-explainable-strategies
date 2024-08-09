@@ -13,13 +13,13 @@ def parse_dot(dot_data):
 	transition_pattern = re.compile(r'(?P<state>\d+)\s*->\s*(?P<nextstate>\d+)\s*\[label="\[(?P<input>[^\]]+)\]/\s*(?P<output>.*)\s*"\]')
 
 	for line in dot_data:
-		# print(line)
+		print(line)
 		for match in transition_pattern.finditer(line):
 			current_state, next_state, obs, output = match.groups()
 			output = output.strip()
 			state_transitions[current_state].append((obs, next_state))
 			transition_outputs[current_state].append((obs, output))
-			# print (current_state, next_state, obs, output)
+			print (current_state, next_state, obs, output)
 	return state_transitions, transition_outputs
 
 def extract_valuations(input_string):
@@ -65,7 +65,7 @@ def print_tables(state_transitions, transition_outputs, fileNamePrefix):
 	os.makedirs(schedulerDir, exist_ok=True)
 	
 	for state in state_transitions:
-		# print(f"State {state}:")
+		print(f"State {state}:")
 		# print("Input to Next State:")
 		s = ""
 		for obs, next_state in state_transitions[state]:
@@ -81,11 +81,14 @@ def print_tables(state_transitions, transition_outputs, fileNamePrefix):
 		# print("Input to Output:")
 		for obs, output in transition_outputs[state]:
 			# Check if output is in the list of possible outputs
-			if output not in possible_outputs:
-				possible_outputs.append(output)
-			output_index = possible_outputs.index(output)
-			values, variables = extract_valuations(obs)
-			s += f"{values},{output_index}\n"
+			if output == "":
+				pass 
+			else:
+				if output not in possible_outputs:
+					possible_outputs.append(output)
+				output_index = possible_outputs.index(output)
+				values, variables = extract_valuations(obs)
+				s += f"{values},{output_index}\n"
 			# print(f"{extract_valuations(obs)},{output_index}")
 		# print()
 		s = f"#PERMISSIVE\nBEGIN {values.count(',') + 1} 1\n{s}"
@@ -123,7 +126,7 @@ if __name__ == "__main__":
 	explainableFSCDir = os.path.join(baseDir, "explainable-fsc")
 	os.makedirs(dotDir, exist_ok=True)
 	os.makedirs(explainableFSCDir, exist_ok=True)
-	dotFiles = [f for f in os.listdir(dotDir) if f.endswith('-cutoffstrategy.dot')]
+	dotFiles = [f for f in os.listdir(dotDir) if f.endswith('.dot')] #-cutoffstrategy
 	for dotFile in dotFiles:
 		createCSVs(f"{dotDir}/{dotFile}", explainableFSCDir)
 	# createCSVs("storm-mealy-machines/refuel-06-cutoffstrategy.dot")
