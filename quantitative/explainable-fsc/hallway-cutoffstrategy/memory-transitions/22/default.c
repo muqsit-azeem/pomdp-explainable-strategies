@@ -3,7 +3,7 @@
 float classify(const float x[]);
 
 int main() {
-    float x[] = {11.f};
+    float x[] = {20.f};
     float result = classify(x);
     return 0;
 }

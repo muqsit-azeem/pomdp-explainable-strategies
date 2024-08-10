@@ -1,5 +1,6 @@
 (Query-1) <-> 0
 (Query-2) <-> 1
-(Query-0) <-> 2
-(init) <-> 3
-(discount_sink) <-> 4
+{0.333333 -> (Query-2) | 0.333333 -> (Query-1) | 0.333333 -> (Query-0) } <-> 2
+(Query-0) <-> 3
+(init) <-> 4
+(discount_sink) <-> 5

@@ -1,14 +1,14 @@
 digraph {
-0 [label="x_0 <= 12.5"];
-1 [label="x_0 <= 7.5"];
-2 [label="x_0 <= 3.5"];
-3 [label="x_0 <= 0.5"];
+0 [label="obs <= 12.5"];
+1 [label="obs <= 7.5"];
+2 [label="obs <= 3.5"];
+3 [label="obs <= 0.5"];
 4 [label="16"];
 3 -> 4 [label="True"];
-5 [label="x_0 <= 1.5"];
+5 [label="obs <= 1.5"];
 6 [label="21"];
 5 -> 6 [label="True"];
-7 [label="x_0 <= 2.5"];
+7 [label="obs <= 2.5"];
 8 [label="16"];
 7 -> 8 [label="True"];
 9 [label="21"];
@@ -19,10 +19,10 @@ digraph {
 10 [label="16"];
 2 -> 10 [style="dashed", label="False"];
 1 -> 2 [label="True"];
-11 [label="x_0 <= 9.5"];
+11 [label="obs <= 9.5"];
 12 [label="21"];
 11 -> 12 [label="True"];
-13 [label="x_0 <= 10.5"];
+13 [label="obs <= 10.5"];
 14 [label="16"];
 13 -> 14 [label="True"];
 15 [label="21"];

@@ -1,9 +1,7 @@
 start
 done
-harmlessPain
-complication
-test1Result
-test2Result
-test3Result
+restEKGResult
+stressTestResult
+angiogramResult
+chestPain
 isCured
-symptom

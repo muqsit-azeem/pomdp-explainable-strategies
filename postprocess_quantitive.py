@@ -65,7 +65,7 @@ def replace_actions_and_observations(dot_file_path, action_mapping, observation_
     # replace x_i with corresponding observations
     for i, obs in enumerate(observation_mapping):
         # the first one is for memory therefore observations start at x_1
-        placeholder = f"x_{i + 1} "
+        placeholder = f"x_{i} "
         new_content = content.replace(placeholder, f"{obs} ")
         if new_content != content:
             print(f"Replaced {placeholder} with {obs} in {dot_file_path}")

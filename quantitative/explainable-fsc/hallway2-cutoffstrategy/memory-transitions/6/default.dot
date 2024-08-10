@@ -1,7 +1,7 @@
 digraph {
-0 [label="x_0 <= 7.5"];
-1 [label="x_0 <= 3.5"];
-2 [label="x_0 <= 2.5"];
+0 [label="obs <= 7.5"];
+1 [label="obs <= 3.5"];
+2 [label="obs <= 2.5"];
 3 [label="16"];
 2 -> 3 [label="True"];
 4 [label="21"];
@@ -10,11 +10,11 @@ digraph {
 5 [label="16"];
 1 -> 5 [style="dashed", label="False"];
 0 -> 1 [label="True"];
-6 [label="x_0 <= 12.5"];
-7 [label="x_0 <= 9.5"];
+6 [label="obs <= 12.5"];
+7 [label="obs <= 9.5"];
 8 [label="21"];
 7 -> 8 [label="True"];
-9 [label="x_0 <= 10.5"];
+9 [label="obs <= 10.5"];
 10 [label="16"];
 9 -> 10 [label="True"];
 11 [label="21"];

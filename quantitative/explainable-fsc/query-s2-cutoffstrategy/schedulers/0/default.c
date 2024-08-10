@@ -26,7 +26,7 @@ float classify(const float x[]) {
 	}
 	else {
 		if (x[0] <= 3.5) {
-			return 3.0f;
+			return 4.0f;
 		}
 		else {
 			return 1.0f;

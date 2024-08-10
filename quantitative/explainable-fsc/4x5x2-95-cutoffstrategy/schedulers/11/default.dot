@@ -1,11 +1,11 @@
 digraph {
-0 [label="x_0 <= 0.5"];
-1 [label="4"];
+0 [label="obs <= 0.5"];
+1 [label="(W0)"];
 0 -> 1 [label="True"];
-2 [label="x_0 <= 2.0"];
-3 [label="0"];
+2 [label="obs <= 2.0"];
+3 [label="(E0)"];
 2 -> 3 [label="True"];
-4 [label="4"];
+4 [label="(W0)"];
 2 -> 4 [style="dashed", label="False"];
 0 -> 2 [style="dashed", label="False"];
 

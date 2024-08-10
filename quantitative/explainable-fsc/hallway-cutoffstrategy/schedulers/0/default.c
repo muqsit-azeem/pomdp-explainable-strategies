@@ -45,7 +45,7 @@ float classify(const float x[]) {
 				return 3.0f;
 			}
 			else {
-				return 4.0f;
+				return 9.0f;
 			}
 
 		}

@@ -9,12 +9,18 @@ int main() {
 }
 
 float classify(const float x[]) {
-	if (x[0] <= 2.5) {
+	if (x[0] <= 3.0) {
 		if (x[0] <= 0.5) {
 			return 10.0f;
 		}
 		else {
-			return 6.0f;
+			if (x[0] <= 1.5) {
+				return 6.0f;
+			}
+			else {
+				return 16.0f;
+			}
+
 		}
 
 	}

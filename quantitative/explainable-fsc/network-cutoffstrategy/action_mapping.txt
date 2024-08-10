@@ -2,5 +2,8 @@
 (restrict) <-> 1
 (unrestrict) <-> 2
 (discount_sink) <-> 3
-(init) <-> 4
-(reboot) <-> 5
+{0.166667 -> (restrict) | 0.333333 -> (steady) | 0.5 -> (unrestrict) } <-> 4
+{0.25 -> (reboot) | 0.25 -> (restrict) | 0.5 -> (steady) } <-> 5
+{0.142857 -> (reboot) | 0.142857 -> (restrict) | 0.285714 -> (steady) | 0.428571 -> (unrestrict) } <-> 6
+(init) <-> 7
+(reboot) <-> 8

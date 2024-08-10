@@ -13,18 +13,19 @@ def parse_dot(dot_data):
 	transition_pattern = re.compile(r'(?P<state>\d+)\s*->\s*(?P<nextstate>\d+)\s*\[label="\[(?P<input>[^\]]+)\]/\s*(?P<output>.*)\s*"\]')
 
 	for line in dot_data:
-		print(line)
+		# print(line)
 		for match in transition_pattern.finditer(line):
 			current_state, next_state, obs, output = match.groups()
 			output = output.strip()
 			state_transitions[current_state].append((obs, next_state))
 			transition_outputs[current_state].append((obs, output))
-			print (current_state, next_state, obs, output)
+			# print (current_state, next_state, obs, output)
 	return state_transitions, transition_outputs
 
 def extract_valuations(input_string):
 	# Define the regex pattern to extract the conditions
-	pattern = re.compile(r'(\w+)=?(\d+)?')
+	pattern = re.compile(r'([\w\!]+)=?(\d+)?')
+	# print("Input string:", input_string)
 	
 	# Find all matches
 	matches = pattern.findall(input_string)
@@ -41,7 +42,6 @@ def extract_valuations(input_string):
 		else:
 			# For boolean conditions like 'start' or '!start'
 			if var.startswith('!'):
-				print("here")
 				valuations.append('0')
 				variables.append(var[1:])
 			else:
@@ -51,7 +51,7 @@ def extract_valuations(input_string):
 	
 	# Join the valuations with commas
 	valuation_string = ','.join(valuations)
-	print(valuation_string)
+	# print(valuation_string)
 	return valuation_string, variables
 
 # print(state_transitions, transition_outputs)
@@ -69,7 +69,8 @@ def print_tables(state_transitions, transition_outputs, fileNamePrefix):
 		# print("Input to Next State:")
 		s = ""
 		for obs, next_state in state_transitions[state]:
-			# print(f"{extract_valuations(obs)},{next_state}")
+			print(f"{obs},{next_state}")
+			print(f"{extract_valuations(obs)},{next_state}")
 			values, variables = extract_valuations(obs)
 			s += f"{values},{next_state}\n"
 		s = f"#PERMISSIVE\nBEGIN {values.count(',') + 1} 1\n{s}"

@@ -1,9 +1,9 @@
 digraph {
-0 [label="x_5 <= 0.5"];
-1 [label="x_3 <= 0.5"];
+0 [label="u <= 0.5"];
+1 [label="l <= 0.5"];
 2 [label="24"];
 1 -> 2 [label="True"];
-3 [label="x_4 <= 0.5"];
+3 [label="r <= 0.5"];
 4 [label="3"];
 3 -> 4 [label="True"];
 5 [label="5"];

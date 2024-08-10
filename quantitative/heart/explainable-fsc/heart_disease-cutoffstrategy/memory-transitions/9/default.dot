@@ -1,0 +1,20 @@
+digraph {
+0 [label="chestPain <= 0.5"];
+1 [label="3"];
+0 -> 1 [label="True"];
+2 [label="stressTestResult <= 0.5"];
+3 [label="9"];
+2 -> 3 [label="True"];
+4 [label="stressTestResult <= 2.5"];
+5 [label="11"];
+4 -> 5 [label="True"];
+6 [label="restEKGResult <= 1.5"];
+7 [label="11"];
+6 -> 7 [label="True"];
+8 [label="3"];
+6 -> 8 [style="dashed", label="False"];
+4 -> 6 [style="dashed", label="False"];
+2 -> 4 [style="dashed", label="False"];
+0 -> 2 [style="dashed", label="False"];
+
+}

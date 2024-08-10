@@ -1,30 +1,7 @@
 {
-    "actual_label": null,
-    "children": [
-        {
-            "actual_label": [
-                "3"
-            ],
-            "children": [],
-            "split": null,
-            "edge_label": "true"
-        },
-        {
-            "actual_label": [
-                "3",
-                "3"
-            ],
-            "children": [],
-            "split": null,
-            "edge_label": "false"
-        }
+    "actual_label": [
+        "3"
     ],
-    "split": {
-        "lhs": {
-            "coeff": 1,
-            "var": "x_7"
-        },
-        "op": "<=",
-        "rhs": 0.5
-    }
+    "children": [],
+    "split": null
 }

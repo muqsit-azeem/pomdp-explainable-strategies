@@ -9,5 +9,5 @@ int main() {
 }
 
 float classify(const float x[]) {
-	return 4.0f;
+	return 7.0f;
 }

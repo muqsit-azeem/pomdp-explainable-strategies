@@ -1,11 +1,16 @@
-Done <-> 0
-{0.674534 -> pcta | 0.325466 -> medicine } <-> 1
-start <-> 2
-{0.497633 -> cabg | 0.425664 -> pcta | 0.0767032 -> medicine } <-> 3
-test1 <-> 4
-{0.370188 -> cabg | 0.287219 -> pcta | 0.0817512 -> test2 | 0.188764 -> test1 | 0.0720767 -> test3 } <-> 5
-{0.674533 -> pcta | 0.325467 -> medicine } <-> 6
-pcta <-> 7
-{0.333333 -> pcta | 0.666667 -> medicine } <-> 8
-{0.333332 -> pcta | 0.666668 -> medicine } <-> 9
-medicine <-> 10
+medicine <-> 0
+stressTest <-> 1
+ekgTest <-> 2
+INIT <-> 3
+pcta <-> 4
+Done <-> 5
+{0.333334 -> medicine | 0.666666 -> pcta } <-> 6
+{0.428571 -> medicine | 0.571429 -> pcta } <-> 7
+{0.428572 -> medicine | 0.571428 -> pcta } <-> 8
+{0.428572 -> medicine | 0.571428 -> stressTest } <-> 9
+{0.333333 -> ekgTest | 0.666667 -> stressTest } <-> 10
+{0.317534 -> medicine | 0.682466 -> pcta } <-> 11
+{0.0885471 -> medicine | 0.911453 -> pcta } <-> 12
+{0.317535 -> medicine | 0.682465 -> pcta } <-> 13
+{0.253833 -> medicine | 0.746167 -> stressTest } <-> 14
+{0.161974 -> ekgTest | 0.838026 -> stressTest } <-> 15

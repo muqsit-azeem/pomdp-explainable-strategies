@@ -6,7 +6,7 @@
             "children": [
                 {
                     "actual_label": [
-                        "10"
+                        "22"
                     ],
                     "children": [],
                     "split": null,
@@ -14,7 +14,7 @@
                 },
                 {
                     "actual_label": [
-                        "24"
+                        "10"
                     ],
                     "children": [],
                     "split": null,
@@ -27,7 +27,7 @@
                     "var": "x_0"
                 },
                 "op": "<=",
-                "rhs": 4.5
+                "rhs": 2.5
             },
             "edge_label": "true"
         },
@@ -36,18 +36,40 @@
             "children": [
                 {
                     "actual_label": [
-                        "14"
+                        "24"
                     ],
                     "children": [],
                     "split": null,
                     "edge_label": "true"
                 },
                 {
-                    "actual_label": [
-                        "5"
+                    "actual_label": null,
+                    "children": [
+                        {
+                            "actual_label": [
+                                "14"
+                            ],
+                            "children": [],
+                            "split": null,
+                            "edge_label": "true"
+                        },
+                        {
+                            "actual_label": [
+                                "5"
+                            ],
+                            "children": [],
+                            "split": null,
+                            "edge_label": "false"
+                        }
                     ],
-                    "children": [],
-                    "split": null,
+                    "split": {
+                        "lhs": {
+                            "coeff": 1,
+                            "var": "x_0"
+                        },
+                        "op": "<=",
+                        "rhs": 10.0
+                    },
                     "edge_label": "false"
                 }
             ],
@@ -57,7 +79,7 @@
                     "var": "x_0"
                 },
                 "op": "<=",
-                "rhs": 10.0
+                "rhs": 6.0
             },
             "edge_label": "false"
         }
@@ -68,6 +90,6 @@
             "var": "x_0"
         },
         "op": "<=",
-        "rhs": 6.0
+        "rhs": 4.5
     }
 }

@@ -1,9 +1,0 @@
-start
-done
-harmlessPain
-complication
-test1Result
-test2Result
-test3Result
-isCured
-symptom

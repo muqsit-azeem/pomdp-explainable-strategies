@@ -1,6 +1,6 @@
 digraph {
-0 [label="x_0 <= 1.5"];
-1 [label="x_0 <= 0.5"];
+0 [label="obs <= 1.5"];
+1 [label="obs <= 0.5"];
 2 [label="9"];
 1 -> 2 [label="True"];
 3 [label="5"];

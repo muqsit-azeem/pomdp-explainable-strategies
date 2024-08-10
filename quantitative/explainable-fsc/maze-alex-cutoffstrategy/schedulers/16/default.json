@@ -6,7 +6,7 @@
             "children": [
                 {
                     "actual_label": [
-                        "4"
+                        "5"
                     ],
                     "children": [],
                     "split": null,
@@ -17,7 +17,7 @@
                     "children": [
                         {
                             "actual_label": [
-                                "5"
+                                "7"
                             ],
                             "children": [],
                             "split": null,
@@ -57,19 +57,11 @@
             "actual_label": null,
             "children": [
                 {
-                    "actual_label": [
-                        "1"
-                    ],
-                    "children": [],
-                    "split": null,
-                    "edge_label": "true"
-                },
-                {
                     "actual_label": null,
                     "children": [
                         {
                             "actual_label": [
-                                "3"
+                                "2"
                             ],
                             "children": [],
                             "split": null,
@@ -77,7 +69,37 @@
                         },
                         {
                             "actual_label": [
-                                "2"
+                                "1"
+                            ],
+                            "children": [],
+                            "split": null,
+                            "edge_label": "false"
+                        }
+                    ],
+                    "split": {
+                        "lhs": {
+                            "coeff": 1,
+                            "var": "x_4"
+                        },
+                        "op": "<=",
+                        "rhs": 0.5
+                    },
+                    "edge_label": "true"
+                },
+                {
+                    "actual_label": null,
+                    "children": [
+                        {
+                            "actual_label": [
+                                "4"
+                            ],
+                            "children": [],
+                            "split": null,
+                            "edge_label": "true"
+                        },
+                        {
+                            "actual_label": [
+                                "3"
                             ],
                             "children": [],
                             "split": null,

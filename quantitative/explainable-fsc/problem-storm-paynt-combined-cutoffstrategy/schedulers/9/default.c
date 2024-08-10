@@ -10,10 +10,10 @@ int main() {
 
 float classify(const float x[]) {
 	if (x[0] <= 0.5) {
-		return 3.0f;
+		return 5.0f;
 	}
 	else {
-		return 2.0f;
+		return 4.0f;
 	}
 
 }

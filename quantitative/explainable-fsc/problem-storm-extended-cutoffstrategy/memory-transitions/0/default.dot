@@ -1,5 +1,5 @@
 digraph {
-0 [label="x_1 <= 0.5"];
+0 [label="in <= 0.5"];
 1 [label="3"];
 0 -> 1 [label="True"];
 2 [label="0"];

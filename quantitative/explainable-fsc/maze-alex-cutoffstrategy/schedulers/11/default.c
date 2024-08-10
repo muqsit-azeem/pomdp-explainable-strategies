@@ -13,7 +13,7 @@ float classify(const float x[]) {
 		return 0.0f;
 	}
 	else {
-		return 3.0f;
+		return 4.0f;
 	}
 
 }

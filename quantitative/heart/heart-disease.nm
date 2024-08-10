@@ -2,7 +2,7 @@ pomdp
 
 // Observables
 observables
-    ChestPain, restEKG, stressTest, AngiogramResult, DVF, AccuteMI, dead
+    ChestPain, restEKG, stressTest, AngiogramResult, DVF, AccuteMI, dead, start
 endobservables
 
 // Global Variables
@@ -27,26 +27,36 @@ module doctor
         0.2: (start'=true) & (CAD'=0) & (IschemiaLevel'=0) & (AccuteMI'=0) & (ChestPain'=0) & (DVF'=0);
 
     // Diagnostic Tests
-    [restEKGTest] dead=0 & start & restEKG=0 -> 
+    [restEKGTest] dead=0 & start -> 
         0.3 : (restEKG'=1) + 0.7 : (restEKG'=2);
     
-    [stressTest] dead=0 & start & stressTest=0 -> 
+    [stressTest] dead=0 & start -> 
         0.3 : (stressTest'=1) + 0.5 : (stressTest'=2) + 0.2 : (stressTest'=3);
 
-    [angioGram] dead=0 & start & AngiogramResult=0 -> 
+    [angioGram] dead=0 & start -> 
         0.5 : (AngiogramResult'=1) + 0.5 : (AngiogramResult'=2);
 
     // Treatments
-    [medication] dead=0 & start & (CAD=1 | IschemiaLevel=1) -> 
+    [medication] dead=0 & start & (CAD<2 | IschemiaLevel<2) -> 
         0.7 : (CAD'=max(CAD-1,0)) & (IschemiaLevel'=max(IschemiaLevel-1,0)) + 
         0.3 : (CAD'=CAD) & (IschemiaLevel'=IschemiaLevel);
+
+    [medication] dead=0 & start & (CAD=2 & IschemiaLevel=2) -> 
+        1: (CAD'=CAD) & (IschemiaLevel'=IschemiaLevel);
 
     [PCTA] dead=0 & start & (CAD>0) -> 
         0.6 : (CAD'=max(CAD-1,0)) & (IschemiaLevel'=IschemiaLevel) + 
         0.4 : (CAD'=CAD) & (IschemiaLevel'=IschemiaLevel);
 
+    [PCTA] dead=0 & start & (CAD=0) -> 
+        1 : (CAD'=CAD) & (IschemiaLevel'=IschemiaLevel);
+
     [CABG] dead=0 & start & (CAD=2 | IschemiaLevel=2) -> 
         0.8 : (CAD'=max(CAD-2,0)) & (IschemiaLevel'=max(IschemiaLevel-1,0)) + 
+        0.2 : (CAD'=CAD) & (IschemiaLevel'=IschemiaLevel) & (DVF'=min(DVF+1,2));
+
+    [CABG] dead=0 & start & (CAD<2 & IschemiaLevel<2) -> 
+        0.8 : (CAD'=max(CAD-1,0)) & (IschemiaLevel'=max(IschemiaLevel-1,0)) + 
         0.2 : (CAD'=CAD) & (IschemiaLevel'=IschemiaLevel) & (DVF'=min(DVF+1,2));
 
     [wait] dead=0 & start -> 
@@ -55,8 +65,9 @@ module doctor
 endmodule
 
 // Labels for terminal states
-label "cured" = CAD=0 & IschemiaLevel=0 & AccuteMI=0 & dead=0;
-label "death" = dead=1;
+label "cured" = CAD=0 & IschemiaLevel=0 & AccuteMI=0 & dead=0 & start;
+//label "death" = dead=1;
+//label "done" = (CAD=0 & IschemiaLevel=0 & AccuteMI=0 & dead=0 & start) | (dead=1);
 
 // Rewards (Costs)
 rewards "cost"

@@ -1,8 +1,8 @@
 digraph {
-0 [label="x_3 <= 0.5"];
-1 [label="0"];
+0 [label="l <= 0.5"];
+1 [label="up"];
 0 -> 1 [label="True"];
-2 [label="3"];
+2 [label="left"];
 0 -> 2 [style="dashed", label="False"];
 
 }

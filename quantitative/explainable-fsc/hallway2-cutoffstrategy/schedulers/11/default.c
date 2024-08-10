@@ -13,46 +13,46 @@ float classify(const float x[]) {
 		if (x[0] <= 7.5) {
 			if (x[0] <= 4.5) {
 				if (x[0] <= 0.5) {
-					return 6.0f;
+					return 8.0f;
 				}
 				else {
 					if (x[0] <= 3.5) {
 						if (x[0] <= 1.5) {
-							return 4.0f;
+							return 6.0f;
 						}
 						else {
 							if (x[0] <= 2.5) {
-								return 1.0f;
+								return 2.0f;
 							}
 							else {
-								return 4.0f;
+								return 6.0f;
 							}
 
 						}
 
 					}
 					else {
-						return 6.0f;
+						return 8.0f;
 					}
 
 				}
 
 			}
 			else {
-				return 1.0f;
+				return 2.0f;
 			}
 
 		}
 		else {
 			if (x[0] <= 10.5) {
-				return 6.0f;
+				return 8.0f;
 			}
 			else {
 				if (x[0] <= 11.5) {
-					return 4.0f;
+					return 6.0f;
 				}
 				else {
-					return 6.0f;
+					return 8.0f;
 				}
 
 			}
@@ -62,7 +62,7 @@ float classify(const float x[]) {
 	}
 	else {
 		if (x[0] <= 15.5) {
-			return 1.0f;
+			return 2.0f;
 		}
 		else {
 			return 0.0f;

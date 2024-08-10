@@ -3,7 +3,7 @@
     "children": [
         {
             "actual_label": [
-                "1"
+                "0"
             ],
             "children": [],
             "split": null,
@@ -11,7 +11,7 @@
         },
         {
             "actual_label": [
-                "0"
+                "1"
             ],
             "children": [],
             "split": null,
@@ -21,7 +21,7 @@
     "split": {
         "lhs": {
             "coeff": 1,
-            "var": "x_0"
+            "var": "x_1"
         },
         "op": "<=",
         "rhs": 0.5
