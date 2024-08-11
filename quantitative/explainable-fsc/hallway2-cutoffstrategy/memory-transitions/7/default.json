@@ -1,0 +1,183 @@
+{
+    "actual_label": null,
+    "children": [
+        {
+            "actual_label": null,
+            "children": [
+                {
+                    "actual_label": null,
+                    "children": [
+                        {
+                            "actual_label": null,
+                            "children": [
+                                {
+                                    "actual_label": [
+                                        "16"
+                                    ],
+                                    "children": [],
+                                    "split": null,
+                                    "edge_label": "true"
+                                },
+                                {
+                                    "actual_label": [
+                                        "21"
+                                    ],
+                                    "children": [],
+                                    "split": null,
+                                    "edge_label": "false"
+                                }
+                            ],
+                            "split": {
+                                "lhs": {
+                                    "coeff": 1,
+                                    "var": "x_0"
+                                },
+                                "op": "<=",
+                                "rhs": 0.5
+                            },
+                            "edge_label": "true"
+                        },
+                        {
+                            "actual_label": [
+                                "16"
+                            ],
+                            "children": [],
+                            "split": null,
+                            "edge_label": "false"
+                        }
+                    ],
+                    "split": {
+                        "lhs": {
+                            "coeff": 1,
+                            "var": "x_0"
+                        },
+                        "op": "<=",
+                        "rhs": 1.5
+                    },
+                    "edge_label": "true"
+                },
+                {
+                    "actual_label": null,
+                    "children": [
+                        {
+                            "actual_label": [
+                                "21"
+                            ],
+                            "children": [],
+                            "split": null,
+                            "edge_label": "true"
+                        },
+                        {
+                            "actual_label": null,
+                            "children": [
+                                {
+                                    "actual_label": [
+                                        "16"
+                                    ],
+                                    "children": [],
+                                    "split": null,
+                                    "edge_label": "true"
+                                },
+                                {
+                                    "actual_label": null,
+                                    "children": [
+                                        {
+                                            "actual_label": [
+                                                "21"
+                                            ],
+                                            "children": [],
+                                            "split": null,
+                                            "edge_label": "true"
+                                        },
+                                        {
+                                            "actual_label": [
+                                                "16"
+                                            ],
+                                            "children": [],
+                                            "split": null,
+                                            "edge_label": "false"
+                                        }
+                                    ],
+                                    "split": {
+                                        "lhs": {
+                                            "coeff": 1,
+                                            "var": "x_0"
+                                        },
+                                        "op": "<=",
+                                        "rhs": 13.5
+                                    },
+                                    "edge_label": "false"
+                                }
+                            ],
+                            "split": {
+                                "lhs": {
+                                    "coeff": 1,
+                                    "var": "x_0"
+                                },
+                                "op": "<=",
+                                "rhs": 12.5
+                            },
+                            "edge_label": "false"
+                        }
+                    ],
+                    "split": {
+                        "lhs": {
+                            "coeff": 1,
+                            "var": "x_0"
+                        },
+                        "op": "<=",
+                        "rhs": 9.5
+                    },
+                    "edge_label": "false"
+                }
+            ],
+            "split": {
+                "lhs": {
+                    "coeff": 1,
+                    "var": "x_0"
+                },
+                "op": "<=",
+                "rhs": 8.5
+            },
+            "edge_label": "true"
+        },
+        {
+            "actual_label": null,
+            "children": [
+                {
+                    "actual_label": [
+                        "21"
+                    ],
+                    "children": [],
+                    "split": null,
+                    "edge_label": "true"
+                },
+                {
+                    "actual_label": [
+                        "18"
+                    ],
+                    "children": [],
+                    "split": null,
+                    "edge_label": "false"
+                }
+            ],
+            "split": {
+                "lhs": {
+                    "coeff": 1,
+                    "var": "x_0"
+                },
+                "op": "<=",
+                "rhs": 15.5
+            },
+            "edge_label": "false"
+        }
+    ],
+    "split": {
+        "lhs": {
+            "coeff": 1,
+            "var": "x_0"
+        },
+        "op": "<=",
+        "rhs": 14.5
+    }
+}

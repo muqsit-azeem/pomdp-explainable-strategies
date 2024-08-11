@@ -1,0 +1,8 @@
+digraph {
+0 [label="obs <= 4.5"];
+1 [label="22"];
+0 -> 1 [label="True"];
+2 [label="19"];
+0 -> 2 [style="dashed", label="False"];
+
+}

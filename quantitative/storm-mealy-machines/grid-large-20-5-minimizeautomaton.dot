@@ -1,5 +1,0 @@
-digraph {
-0;
-__init [label="", style=invis, width=0];
-__init -> 0;
-}

@@ -1,0 +1,4 @@
+digraph {
+0 [label="{0.5 -> (Query-1) | 0.5 -> (Query-0) }"];
+
+}

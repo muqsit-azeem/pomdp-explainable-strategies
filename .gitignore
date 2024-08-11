@@ -163,3 +163,11 @@ cython_debug/
 
 # project specific
 temp/ 
+
+# dtcontrol
+benchmark.html
+benchmark.json
+.benchmark_suite/
+
+# vscode
+.idea/

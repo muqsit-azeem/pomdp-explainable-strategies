@@ -1,0 +1,81 @@
+pomdp
+
+// Observables
+observables
+    ChestPain, restEKG, stressTest, AngiogramResult, DVF, AccuteMI, dead, start
+endobservables
+
+// Global Variables
+global start : bool init false; // Tracks if the process has started
+global ChestPain : [0..2] init 0; // 0: No pain, 1: Some pain, 2: Severe pain
+global restEKG : [0..2] init 0; // 0: Result not available, 1: Positive, 2: Negative
+global stressTest : [0..3] init 0; // 0: Result not available, 1: Positive, 2: Negative, 3: Non-conclusive
+global AngiogramResult : [0..2] init 0; // 0: Not available, 1: Abnormal, 2: Normal
+global CAD : [0..2] init 0; // 0: No CAD, 1: Mild CAD, 2: Severe CAD (hidden)
+global IschemiaLevel : [0..2] init 0; // 0: No ischemia, 1: Mild ischemia, 2: Severe ischemia (hidden)
+global DVF : [0..2] init 0; // 0: Normal, 1: Reduced function, 2: Severely reduced function
+global AccuteMI : [0..1] init 0; // 0: No MI, 1: MI present
+global dead : [0..1] init 0; // 0: Alive, 1: Dead (integer)
+
+module doctor
+    // Initial Conditions
+    [INIT] dead=0 & !start -> 
+        0.2: (start'=true) & (CAD'=0) & (IschemiaLevel'=0) & (AccuteMI'=0) & (ChestPain'=0) & (DVF'=0) +
+        0.2: (start'=true) & (CAD'=1) & (IschemiaLevel'=1) & (AccuteMI'=0) & (ChestPain'=1) & (DVF'=0) +
+        0.2: (start'=true) & (CAD'=1) & (IschemiaLevel'=2) & (AccuteMI'=0) & (ChestPain'=2) & (DVF'=1) +
+        0.2: (start'=true) & (CAD'=2) & (IschemiaLevel'=2) & (AccuteMI'=1) & (ChestPain'=2) & (DVF'=2) +
+        0.2: (start'=true) & (CAD'=0) & (IschemiaLevel'=0) & (AccuteMI'=0) & (ChestPain'=0) & (DVF'=0);
+
+    // Diagnostic Tests
+    [restEKGTest] dead=0 & start -> 
+        0.3 : (restEKG'=1) + 0.7 : (restEKG'=2);
+    
+    [stressTest] dead=0 & start -> 
+        0.3 : (stressTest'=1) + 0.5 : (stressTest'=2) + 0.2 : (stressTest'=3);
+
+    [angioGram] dead=0 & start -> 
+        0.5 : (AngiogramResult'=1) + 0.5 : (AngiogramResult'=2);
+
+    // Treatments
+    [medication] dead=0 & start & (CAD<2 | IschemiaLevel<2) -> 
+        0.7 : (CAD'=max(CAD-1,0)) & (IschemiaLevel'=max(IschemiaLevel-1,0)) + 
+        0.3 : (CAD'=CAD) & (IschemiaLevel'=IschemiaLevel);
+
+    [medication] dead=0 & start & (CAD=2 & IschemiaLevel=2) -> 
+        1: (CAD'=CAD) & (IschemiaLevel'=IschemiaLevel);
+
+    [PCTA] dead=0 & start & (CAD>0) -> 
+        0.6 : (CAD'=max(CAD-1,0)) & (IschemiaLevel'=IschemiaLevel) + 
+        0.4 : (CAD'=CAD) & (IschemiaLevel'=IschemiaLevel);
+
+    [PCTA] dead=0 & start & (CAD=0) -> 
+        1 : (CAD'=CAD) & (IschemiaLevel'=IschemiaLevel);
+
+    [CABG] dead=0 & start & (CAD=2 | IschemiaLevel=2) -> 
+        0.8 : (CAD'=max(CAD-2,0)) & (IschemiaLevel'=max(IschemiaLevel-1,0)) + 
+        0.2 : (CAD'=CAD) & (IschemiaLevel'=IschemiaLevel) & (DVF'=min(DVF+1,2));
+
+    [CABG] dead=0 & start & (CAD<2 & IschemiaLevel<2) -> 
+        0.8 : (CAD'=max(CAD-1,0)) & (IschemiaLevel'=max(IschemiaLevel-1,0)) + 
+        0.2 : (CAD'=CAD) & (IschemiaLevel'=IschemiaLevel) & (DVF'=min(DVF+1,2));
+
+    [wait] dead=0 & start -> 
+        1 : (DVF'=min(DVF+1,2)) & (IschemiaLevel'=min(IschemiaLevel+1,2));
+
+endmodule
+
+// Labels for terminal states
+label "cured" = CAD=0 & IschemiaLevel=0 & AccuteMI=0 & dead=0 & start;
+//label "death" = dead=1;
+//label "done" = (CAD=0 & IschemiaLevel=0 & AccuteMI=0 & dead=0 & start) | (dead=1);
+
+// Rewards (Costs)
+rewards "cost"
+    [restEKGTest] true : 10;
+    [stressTest] true : 20;
+    [angioGram] true : 50;
+    [medication] CAD>0 | IschemiaLevel>0 : 30;
+    [PCTA] CAD>0 : 40;
+    [CABG] CAD>1 : 80;
+    [wait] true : 5;
+endrewards
