@@ -27,12 +27,59 @@ def check_file_exists(file_path):
         sys.exit(1)
 
 
+# def run_storm_pomdp(timeout_command, storm_pomdp, model, params_dict_string):
+#     params_dict = eval(params_dict_string)
+#     print("In RUN STROM POMDP", params_dict)
+#     const_str = ""
+#     append_str = ""
+#     if params_dict:
+#         const_str = "-const " + ",".join(f"{key}={value}" for key, value in params_dict.items())
+#         append_str = "-".join(f"{key}{value}" for key, value in params_dict.items())
+#
+#     command = [
+#         timeout_command, storm_pomdp,
+#         "--prism", f"{model}",
+#         '--prop', '"Pmax=? [\\"notbad\\" U \\"goal\\"]"',
+#         const_str,
+#         "--buildstateval",
+#         "--buildobsval",
+#         "--build-all-labels",
+#         "--qualitative-analysis",
+#         "--memlesssearch", "iterative",
+#         "--onlydeterministic",
+#         "--lazy-dt-fsc",
+#         "--pomdpQualitative:nographprocessing ",
+#         "-stats",
+#         "--trace",
+#         "--winningregion",
+#         "--exportwinningregion",
+#         f"winningregion/{os.path.basename(model).split('.')[0]}{append_str}-fixpoint.wr"
+#     ]
+#
+#     command_str = " ".join(command)
+#
+#     try:
+#         print(f"Executing command: {command_str}")
+#         # Use Popen to capture output in real-time
+#         process = subprocess.Popen(command_str, shell=True, stdout=sys.stdout, stderr=sys.stderr, universal_newlines=True)
+#         process.communicate()
+#         if process.returncode != 0:
+#             raise subprocess.CalledProcessError(process.returncode, command_str)
+#         print(f"Execution successful for {model}")
+#     except subprocess.CalledProcessError as e:
+#         print(f"Execution failed for {model}: {e}", file=sys.stderr)
+
+
 def run_storm_pomdp(timeout_command, storm_pomdp, model, params_dict_string):
     params_dict = eval(params_dict_string)
     print("In RUN STROM POMDP", params_dict)
     const_str = ""
+    append_str = ""
     if params_dict:
         const_str = "-const " + ",".join(f"{key}={value}" for key, value in params_dict.items())
+        append_str = "-".join(f"{key}{value}" for key, value in params_dict.items())
+
+    log_file = f"logs/{os.path.basename(model).split('.')[0]}{append_str}.log"
 
     command = [
         timeout_command, storm_pomdp,
@@ -50,18 +97,22 @@ def run_storm_pomdp(timeout_command, storm_pomdp, model, params_dict_string):
         "--trace",
         "--winningregion",
         "--exportwinningregion",
-        f"winningregion/{os.path.basename(model).split('.')[0]}-fixpoint.wr"
+        f"winningregion/{os.path.basename(model).split('.')[0]}{append_str}-fixpoint.wr"
     ]
+    # "--lazy-dt-fsc": add this option for the lazy-dt-fsc size reduction technique
 
     command_str = " ".join(command)
 
     try:
         print(f"Executing command: {command_str}")
-        subprocess.run(command_str, shell=True, check=True, capture_output=True)
-        print(f"Execution successful for {model} ")
+        with open(log_file, "w") as log:
+            process = subprocess.Popen(command_str, shell=True, stdout=log, stderr=log, universal_newlines=True)
+            process.communicate()
+        if process.returncode != 0:
+            raise subprocess.CalledProcessError(process.returncode, command_str)
+        print(f"Execution successful for {model}, log saved to {log_file}")
     except subprocess.CalledProcessError as e:
-        print(f"Execution failed for {model} ")
-        print(e.stderr.decode(), file=sys.stderr)
+        print(f"Execution failed for {model}: {e}", file=sys.stderr)
 
 
 def main(timeout, storm_pomdp_ex, model, params_dict):
@@ -78,7 +129,6 @@ def main(timeout, storm_pomdp_ex, model, params_dict):
 
 
 if __name__ == "__main__":
-    print(len(sys.argv))
     if len(sys.argv) < 5 or len(sys.argv) > 6:
         print(f"Usage: {sys.argv[0]} TIMEOUT STORMPOMDPEX INPUTMODEL PARAMS_DICT", file=sys.stderr)
         sys.exit(1)
@@ -87,6 +137,5 @@ if __name__ == "__main__":
     storm_pomdp_exe = sys.argv[2]
     model = sys.argv[3]
     params_dict = sys.argv[4] if len(sys.argv) == 5 else {}
-    # print(f"{params_dict}")
 
     main(timeout, storm_pomdp_exe, model, params_dict)
