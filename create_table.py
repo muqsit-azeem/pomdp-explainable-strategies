@@ -64,7 +64,7 @@ def generate_table(base_dir):
 
 
 def print_table(benchmarks):
-    header = f"{'Benchmark':<25} {'#FSC Nodes':<10} {'Sch. Total Nodes':<20} {'Sch. Min Nodes':<20} {'Sch. Max Nodes':<20} {'Mem. Total Nodes':<20} {'Mem. Min Nodes':<20} {'Mem. Max Nodes':<20}"
+    header = f"{'Benchmark':<25} {'#FSC Nodes':<10} {'Pol. Total Nodes':<20} {'Pol. Min Nodes':<20} {'Pol. Max Nodes':<20} {'Mem. Total Nodes':<20} {'Mem. Min Nodes':<20} {'Mem. Max Nodes':<20}"
     print(header)
     for benchmark, dt_num, scheduler_total_nodes, scheduler_min_nodes, scheduler_max_nodes, memory_total_nodes, memory_min_nodes, memory_max_nodes in benchmarks:
         print("=" * len(header))
@@ -76,7 +76,7 @@ def generate_latex_table(benchmarks):
     print("\\centering")
     print("\\begin{tabular}{|l|r|r|r|}")
     print("\\hline")
-    print("Benchmark & \\#FSC-nodes & Sch. Nodes (Min, Max) & Mem. Nodes (Min, Max) \\\\ \\hline")
+    print("Benchmark & \\#FSC-nodes & Pol. Nodes (Min, Max) & Mem. Nodes (Min, Max) \\\\ \\hline")
     for benchmark, dt_num, scheduler_total_nodes, scheduler_min_nodes, scheduler_max_nodes, memory_total_nodes, memory_min_nodes, memory_max_nodes in benchmarks:
         print(f"{benchmark} & {dt_num} & {scheduler_total_nodes} ({scheduler_min_nodes}, {scheduler_max_nodes}) & {memory_total_nodes} ({memory_min_nodes}, {memory_max_nodes}) \\\\ \\hline")
     print("\\end{tabular}")
