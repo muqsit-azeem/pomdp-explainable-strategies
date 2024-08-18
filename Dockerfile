@@ -38,10 +38,10 @@ RUN mkdir -p /opt/pomdp-explainable-strategies
 WORKDIR /opt/pomdp-explainable-strategies
 
 # Copy your local repository into the Docker image
-COPY pomdp-explainable-strategies-with-scripts/storm /opt/pomdp-explainable-strategies/storm
-COPY pomdp-explainable-strategies-with-scripts/pomdp-benchmarks-XStrat /opt/pomdp-explainable-strategies/pomdp-benchmarks-XStrat
-COPY pomdp-explainable-strategies-with-scripts/*.py /opt/pomdp-explainable-strategies/
-COPY pomdp-explainable-strategies-with-scripts/run_all.sh /opt/pomdp-explainable-strategies/
+COPY storm /opt/pomdp-explainable-strategies/storm
+COPY pomdp-benchmarks-XStrat /opt/pomdp-explainable-strategies/pomdp-benchmarks-XStrat
+COPY *.py /opt/pomdp-explainable-strategies/
+COPY run_all.sh /opt/pomdp-explainable-strategies/
 
 # Remove any existing build directory to ensure a clean build environment
 RUN rm -rf /opt/pomdp-explainable-strategies/storm/build
@@ -59,4 +59,3 @@ WORKDIR /opt/pomdp-explainable-strategies
 
 # Default command to run your shell script
 CMD ["bash", "./run_all.sh"]
-

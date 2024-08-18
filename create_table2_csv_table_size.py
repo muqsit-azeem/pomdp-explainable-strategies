@@ -60,7 +60,7 @@ def generate_table(base_dir):
 
 
 def print_table(benchmarks):
-    header = f"{'Benchmark':<25} {'#CSV Files':<10} {'Sch. Total Lines':<20} {'Sch. Min Lines':<20} {'Sch. Max Lines':<20} {'Mem. Total Lines':<20} {'Mem. Min Lines':<20} {'Mem. Max Lines':<20}"
+    header = f"{'Benchmark':<25} {'#CSV Files':<10} {'Pol. Total Rows':<20} {'Pol. Min Rows':<20} {'Pol. Max Rows':<20} {'Mem. Total Rows':<20} {'Mem. Min Rows':<20} {'Mem. Max Rows':<20}"
     print(header)
     for benchmark, dt_num, scheduler_total_lines, scheduler_min_lines, scheduler_max_lines, memory_total_lines, memory_min_lines, memory_max_lines in benchmarks:
         print("=" * len(header))
@@ -72,7 +72,7 @@ def generate_latex_table(benchmarks):
     print("\\centering")
     print("\\begin{tabular}{|l|r|r|r|}")
     print("\\hline")
-    print("Benchmark & \\#CSV Files & Sch. Lines (Min, Max) & Mem. Lines (Min, Max) \\\\ \\hline")
+    print("Benchmark & \\#CSV Files & Pol. Total Rows (Min, Max) & Mem. Lines (Min, Max) \\\\ \\hline")
     for benchmark, dt_num, scheduler_total_lines, scheduler_min_lines, scheduler_max_lines, memory_total_lines, memory_min_lines, memory_max_lines in benchmarks:
         print(f"{benchmark} & {dt_num} & {scheduler_total_lines} ({scheduler_min_lines}, {scheduler_max_lines}) & {memory_total_lines} ({memory_min_lines}, {memory_max_lines}) \\\\ \\hline")
     print("\\end{tabular}")
