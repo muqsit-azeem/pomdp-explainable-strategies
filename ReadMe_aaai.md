@@ -1,32 +1,32 @@
-# Iterative DT-FSC
+# DT-FSC for Almost sure reachability with iterative SAT-based approach
 
 This section provides details for benchmarks related to the iterative DT-FSC method.
 
-- The benchmarks are in the directory `iterative/benchmarks/`.
-- The FSCs are in the directory `iterative/storm-mealy-machines/`.
+- The benchmarks are in the directory `pomdp-benchmark-Xstrat/`.
+- The FSCs (mealy machine in the form of tables) are in the directory `iterative/storm-mealy-machines/`.
 - The DT-FSCs are in the directory `iterative/explainable-fsc-results/`.
 
 ### Running the Experiments
-To rerun the experiments using the iterative DT-FSC algorithm, use the following command:
+To obtain the results from iterative DT-FSC data, use the following command:
 ```bash
-./run_iterative.sh iterative
+./create_table_vanilla_dt_fsc.sh
 ```
-This will create a directory `iterative/explainable-fsc` with the DT-FSCs for each benchmark and also print the results in the terminal.
+This will create a directory `vanilla-dt-fsc/explainable-fsc-results` with the DT-FSCs for each benchmark and also print the results in the terminal.
 
-# Skip DT-FSC
+# Skip DT-FSC for Almost sure reachability with iterative SAT-based approach
 
 This section provides details for benchmarks related to the Skip DT-FSC method.
 
-- The benchmarks are in the directory `skip/benchmarks/`.
-- The FSCs are in the directory `skip/storm-mealy-machines/`.
-- The DT-FSCs are in the directory `skip/explainable-fsc-results/`.
+- The benchmarks are the same `pomdp-benchmark-Xstrat/`.
+- The FSCs (mealy machine in the form of tables) are in the directory `iterative/storm-mealy-machines/`.
+- The skip-DT-FSCs are in the directory `skip-dt-fsc/explainable-fsc-results/`.
 
 ### Running the Experiments
-To rerun the experiments using the Skip DT-FSC algorithm, use the following command:
+To obtain the results from iterative DT-FSC data, use the following command:
 ```bash
-./run_skip.sh skip
+./create_table_skip_dt_fsc.sh
 ```
-This will create a directory `skip/explainable-fsc` with the DT-FSCs for each benchmark and also print the results in the terminal.
+This will create a directory `skip-dt-fsc/explainable-fsc-results` with the DT-FSCs for each benchmark and also print the results in the terminal.
 
 # Quantitative Models Benchmarks
 
@@ -73,30 +73,8 @@ Each of these approaches has its own set of benchmarks stored in separate direct
 
 ## Directory Structure
 
-The directory structure is organized as follows:
+TODO
 
-```
-root_directory/
-│
-├── dtcontrol_output_iterative/          # Contains .dot files for DT-FSC (Iterative Method)
-│   ├── benchmark1.dot
-│   ├── benchmark2.dot
-│   └── ...
-│
-├── dtcontrol_output_skip/               # Contains .dot files for Skip DT-FSC
-│   ├── benchmark1.dot
-│   ├── benchmark2.dot
-│   └── ...
-│
-├── dtcontrol_output_cutoff/             # Contains .dot files for General Case Using Cutoff Strategy
-│   ├── benchmark1.dot
-│   ├── benchmark2.dot
-│   └── ...
-│
-├── generate_table_iterative.py          # Script to generate tables for DT-FSC (Iterative Method)
-├── generate_table_skip.py               # Script to generate tables for Skip DT-FSC
-└── generate_table_cutoff.py             # Script to generate tables for General Case Using Cutoff Strategy
-```
 
 ## Generating Tables
 
