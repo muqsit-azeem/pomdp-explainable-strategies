@@ -1,3 +1,9 @@
+This repository contains `.dot` files for three different approaches to generating Decision Tree Finite State Controllers (DT-FSC):
+
+1. **DT-FSC for qualitative benchmarks (Iterative Method)**: The files generated using the iterative method.
+2. **Skip DT-FSC**: The files generated using the Skip DT-FSC method.
+3. **General Case Using Cutoff Strategy**: The files generated using the general case with a cutoff strategy.|
+
 # DT-FSC for Almost sure reachability with iterative SAT-based approach
 
 This section provides details for benchmarks related to the iterative DT-FSC method.
@@ -59,15 +65,9 @@ To rerun the experiments, use the following command:
 ```
 This will create a directory `quantitative/heart/explainable-fsc` with the DT-FSCs for the heart disease case study and also print the results in the terminal.
 
-# README: Generating Tables from DT-FSC, Skip DT-FSC, and General Case Using Cutoff Strategy
-
 ## Overview
 
-This repository contains `.dot` files for three different approaches to generating Decision Tree Finite State Controllers (DT-FSC):
 
-1. **DT-FSC (Iterative Method)**: The files generated using the iterative method.
-2. **Skip DT-FSC**: The files generated using the Skip DT-FSC method.
-3. **General Case Using Cutoff Strategy**: The files generated using the general case with a cutoff strategy.
 
 Each of these approaches has its own set of benchmarks stored in separate directories, along with a specific Python script to generate the corresponding tables.
 
