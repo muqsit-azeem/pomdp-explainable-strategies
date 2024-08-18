@@ -65,12 +65,12 @@ def print_tables(state_transitions, transition_outputs, fileNamePrefix):
 	os.makedirs(schedulerDir, exist_ok=True)
 	
 	for state in state_transitions:
-		print(f"State {state}:")
+		#print(f"State {state}:")
 		# print("Input to Next State:")
 		s = ""
 		for obs, next_state in state_transitions[state]:
-			print(f"{obs},{next_state}")
-			print(f"{extract_valuations(obs)},{next_state}")
+			#print(f"{obs},{next_state}")
+			#print(f"{extract_valuations(obs)},{next_state}")
 			values, variables = extract_valuations(obs)
 			s += f"{values},{next_state}\n"
 		s = f"#PERMISSIVE\nBEGIN {values.count(',') + 1} 1\n{s}"
