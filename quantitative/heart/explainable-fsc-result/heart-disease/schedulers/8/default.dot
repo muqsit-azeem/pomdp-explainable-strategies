@@ -1,0 +1,8 @@
+digraph {
+0 [label="chestPain <= 0.5"];
+1 [label="Done"];
+0 -> 1 [label="True"];
+2 [label="{0.0287275 -> medicine | 0.395735 -> stressTest | 0.575537 -> angiogramTest }"];
+0 -> 2 [style="dashed", label="False"];
+
+}

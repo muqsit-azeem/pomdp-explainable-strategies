@@ -1,0 +1,40 @@
+digraph {
+0 [label="isCured <= 0.5"];
+1 [label="angiogramResult <= 0.5"];
+2 [label="stressTestResult <= 0.5"];
+3 [label="restEKGResult <= 0.5"];
+4 [label="start <= 0.5"];
+5 [label="INIT"];
+4 -> 5 [label="True"];
+6 [label="{0.4 -> stressTest | 0.2 -> ekgTest | 0.4 -> angiogramTest }"];
+4 -> 6 [style="dashed", label="False"];
+3 -> 4 [label="True"];
+7 [label="{0.2 -> medicine | 0.4 -> stressTest | 0.4 -> angiogramTest }"];
+3 -> 7 [style="dashed", label="False"];
+2 -> 3 [label="True"];
+8 [label="{0.333334 -> medicine | 0.666666 -> angiogramTest }"];
+2 -> 8 [style="dashed", label="False"];
+1 -> 2 [label="True"];
+9 [label="angiogramResult <= 1.5"];
+10 [label="stressTestResult <= 0.5"];
+11 [label="{0.428572 -> medicine | 0.571428 -> stressTest }"];
+10 -> 11 [label="True"];
+12 [label="restEKGResult <= 0.5"];
+13 [label="{0.571428 -> pcta | 0.428572 -> medicine }"];
+12 -> 13 [label="True"];
+14 [label="{0.571429 -> pcta | 0.428571 -> medicine }"];
+12 -> 14 [style="dashed", label="False"];
+10 -> 12 [style="dashed", label="False"];
+9 -> 10 [label="True"];
+15 [label="stressTestResult <= 0.5"];
+16 [label="{0.333334 -> medicine | 0.666666 -> stressTest }"];
+15 -> 16 [label="True"];
+17 [label="{0.666666 -> pcta | 0.333334 -> medicine }"];
+15 -> 17 [style="dashed", label="False"];
+9 -> 15 [style="dashed", label="False"];
+1 -> 9 [style="dashed", label="False"];
+0 -> 1 [label="True"];
+18 [label="Done"];
+0 -> 18 [style="dashed", label="False"];
+
+}

@@ -1,81 +1,160 @@
 pomdp
-
 // Observables
 observables
-    ChestPain, restEKG, stressTest, AngiogramResult, DVF, AccuteMI, dead, start
+start, done, restEKGResult, stressTestResult, angiogramResult
 endobservables
-
 // Global Variables
-global start : bool init false; // Tracks if the process has started
-global ChestPain : [0..2] init 0; // 0: No pain, 1: Some pain, 2: Severe pain
-global restEKG : [0..2] init 0; // 0: Result not available, 1: Positive, 2: Negative
-global stressTest : [0..3] init 0; // 0: Result not available, 1: Positive, 2: Negative, 3: Non-conclusive
-global AngiogramResult : [0..2] init 0; // 0: Not available, 1: Abnormal, 2: Normal
-global CAD : [0..2] init 0; // 0: No CAD, 1: Mild CAD, 2: Severe CAD (hidden)
-global IschemiaLevel : [0..2] init 0; // 0: No ischemia, 1: Mild ischemia, 2: Severe ischemia (hidden)
-global DVF : [0..2] init 0; // 0: Normal, 1: Reduced function, 2: Severely reduced function
-global AccuteMI : [0..1] init 0; // 0: No MI, 1: MI present
-global dead : [0..1] init 0; // 0: Alive, 1: Dead (integer)
+global start : bool init false;
+global CADLevel : [0..1] init 0; // 0: No CAD, 1: CAD
+global IschemiaLevel : [0..1] init 0; // 0: No MI, 1: MI
+global done : bool init false;
+global complication : [0..1] init 0; // 0: No complication, 1: Complication
+// global timeElapsed : [0..5] init 0; // Time elapsed since the start
+global harmlessPain : bool init false; // Harmless chest pain
+// chestPains and Cured Conditions
+formula chestPain = CADLevel=1 | IschemiaLevel=1 | harmlessPain;
+formula isCured = CADLevel=0 & IschemiaLevel=0 & start;
+observable chestPain = chestPain;
+observable isCured = isCured;
 
+// Doctor Module
 module doctor
-    // Initial Conditions
-    [INIT] dead=0 & !start -> 
-        0.2: (start'=true) & (CAD'=0) & (IschemiaLevel'=0) & (AccuteMI'=0) & (ChestPain'=0) & (DVF'=0) +
-        0.2: (start'=true) & (CAD'=1) & (IschemiaLevel'=1) & (AccuteMI'=0) & (ChestPain'=1) & (DVF'=0) +
-        0.2: (start'=true) & (CAD'=1) & (IschemiaLevel'=2) & (AccuteMI'=0) & (ChestPain'=2) & (DVF'=1) +
-        0.2: (start'=true) & (CAD'=2) & (IschemiaLevel'=2) & (AccuteMI'=1) & (ChestPain'=2) & (DVF'=2) +
-        0.2: (start'=true) & (CAD'=0) & (IschemiaLevel'=0) & (AccuteMI'=0) & (ChestPain'=0) & (DVF'=0);
+    restEKGResult : [0..2] init 0; // 0: Not done, 1: Negative, 2: Positive
+    stressTestResult : [0..3] init 0; // 0: Not done, 1: Negative, 2: Positive, 3: inconclusive
+    angiogramResult : [0..2] init 0; // 0: Not done, 1: Negative, 2: Positive
+    // Start
+    [INIT] start=false ->
+        0.2: (start'=true) & (CADLevel'=0) & (IschemiaLevel'=0) & (harmlessPain'=true) +
+        0.2: (start'=true) & (CADLevel'=0) & (IschemiaLevel'=1) & (harmlessPain'=false) +
+        0.2: (start'=true) & (CADLevel'=1) & (IschemiaLevel'=0) & (harmlessPain'=false) +
+        0.2: (start'=true) & (CADLevel'=1) & (IschemiaLevel'=1) & (harmlessPain'=false) +
+        0.2: (start'=true) & (CADLevel'=0) & (IschemiaLevel'=0) & (harmlessPain'=false);
 
-    // Diagnostic Tests
-    [restEKGTest] dead=0 & start -> 
-        0.3 : (restEKG'=1) + 0.7 : (restEKG'=2);
-    
-    [stressTest] dead=0 & start -> 
-        0.3 : (stressTest'=1) + 0.5 : (stressTest'=2) + 0.2 : (stressTest'=3);
 
-    [angioGram] dead=0 & start -> 
-        0.5 : (AngiogramResult'=1) + 0.5 : (AngiogramResult'=2);
+    // Investigate
+    // costly and complicated test (angiogram)
+    [angiogramTest] (CADLevel=0 & IschemiaLevel=0 & harmlessPain=false) & !done & start -> 0.9 : (angiogramResult'=1) + 0.1 : (angiogramResult'=2) & (complication'=1);
+    [angiogramTest] (CADLevel=1 & IschemiaLevel=0 & harmlessPain=false) & !done & start -> 0.1 : (angiogramResult'=1) + 0.9 : (angiogramResult'=2) & (complication'=1);
+    [angiogramTest] (CADLevel=0 & IschemiaLevel=1 & harmlessPain=false) & !done & start -> 0.1 : (angiogramResult'=1) + 0.9 : (angiogramResult'=2) & (complication'=1);
+    [angiogramTest] (CADLevel=1 & IschemiaLevel=1 & harmlessPain=false) & !done & start -> 0.05 : (angiogramResult'=1) + 0.95 : (angiogramResult'=2) & (complication'=1);
+    [angiogramTest] (harmlessPain=true) & !done & start -> 0.2 : (angiogramResult'=1) + 0.8 : (angiogramResult'=0); // Harmless pain detection is less reliable
+
+
+    // ekgTest: cheap test which detects ischemia level with higher probability
+    [ekgTest] CADLevel=0 & IschemiaLevel=0 & !done & start -> 0.9 : (restEKGResult'=1) + 0.1 : (restEKGResult'=2);
+    [ekgTest] CADLevel=1 & IschemiaLevel=0 & !done & start -> 0.8 : (restEKGResult'=1) + 0.2 : (restEKGResult'=2);
+    [ekgTest] CADLevel=0 & IschemiaLevel=1 & !done & start -> 0.2 : (restEKGResult'=1) + 0.8 : (restEKGResult'=2);
+    [ekgTest] CADLevel=1 & IschemiaLevel=1 & !done & start -> 0.1 : (restEKGResult'=1) + 0.9 : (restEKGResult'=2);
+
+
+    // stressTest: moderately costly test which detects CAD level with higher probability
+    [stressTest] CADLevel=0 & IschemiaLevel=0 & !done & start -> 0.90 : (stressTestResult'=1) + 0.05 : (stressTestResult'=2) + 0.05 : (stressTestResult'=3);
+    [stressTest] CADLevel=0 & IschemiaLevel=1 & !done & start -> 0.1 : (stressTestResult'=1) + 0.7 : (stressTestResult'=2) + 0.2 : (stressTestResult'=3);
+    [stressTest] CADLevel=1 & IschemiaLevel=0 & !done & start -> 0.02 : (stressTestResult'=1) + 0.95 : (stressTestResult'=2) + 0.03 : (stressTestResult'=3);
+    [stressTest] CADLevel=1 & IschemiaLevel=1 & !done & start -> 0.02 : (stressTestResult'=1) + 0.96 : (stressTestResult'=2) + 0.02 : (stressTestResult'=3);
+
 
     // Treatments
-    [medication] dead=0 & start & (CAD<2 | IschemiaLevel<2) -> 
-        0.7 : (CAD'=max(CAD-1,0)) & (IschemiaLevel'=max(IschemiaLevel-1,0)) + 
-        0.3 : (CAD'=CAD) & (IschemiaLevel'=IschemiaLevel);
+    // Medicine: no invasion, less effective, no complication
+    [medicine] (CADLevel=0 & IschemiaLevel=0) & !done & start ->
+        1 : (CADLevel'=0) & (IschemiaLevel'=0);
+    [medicine] (CADLevel=1 & IschemiaLevel=0) & !done & start ->
+        1 : (CADLevel'=1) & (IschemiaLevel'=0);
+    [medicine] (CADLevel=0 & IschemiaLevel=1) & !done & start ->
+        0.7 : (CADLevel'=0) & (IschemiaLevel'=0) +
+        0.3 : (CADLevel'=0) & (IschemiaLevel'=1);
+    [medicine] (CADLevel=1 & IschemiaLevel=1) & !done & start ->
+        0.7 : (CADLevel'=1) & (IschemiaLevel'=0) +
+        0.3 : (CADLevel'=1) & (IschemiaLevel'=1);
 
-    [medication] dead=0 & start & (CAD=2 & IschemiaLevel=2) -> 
-        1: (CAD'=CAD) & (IschemiaLevel'=IschemiaLevel);
 
-    [PCTA] dead=0 & start & (CAD>0) -> 
-        0.6 : (CAD'=max(CAD-1,0)) & (IschemiaLevel'=IschemiaLevel) + 
-        0.4 : (CAD'=CAD) & (IschemiaLevel'=IschemiaLevel);
 
-    [PCTA] dead=0 & start & (CAD=0) -> 
-        1 : (CAD'=CAD) & (IschemiaLevel'=IschemiaLevel);
+    // PCTA: Less invasive, affected by complication -- we might need to play with the probabilities here
+    [pcta] (CADLevel=0 & IschemiaLevel=0) & !done & start ->
+        1 : (CADLevel'=0) & (IschemiaLevel'=0);
+    [pcta] (CADLevel=1 & IschemiaLevel=0) & complication=0 & !done & start ->
+        0.80 : (CADLevel'=0) & (IschemiaLevel'=0) +
+        0.20 : (CADLevel'=1) & (IschemiaLevel'=0);
+    [pcta] (CADLevel=1 & IschemiaLevel=0) & complication=1 & !done & start ->
+        0.80 : (CADLevel'=0) & (IschemiaLevel'=0) +
+        0.20 : (CADLevel'=1) & (IschemiaLevel'=0);
+    [pcta] (CADLevel=0 & IschemiaLevel=1) & complication=0 & !done & start ->
+        0.70 : (CADLevel'=0) & (IschemiaLevel'=0) +
+        0.30 : (CADLevel'=0) & (IschemiaLevel'=1);
+    [pcta] (CADLevel=0 & IschemiaLevel=1) & complication=1 & !done & start ->
+        0.60 : (CADLevel'=0) & (IschemiaLevel'=0) +
+        0.40 : (CADLevel'=0) & (IschemiaLevel'=1);
+    [pcta] (CADLevel=1 & IschemiaLevel=1) & complication=0 & !done & start ->
+        0.70 : (CADLevel'=0) & (IschemiaLevel'=1) +
+        0.30 : (CADLevel'=1) & (IschemiaLevel'=1);
+    [pcta] (CADLevel=1 & IschemiaLevel=1) & complication=1 & !done & start ->
+        0.70 : (CADLevel'=0) & (IschemiaLevel'=1) +
+        0.30 : (CADLevel'=1) & (IschemiaLevel'=1);
 
-    [CABG] dead=0 & start & (CAD=2 | IschemiaLevel=2) -> 
-        0.8 : (CAD'=max(CAD-2,0)) & (IschemiaLevel'=max(IschemiaLevel-1,0)) + 
-        0.2 : (CAD'=CAD) & (IschemiaLevel'=IschemiaLevel) & (DVF'=min(DVF+1,2));
 
-    [CABG] dead=0 & start & (CAD<2 & IschemiaLevel<2) -> 
-        0.8 : (CAD'=max(CAD-1,0)) & (IschemiaLevel'=max(IschemiaLevel-1,0)) + 
-        0.2 : (CAD'=CAD) & (IschemiaLevel'=IschemiaLevel) & (DVF'=min(DVF+1,2));
 
-    [wait] dead=0 & start -> 
-        1 : (DVF'=min(DVF+1,2)) & (IschemiaLevel'=min(IschemiaLevel+1,2));
+    // CABG: More invasive, more effective, but higher risk of complication
+    [cabg] (CADLevel=0 & IschemiaLevel=0) & !done & start ->
+        0.9 : (CADLevel'=0) & (IschemiaLevel'=0) & (complication'=0) +
+        0.1 : (CADLevel'=0) & (IschemiaLevel'=0) & (complication'=1); // Add complication with 10% probability
+    [cabg] (CADLevel=1 & IschemiaLevel=0) & complication=0 & !done & start ->
+        0.9 : (CADLevel'=0) & (IschemiaLevel'=0) & (complication'=0) +
+        0.1 : (CADLevel'=1) & (IschemiaLevel'=0) & (complication'=1); // Add complication with 10% probability
+    [cabg] (CADLevel=1 & IschemiaLevel=0) & complication=1 & !done & start ->
+        0.7 : (CADLevel'=0) & (IschemiaLevel'=0) & (complication'=0) +
+        0.3 : (CADLevel'=1) & (IschemiaLevel'=0) & (complication'=1); // Add complication with 30% probability
+    [cabg] (CADLevel=0 & IschemiaLevel=1) & complication=0 & !done & start ->
+        0.9 : (CADLevel'=0) & (IschemiaLevel'=0) & (complication'=0) +
+        0.1 : (CADLevel'=0) & (IschemiaLevel'=1) & (complication'=1); // Add complication with 20% probability
+    [cabg] (CADLevel=0 & IschemiaLevel=1) & complication=1 & !done & start ->
+        0.7 : (CADLevel'=0) & (IschemiaLevel'=0) & (complication'=0) +
+        0.3 : (CADLevel'=0) & (IschemiaLevel'=1) & (complication'=1);
+    [cabg] (CADLevel=1 & IschemiaLevel=1) & complication=0 & !done & start ->
+        0.8 : (CADLevel'=0) & (IschemiaLevel'=1) +
+        0.2 : (CADLevel'=1) & (IschemiaLevel'=1);
+    [cabg] (CADLevel=1 & IschemiaLevel=1) & complication=1 & !done & start ->
+        0.6 : (CADLevel'=0) & (IschemiaLevel'=1) +
+        0.4 : (CADLevel'=1) & (IschemiaLevel'=1);
 
+
+    // Wait: Increases time elapsed, no treatment
+    [wait] CADLevel=0 & IschemiaLevel=0 & !done & start -> 0.9 : (harmlessPain'=harmlessPain) + 0.1 : (harmlessPain'=false);
+    [wait] (CADLevel=1 | IschemiaLevel=1) & !done & start -> 0.5 : (complication'=complication) + 0.5 : (complication'=1);
+    // Done: Completes the process if cured
+    [Done] isCured -> 1 : (done' = true);
 endmodule
 
-// Labels for terminal states
-label "cured" = CAD=0 & IschemiaLevel=0 & AccuteMI=0 & dead=0 & start;
-//label "death" = dead=1;
-//label "done" = (CAD=0 & IschemiaLevel=0 & AccuteMI=0 & dead=0 & start) | (dead=1);
 
-// Rewards (Costs)
+
+label "done" = done;
+// Rewards for Costs
 rewards "cost"
-    [restEKGTest] true : 10;
-    [stressTest] true : 20;
-    [angioGram] true : 50;
-    [medication] CAD>0 | IschemiaLevel>0 : 30;
-    [PCTA] CAD>0 : 40;
-    [CABG] CAD>1 : 80;
-    [wait] true : 5;
+    [ekgTest] true : 10;
+    [stressTest] true : 50;
+    [angiogramTest] true : 100;
+
+    [medicine] (restEKGResult = 0 & stressTestResult = 0 & angiogramResult = 0) : 1000; // Do not treat without diagnosis
+    [medicine] !(restEKGResult = 0 & stressTestResult = 0 & angiogramResult = 0) : 40;
+
+    // might want to make one of stressTestResult or angiogramResult mandatory
+    [pcta] (stressTestResult = 0 | angiogramResult = 0) : 1500; // Do not treat without diagnosis
+    [pcta] !(stressTestResult = 0 | angiogramResult = 0) : 100;
+
+    [cabg] (stressTestResult = 0 | angiogramResult = 0) : 2500; // Do not treat without diagnosis
+    [cabg] !(stressTestResult = 0 | angiogramResult = 0) : 300;
+
+
+
+    // might want to make one of stressTestResult or angiogramResult mandatory
+    // [pcta] (IschemiaLevel = 0 & CADLevel = 0) : 1500; // Do not treat without diagnosis
+    // [pcta] !(IschemiaLevel = 0 & CADLevel = 0) : 100;
+
+    // [cabg] (IschemiaLevel = 0 & CADLevel = 0) : 2000; // Do not treat without diagnosis
+    // [cabg] !(IschemiaLevel = 0 & CADLevel = 0) : 150;
+
+    [wait] true : 5; // Cost of waiting increases with time
+    // Additional cost due to complications
+    [medicine] complication=1 : 20;
+    [pcta] complication=1 : 50;
+    [cabg] complication=1 : 100;
 endrewards
