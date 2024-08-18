@@ -92,6 +92,7 @@ def run_storm_pomdp(timeout_command, storm_pomdp, model, params_dict_string):
         "--qualitative-analysis",
         "--memlesssearch", "iterative",
         "--onlydeterministic",
+        "--lazy-dt-fsc",
         "--pomdpQualitative:nographprocessing ",
         "-stats",
         "--trace",
