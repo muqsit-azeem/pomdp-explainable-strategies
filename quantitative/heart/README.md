@@ -1,6 +1,6 @@
 ## PRISM file
 
-The file `heart-disease.dot` models a simplified version of the diagnosis and treatment of ischemic heart disease as described
+The file `heart-disease.prism` models a simplified version of the diagnosis and treatment of ischemic heart disease as described
 in [1].
 
 ## FSC generation
