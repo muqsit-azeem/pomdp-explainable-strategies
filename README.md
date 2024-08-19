@@ -87,15 +87,15 @@ pomdp-explainable-policy/
 ## Running the Experiments
 
 ### Qualitative DT-FSC Generation
-To generate DT-FSCs for qualitative benchmarks:
+To generate DT-FSCs, Skip DT-FSCs for qualitative benchmarks, in the respective folder, do:
 ```bash
 ./run_all.sh
 ```
 
-### Skip DT-FSC Generation
-To generate Skip DT-FSCs for qualitative benchmarks:
+## Case Studie Maze and Refuel(6,6)
+To generate DT-FSCs, in ```paper-case-studies-qualitative```:
 ```bash
-./run_all.sh
+./run_all```
 ```
 
 ### Quantitative Benchmark Execution
