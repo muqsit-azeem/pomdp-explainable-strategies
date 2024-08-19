@@ -48,7 +48,7 @@ pomdp-explainable-policy/
 
 ## Qualitative Analysis
 
-### 1. **DT-FSC for Qualitative Benchmarks (Iterative SAT-based Method)**
+### 1. **DT-FSC for Paper Case Studies (qualitative) (Iterative SAT-based Method)**
 - **Directory:** `paper-case-studies-iterative/`
 - **Description:** Contains scripts for generating explainable DT-FSCs using the iterative SAT-based method.
 - **Generated Files:**
