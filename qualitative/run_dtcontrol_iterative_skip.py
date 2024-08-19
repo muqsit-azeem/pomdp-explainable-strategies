@@ -61,7 +61,7 @@ def process_model_files(model_folder):
 
 
 def main(base_dir):
-    winningregion_dir = os.path.join(base_dir, "winningregion")
+    winningregion_dir = os.path.join(base_dir, "iterative/storm-mealy-machines-with-skips")
     check_directory_exists(winningregion_dir)
 
     for filename in os.listdir(winningregion_dir):

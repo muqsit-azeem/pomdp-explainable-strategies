@@ -27,49 +27,6 @@ def check_file_exists(file_path):
         sys.exit(1)
 
 
-# def run_storm_pomdp(timeout_command, storm_pomdp, model, params_dict_string):
-#     params_dict = eval(params_dict_string)
-#     print("In RUN STROM POMDP", params_dict)
-#     const_str = ""
-#     append_str = ""
-#     if params_dict:
-#         const_str = "-const " + ",".join(f"{key}={value}" for key, value in params_dict.items())
-#         append_str = "-".join(f"{key}{value}" for key, value in params_dict.items())
-#
-#     command = [
-#         timeout_command, storm_pomdp,
-#         "--prism", f"{model}",
-#         '--prop', '"Pmax=? [\\"notbad\\" U \\"goal\\"]"',
-#         const_str,
-#         "--buildstateval",
-#         "--buildobsval",
-#         "--build-all-labels",
-#         "--qualitative-analysis",
-#         "--memlesssearch", "iterative",
-#         "--onlydeterministic",
-#         "--lazy-dt-fsc",
-#         "--pomdpQualitative:nographprocessing ",
-#         "-stats",
-#         "--trace",
-#         "--winningregion",
-#         "--exportwinningregion",
-#         f"winningregion/{os.path.basename(model).split('.')[0]}{append_str}-fixpoint.wr"
-#     ]
-#
-#     command_str = " ".join(command)
-#
-#     try:
-#         print(f"Executing command: {command_str}")
-#         # Use Popen to capture output in real-time
-#         process = subprocess.Popen(command_str, shell=True, stdout=sys.stdout, stderr=sys.stderr, universal_newlines=True)
-#         process.communicate()
-#         if process.returncode != 0:
-#             raise subprocess.CalledProcessError(process.returncode, command_str)
-#         print(f"Execution successful for {model}")
-#     except subprocess.CalledProcessError as e:
-#         print(f"Execution failed for {model}: {e}", file=sys.stderr)
-
-
 def run_storm_pomdp(timeout_command, storm_pomdp, model, params_dict_string):
     params_dict = eval(params_dict_string)
     print("In RUN STROM POMDP", params_dict)
@@ -100,7 +57,7 @@ def run_storm_pomdp(timeout_command, storm_pomdp, model, params_dict_string):
         "--exportwinningregion",
         f"winningregion/{os.path.basename(model).split('.')[0]}{append_str}-fixpoint.wr"
     ]
-    # "--lazy-dt-fsc": add this option for the lazy-dt-fsc size reduction technique
+    # "--lazy-dt-fsc": this option is for the skip DT-FSC for FSC size reduction
 
     command_str = " ".join(command)
 
@@ -123,7 +80,8 @@ def main(timeout, storm_pomdp_ex, model, params_dict):
     print(f"params dict: {params_dict}")
     check_file_exists(storm_pomdp_ex)
     check_file_exists(model)
-    create_directory_if_not_exists("winningregion")
+    create_directory_if_not_exists("iterative/storm-mealy-machines")
+    create_directory_if_not_exists("iterative/storm-mealy-machines-with-skips")
 
     timeout_command = f"timeout {timeout}"
     run_storm_pomdp(timeout_command, storm_pomdp_ex, model, params_dict)
