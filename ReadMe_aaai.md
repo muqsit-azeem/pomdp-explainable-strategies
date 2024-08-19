@@ -1,21 +1,24 @@
-This repository contains `.dot` files for three different approaches to generating Decision Tree Finite State Controllers (DT-FSC):
+
+There are two sets of benchmarks stored in separate directories, along with a specific Python script to generate the corresponding tables.
+
+This repository contains `.dot` file results from `iterative` and `quantitative` approaches  to Decision Tree equipped Finite State Controllers (DT-FSC):
 
 1. **DT-FSC for qualitative benchmarks (Iterative Method)**: The files generated using the iterative method.
 2. **Skip DT-FSC**: The files generated using the Skip DT-FSC method.
-3. **General Case Using Cutoff Strategy**: The files generated using the general case with a cutoff strategy.|
+3. **General Case Using Cutoff Strategy**: The files generated using a general case with a cutoff strategy.
 
 # DT-FSC for Almost sure reachability with iterative SAT-based approach
 
 This section provides details for benchmarks related to the iterative DT-FSC method.
 
-- The benchmarks are in the directory `pomdp-benchmark-Xstrat/`.
+- The benchmarks are in the directory `pomdp-benchmark-Xstrat/`. For each benchmark, there is a PRISM model file, we check the same propery `notbad U goal` for all the models.
 - The FSCs (mealy machine in the form of tables) are in the directory `iterative/storm-mealy-machines/`.
-- The DT-FSCs are in the directory `iterative/explainable-fsc-results/`.
+- The DT-FSCs are in the directory `iterative/explainable-dt-fsc-results/`.
 
-### Running the Experiments
+### Generate Experimental results
 To obtain the results from iterative DT-FSC data, use the following command:
 ```bash
-./create_table_vanilla_dt_fsc.sh
+./create_table_vanilla_dt_fsc.sh iterative
 ```
 This will create a directory `vanilla-dt-fsc/explainable-fsc-results` with the DT-FSCs for each benchmark and also print the results in the terminal.
 
@@ -23,16 +26,16 @@ This will create a directory `vanilla-dt-fsc/explainable-fsc-results` with the D
 
 This section provides details for benchmarks related to the Skip DT-FSC method.
 
-- The benchmarks are the same `pomdp-benchmark-Xstrat/`.
+- The benchmarks are the same `pomdp-benchmark-Xstrat/`. For each benchmark, there is a PRISM model file, we check the same propery `notbad U goal` for all the models.
 - The FSCs (mealy machine in the form of tables) are in the directory `iterative/storm-mealy-machines/`.
-- The skip-DT-FSCs are in the directory `skip-dt-fsc/explainable-fsc-results/`.
+- The skip-DT-FSCs are in the directory `iterative/explainable-skip-dt-fsc-results/`.
 
-### Running the Experiments
-To obtain the results from iterative DT-FSC data, use the following command:
+### Generate Experimental Results
+To obtain the results from iterative Skip-DT-FSC data, use the following command:
 ```bash
-./create_table_skip_dt_fsc.sh
+./create_table_skip_dt_fsc.sh iterative
 ```
-This will create a directory `skip-dt-fsc/explainable-fsc-results` with the DT-FSCs for each benchmark and also print the results in the terminal.
+This will create a directory `iterative/explainable-skip-dt-fsc-results` with the DT-FSCs for each benchmark and also print the results in the terminal.
 
 # Quantitative Models Benchmarks
 
@@ -42,7 +45,7 @@ See the readme file in the directory `quantitative` for more details.
 - The FSCs are in the directory `quantitative/storm-mealy-machines/`.
 - The DT-FSCs are in the directory `quantitative/explainable-fsc-results/`.
 
-### Running the Experiments
+### Generate Experimental Results
 To rerun the experiments, use the following command:
 ```bash
 ./run_quantitative.sh quantitative
@@ -69,90 +72,17 @@ This will create a directory `quantitative/heart/explainable-fsc` with the DT-FS
 
 
 
-Each of these approaches has its own set of benchmarks stored in separate directories, along with a specific Python script to generate the corresponding tables.
-
 ## Directory Structure
 
 TODO
 
-
-## Generating Tables
-
-### 1. DT-FSC (Iterative Method)
-
-To generate tables for the DT-FSC (Iterative Method):
-
-1. **Ensure you have the necessary environment**:
-   - Python 3.x
-   - Required Python packages (`pandas`, `numpy`, `matplotlib`)
-
-2. **Run the Script**:
-   - The `.dot` files are stored in the `./dtcontrol_output_iterative/` directory.
-   - Execute the script `generate_table_iterative.py`:
-
-   ```bash
-   python generate_table_iterative.py
-   ```
-
-   This will generate a table file named `output_table_iterative.tex`.
-
-### 2. Skip DT-FSC
-
-To generate tables for Skip DT-FSC:
-
-1. **Ensure you have the necessary environment**:
-   - Python 3.x
-   - Required Python packages (`pandas`, `numpy`, `matplotlib`)
-
-2. **Run the Script**:
-   - The `.dot` files are stored in the `./dtcontrol_output_skip/` directory.
-   - Execute the script `generate_table_skip.py`:
-
-   ```bash
-   python generate_table_skip.py
-   ```
-
-   This will generate a table file named `output_table_skip.tex`.
-
-### 3. General Case Using Cutoff Strategy
-
-To generate tables for the General Case Using Cutoff Strategy:
-
-1. **Ensure you have the necessary environment**:
-   - Python 3.x
-   - Required Python packages (`pandas`, `numpy`, `matplotlib`)
-
-2. **Run the Script**:
-   - The `.dot` files are stored in the `./dtcontrol_output_cutoff/` directory.
-   - Execute the script `generate_table_cutoff.py`:
-
-   ```bash
-   python generate_table_cutoff.py
-   ```
-
-   This will generate a table file named `output_table_cutoff.tex`.
-
-## Integrating Tables into Your Document
-
-After generating the tables, you can include them in your LaTeX document as follows:
-
-```latex
-\input{output_table_iterative.tex}   % For DT-FSC (Iterative Method)
-\input{output_table_skip.tex}        % For Skip DT-FSC
-\input{output_table_cutoff.tex}      % For General Case Using Cutoff Strategy
-```
+Due to limited arifact size, we only provide already generated results here and give a public anonymous link to a docker image with detailed instruction where one can download and run all the different approaches.
 
 ## Docker Image
 
 For a pre-configured environment that includes all necessary dependencies and scripts, you can use the Docker image available on Zenodo:
 
-- **Zenodo Link**: [Insert Zenodo Link Here]
+- **Zenodo Link**: 10.5281/zenodo.1334015
 
 This Docker image ensures a consistent and replicable environment for running the scripts and generating the tables.
-
-## Conclusion
-
-This repository provides a comprehensive set of tools and data for generating tables from DT-FSC, Skip DT-FSC, and the General Case Using Cutoff Strategy. Simply run the appropriate script for the method you are interested in, and integrate the generated tables into your document.
-
-If you encounter any issues or have questions, please feel free to reach out.
 
