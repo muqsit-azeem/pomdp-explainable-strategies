@@ -135,20 +135,18 @@ Ensure that Docker is installed on your system. You can download and install Doc
    After downloading the Docker artifact, load it into Docker using:
 
    ```bash
-   docker load < /path/to/your/downloaded/artifact.tar
+   docker load pomdp-dt-fsc.tar
    ```
 
-   Replace \`/path/to/your/downloaded/artifact.tar\` with the actual path to the downloaded artifact.
 
 3. **Run the Docker Container**
 
-   Start a Docker container from the loaded image:
+   Run a Docker container in interactive mode from the loaded image:
 
    ```bash
-   docker run -it your-loaded-image-name /bin/bash
+   docker run -it pomdp-dt-fsc:lastest /bin/bash
    ```
 
-   Replace \`your-loaded-image-name\` with the name of the image after it has been loaded.
 
 4. **Navigate to the Working Directory**
 
