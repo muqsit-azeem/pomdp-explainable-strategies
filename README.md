@@ -50,15 +50,15 @@ pomdp-explainable-policy/
 
 ### 1. **DT-FSC for Qualitative Benchmarks (Iterative SAT-based Method)**
 - **Directory:** `paper-case-studies-iterative/`
-- **Description:** Contains scripts and results for generating explainable DT-FSCs using the iterative SAT-based method.
+- **Description:** Contains scripts for generating explainable DT-FSCs using the iterative SAT-based method.
 - **Generated Files:**
-  - FSCs (Mealy machines) and corresponding results.
+  - DT-FSCs (Mealy machines) and corresponding results.
 
 ### 2. **Skip DT-FSC for Qualitative Benchmarks (Iterative SAT-based Method)**
 - **Directory:** `skip-dt-fsc/`
 - **Description:** Contains scripts and results for generating Skip DT-FSCs using the iterative SAT-based method.
 - **Generated Files:**
-  - Skip FSCs (Mealy machines) and corresponding results.
+  - Skip DT-FSCs (Mealy machines) and corresponding results.
 
 ### 3. **Vanilla DT-FSC for Qualitative Benchmarks**
 - **Directory:** `vanilla-dt-fsc/`
