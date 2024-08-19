@@ -99,7 +99,7 @@ Due to limited artifact size, we only provide already generated results here tha
 
 For a pre-configured environment that includes all necessary dependencies and scripts, you can use the Docker image available on Zenodo:
 
-- **Zenodo Link**: 10.5281/zenodo.1334015
+- **Zenodo Link**: [10.5281/zenodo.13340154](https://doi.org/10.5281/zenodo.13340155)
 
 This Docker image ensures a consistent and replicable environment for running the scripts and generating the tables.
 
