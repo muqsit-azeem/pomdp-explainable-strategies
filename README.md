@@ -155,10 +155,8 @@ Ensure that Docker is installed on your system. You can download and install Doc
    Once inside the container, navigate to the directory where the project files are located:
 
    ```bash
-   cd /path/to/your/project
+   cd pomdp-explainable-policy/
    ```
-
-   Replace `/path/to/your/project` with the actual directory path within the container.
 
 5. **Run the Experiments**
 
