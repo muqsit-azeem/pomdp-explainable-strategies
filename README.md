@@ -112,7 +112,7 @@ To run the heart disease case study:
 
 
 
-## Docker Artifact
+# Docker Artifact
 
 To facilitate a consistent and replicable environment, we provide a pre-configured Docker artifact available on Zenodo. This artifact includes all necessary dependencies and scripts required to reproduce the experiments described in this repository.
 
