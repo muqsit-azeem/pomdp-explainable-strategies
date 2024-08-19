@@ -48,23 +48,23 @@ pomdp-explainable-policy/
 
 ## Qualitative Analysis
 
-### 1. **DT-FSC for Paper Case Studies (qualitative) (Iterative SAT-based Method)**
+### 1. **DT-FSC for Paper Case Studies (Qualitative - Iterative SAT-based Method)**
 - **Directory:** `paper-case-studies-iterative/`
 - **Description:** Contains scripts for generating explainable DT-FSCs using the iterative SAT-based method.
 - **Generated Files:**
   - DT-FSCs (explainable Mealy machines) and corresponding results.
 
-### 2. **Skip DT-FSC for Qualitative Benchmarks (Iterative SAT-based Method)**
+### 2. **DT-FSC for all Qualitative Benchmarks**
+- **Directory:** `vanilla-dt-fsc/`
+- **Description:** Contains scripts and results for generating vanilla DT-FSCs.
+- **Generated Files:**
+  - DT-FSCs (explainable Mealy machines) and corresponding results.
+ 
+### 3. **Skip DT-FSC for all Qualitative Benchmarks**
 - **Directory:** `skip-dt-fsc/`
 - **Description:** Contains scripts and results for generating Skip DT-FSCs using the iterative SAT-based method.
 - **Generated Files:**
   - Skip DT-FSCs (explainable Mealy machines with skip) and corresponding results.
-
-### 3. **Vanilla DT-FSC for Qualitative Benchmarks**
-- **Directory:** `vanilla-dt-fsc/`
-- **Description:** Contains scripts and results for generating vanilla DT-FSCs.
-- **Generated Files:**
-  - Vanilla FSCs (Mealy machines) and corresponding results.
 
 ## Quantitative Analysis
 
@@ -89,25 +89,25 @@ pomdp-explainable-policy/
 ### Qualitative DT-FSC Generation
 To generate DT-FSCs for qualitative benchmarks:
 ```bash
-./create_table_vanilla_dt_fsc.sh iterative
+./run_all.sh
 ```
 
 ### Skip DT-FSC Generation
 To generate Skip DT-FSCs for qualitative benchmarks:
 ```bash
-./create_table_skip_dt_fsc.sh iterative
+./run_all.sh
 ```
 
 ### Quantitative Benchmark Execution
 To run the quantitative benchmarks:
 ```bash
-./run_quantitative.sh quantitative
+./run_quantitative.sh
 ```
 
 ## Heart Disease Case Study
 To run the heart disease case study:
 ```bash
-./run_quantitative.sh quantitative/paper-case-study-heart
+./run_quantitative.sh paper-case-study-heart
 ```
 
 ## Docker Image
