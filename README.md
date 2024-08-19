@@ -1,5 +1,10 @@
 # Supplementary experimental data for the submission 7108: "Explainable Finite-Memory Policies for Partially Observable Markov Decision Processes"
 
+## Directory Structure
+
+TODO 
+
+
 There are two sets of benchmarks stored in separate directories, along with a specific Python script to generate the corresponding tables.
 
 This repository contains `.dot` file results from `iterative` and `quantitative` approaches  to Decision Tree equipped Finite State Controllers (DT-FSC):
@@ -74,10 +79,6 @@ This will create a directory `quantitative/heart/explainable-fsc` with the DT-FS
 - The FSC generated: `Illustrative-example/storm-mealy-machines`
 - The DT-FSC: `Illustrative-example/explainable-fsc-results`
 
-
-## Directory Structure
-
-TODO
 
 Due to limited artifact size, we only provide already generated results here that generates the experimental data presented in the submitted paper. Further, we provide a public anonymous link to a docker image with detailed instruction where one can download and run all the different approaches.
 
