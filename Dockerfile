@@ -39,9 +39,9 @@ WORKDIR /opt/pomdp-explainable-strategies
 
 # Copy your local repository into the Docker image
 COPY storm /opt/pomdp-explainable-strategies/storm
-COPY pomdp-benchmarks-XStrat /opt/pomdp-explainable-strategies/pomdp-benchmarks-XStrat
-COPY *.py /opt/pomdp-explainable-strategies/
-COPY run_all.sh /opt/pomdp-explainable-strategies/
+COPY qualitative /opt/pomdp-explainable-strategies/qualitative
+COPY quantitative /opt/pomdp-explainable-strategies/quantitative
+COPY README.md /opt/pomdp-explainable-strategies/
 
 # Remove any existing build directory to ensure a clean build environment
 RUN rm -rf /opt/pomdp-explainable-strategies/storm/build
