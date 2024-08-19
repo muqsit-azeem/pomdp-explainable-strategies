@@ -2,7 +2,7 @@
 
 
 # virtual environment path
-VENV_PATH="../../venv/bin/activate"
+VENV_PATH="../../../venv/bin/activate"
 
 # activate the virtual environment where dtcontrol is installed
 echo "Activating virtual environment..."

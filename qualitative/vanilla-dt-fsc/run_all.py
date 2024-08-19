@@ -62,6 +62,10 @@ def create_table(base_dir):
     run_command(command)
 
 
+def create_table2_csv_table_size(base_dir):
+    command = f"python3 -u create_table2_csv_table_size.py {base_dir}"
+    run_command(command)
+
 def main():
     if len(sys.argv) > 2:
         print(f"Usage: {sys.argv[0]} STORMBUILDDIR MODELSDIR TIMEOUT", file=sys.stderr)
@@ -100,6 +104,7 @@ def main():
     postprocess(os.getcwd())
 
     create_table(os.getcwd())
+    create_table2_csv_table_size(os.getcwd())
     print("All scripts ran successfully.")
 
 
