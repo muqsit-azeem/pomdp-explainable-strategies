@@ -92,10 +92,10 @@ To generate DT-FSCs, Skip DT-FSCs for qualitative benchmarks, in the respective 
 ./run_all.sh
 ```
 
-## Case Studie Maze and Refuel(6,6)
+## Case Study Maze and Refuel(6,6)
 To generate DT-FSCs, in ```paper-case-studies-qualitative```:
 ```bash
-./run_all```
+./run_all
 ```
 
 ### Quantitative Benchmark Execution
