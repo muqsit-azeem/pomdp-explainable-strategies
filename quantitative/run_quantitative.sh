@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # virtual environment path
-VENV_PATH="../../venv/bin/activate"
+VENV_PATH="../../../venv/bin/activate"
 
 # Check if the DIR_PATH argument is provided
 if [ -z "$1" ]; then
