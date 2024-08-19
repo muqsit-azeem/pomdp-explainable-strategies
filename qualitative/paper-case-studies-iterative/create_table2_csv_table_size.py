@@ -14,7 +14,7 @@ def check_directory_exists(directory):
 def count_lines_in_csv(file_path):
     try:
         with open(file_path, 'r') as f:
-            return sum(1 for _ in f)
+            return sum(1 for _ in f) - 2
     except Exception as e:
         print(f"Error counting lines in {file_path}: {e}", file=sys.stderr)
         return 0

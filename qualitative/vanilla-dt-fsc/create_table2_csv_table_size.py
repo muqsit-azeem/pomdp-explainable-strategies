@@ -37,7 +37,7 @@ def analyze_csv_files(dir_path):
 
 
 def generate_table(base_dir):
-    winningregion_dir = os.path.join(base_dir, "winningregion")
+    winningregion_dir = os.path.join(base_dir, "explainable-mealy-machines")
     if not os.path.exists(winningregion_dir):
         print(f"Winning region directory does not exist: {winningregion_dir}", file=sys.stderr)
         sys.exit(1)
