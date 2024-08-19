@@ -54,7 +54,6 @@ To rerun the experiments, use the following command:
 This will create a directory `quantitative/explainable-fsc` with the DT-FSCs for each benchmark and also print the results in the terminal.
 
 # Heart Disease Case Study
-
 See the readme file in the directory `quantitative/heart` for more details.
 
 - The PRISM model file: `heart-disease.prism`
@@ -70,7 +69,8 @@ To rerun the experiments, use the following command:
 This will create a directory `quantitative/heart/explainable-fsc` with the DT-FSCs for the heart disease case study and also print the results in the terminal.
 
 # Maze
-See the readme file in the directory `pomdp-benchmark-Xstrat` for more details. 
+
+- The PRISM model file: `maze.nm`
 - The FSC generated: `Illustrative-example/storm-mealy-machines`
 - The DT-FSC: `Illustrative-example/explainable-fsc-results`
 
