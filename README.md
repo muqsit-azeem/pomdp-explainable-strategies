@@ -1,17 +1,30 @@
 # Supplementary experimental data for the submission 7108: "Explainable Finite-Memory Policies for Partially Observable Markov Decision Processes"
 
 ## Directory Structure
+pomdp-explainable-policy
+|- qualitative
+|- quantitative
+|- storm
 
-TODO 
+
+# Qualitative
+1. `qualitative-benchmarks`
+1. **DT-FSC for qualitative benchmarks (Iterative SAT-based Method)**: The files generated using the iterative method.
+  a. explainable DT-FSC in `explainable-mealy-machine` folder
+  b. storm fsc output in the form of csv table can be found in  `explainable-mealy-machine`
+3. **Skip DT-FSC for qualitative benchmarks (Iterative SAT-based Method)**: The files generated using the Skip DT-FSC method.
 
 
-There are two sets of benchmarks stored in separate directories, along with a specific Python script to generate the corresponding tables.
+# Quantitative
+1. `storm-fsc-output`: This folder contains `.dot` file resulted from TACAS 24 approach.
+2. Benchmarks are in the folder `benchmarks`: contains all the benchmarks from TACAS 24 paper
+3. **DT-FSC for quantitative benchmarks (General approach)**: The files generated using a general case with a cutoff strategy.
+
+
+Specific Python scripts to generate the corresponding tables.
 
 This repository contains `.dot` file results from `iterative` and `quantitative` approaches  to Decision Tree equipped Finite State Controllers (DT-FSC):
 
-1. **DT-FSC for qualitative benchmarks (Iterative Method)**: The files generated using the iterative method.
-2. **Skip DT-FSC for qualitative benchmarks (Iterative Method)**: The files generated using the Skip DT-FSC method.
-3. **DT-FSC for quantitative benchmarks (General approach)**: The files generated using a general case with a cutoff strategy.
 
 # DT-FSC for Almost sure reachability with iterative SAT-based approach
 
