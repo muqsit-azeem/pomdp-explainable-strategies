@@ -5,7 +5,7 @@ This repository contains supplementary experimental data and scripts related to 
 
 ## Directory Structure
 
-\`\`\`bash
+```bash
 pomdp-explainable-policy/
 ├── qualitative/
 │   ├── paper-case-studies-iterative/
@@ -44,7 +44,7 @@ pomdp-explainable-policy/
 │   ├── run_dtcontrol_quantitative.py
 │   └── run_quantitative.sh
 └── storm/
-\`\`\`
+```
 
 ## Qualitative Analysis
 
