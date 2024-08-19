@@ -88,27 +88,27 @@ pomdp-explainable-policy/
 
 ### Qualitative DT-FSC Generation
 To generate DT-FSCs for qualitative benchmarks:
-\`\`\`bash
+```bash
 ./create_table_vanilla_dt_fsc.sh iterative
-\`\`\`
+```
 
 ### Skip DT-FSC Generation
 To generate Skip DT-FSCs for qualitative benchmarks:
-\`\`\`bash
+```bash
 ./create_table_skip_dt_fsc.sh iterative
-\`\`\`
+```
 
 ### Quantitative Benchmark Execution
 To run the quantitative benchmarks:
-\`\`\`bash
+```bash
 ./run_quantitative.sh quantitative
-\`\`\`
+```
 
 ## Heart Disease Case Study
 To run the heart disease case study:
-\`\`\`bash
+```bash
 ./run_quantitative.sh quantitative/paper-case-study-heart
-\`\`\`
+```
 
 ## Docker Image
 
