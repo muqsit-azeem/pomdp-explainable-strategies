@@ -1,3 +1,4 @@
+# Supplementary experimental data for the submission 7108: "Explainable Finite-Memory Policies for Partially Observable Markov Decision Processes"
 
 There are two sets of benchmarks stored in separate directories, along with a specific Python script to generate the corresponding tables.
 
