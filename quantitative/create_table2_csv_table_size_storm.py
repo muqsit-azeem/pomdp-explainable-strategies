@@ -37,7 +37,7 @@ def analyze_csv_files(dir_path):
 
 
 def generate_table(base_dir):
-    exprainableFSC_dir = os.path.join(base_dir, "explainable-fsc")
+    exprainableFSC_dir = os.path.join(base_dir, "explainable-mealy-machine")
     if not os.path.exists(exprainableFSC_dir):
         print(f"Winning region directory does not exist: {exprainableFSC_dir}", file=sys.stderr)
         sys.exit(1)
@@ -74,8 +74,8 @@ def generate_latex_table(benchmarks):
     for benchmark, dt_num, scheduler_total_lines, scheduler_min_lines, scheduler_max_lines, memory_total_lines, memory_min_lines, memory_max_lines in benchmarks:
         print(f"{benchmark} & {dt_num} & {scheduler_total_lines} ({scheduler_min_lines}, {scheduler_max_lines}) & {memory_total_lines} ({memory_min_lines}, {memory_max_lines}) \\\\ \\hline")
     print("\\end{tabular}")
-    print("\\caption{CAV 21 results}")
-    print("\\label{tab:cav-benchmark}")
+    print("\\caption{Quantitative benchmarks}")
+    print("\\label{tab:quantitative-benchmark}")
     print("\\end{table}")
 
 

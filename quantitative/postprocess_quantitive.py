@@ -120,7 +120,7 @@ def process_dt_files(benchmark_dir):
 def main(base_dir):
     print(f"Checking winning region directory in {base_dir}")
 
-    explanableFSCDir = os.path.join(base_dir, "explainable-fsc")
+    explanableFSCDir = os.path.join(base_dir, "explainable-mealy-machine")
     check_directory_exists(explanableFSCDir)
 
     fscDirs = [ f.path for f in os.scandir(explanableFSCDir) if f.is_dir() ]

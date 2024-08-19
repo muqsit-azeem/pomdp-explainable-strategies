@@ -114,7 +114,7 @@ def process_dt_files(benchmark_dir):
 def main(base_dir):
     print(f"Checking winning region directory in {base_dir}")
 
-    winningregion_dir = os.path.join(base_dir, "storm-skip-mealy-machines")
+    winningregion_dir = os.path.join(base_dir, "explainable-skip-mealy-machines")
     check_directory_exists(winningregion_dir)
 
     for filename in os.listdir(winningregion_dir):

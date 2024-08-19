@@ -2,7 +2,7 @@ import re, os, sys
 from collections import defaultdict
 
 # Sample input DOT string
-# dot_data = open("storm-mealy-machines/refuel-06-cutoffstrategy.dot").readlines()
+# dot_data = open("storm-fsc-output/refuel-06-cutoffstrategy.dot").readlines()
 
 # Function to parse DOT data and extract transitions
 def parse_dot(dot_data):
@@ -21,6 +21,7 @@ def parse_dot(dot_data):
 			transition_outputs[current_state].append((obs, output))
 			# print (current_state, next_state, obs, output)
 	return state_transitions, transition_outputs
+
 
 def extract_valuations(input_string):
 	# Define the regex pattern to extract the conditions
@@ -47,8 +48,7 @@ def extract_valuations(input_string):
 			else:
 				valuations.append('1')
 				variables.append(var)
-		
-	
+
 	# Join the valuations with commas
 	valuation_string = ','.join(valuations)
 	# print(valuation_string)
@@ -56,6 +56,7 @@ def extract_valuations(input_string):
 
 # print(state_transitions, transition_outputs)
 # Function to print the tables
+
 def print_tables(state_transitions, transition_outputs, fileNamePrefix):
 	possible_outputs = []  # List to store unique outputs
 	# os.makedirs(fileNamePrefix, exist_ok=True)
@@ -123,11 +124,11 @@ def createCSVs(dotFile,explainableFSCDir):
 
 if __name__ == "__main__":
 	baseDir = sys.argv[1]
-	dotDir = os.path.join(baseDir, "storm-mealy-machines")
-	explainableFSCDir = os.path.join(baseDir, "explainable-fsc")
+	dotDir = os.path.join(baseDir, "storm-fsc-output")
+	explainableFSCDir = os.path.join(baseDir, "explainable-mealy-machine")
 	os.makedirs(dotDir, exist_ok=True)
 	os.makedirs(explainableFSCDir, exist_ok=True)
 	dotFiles = [f for f in os.listdir(dotDir) if f.endswith('.dot')] #-cutoffstrategy
 	for dotFile in dotFiles:
 		createCSVs(f"{dotDir}/{dotFile}", explainableFSCDir)
-	# createCSVs("storm-mealy-machines/refuel-06-cutoffstrategy.dot")
+	# createCSVs("storm-fsc-output/refuel-06-cutoffstrategy.dot")

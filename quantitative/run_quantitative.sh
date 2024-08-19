@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # virtual environment path
-VENV_PATH="./venv/bin/activate"
+VENV_PATH="../../venv/bin/activate"
 
 # Check if the DIR_PATH argument is provided
 if [ -z "$1" ]; then
@@ -18,10 +18,10 @@ echo "Activating virtual environment..."
 source $VENV_PATH
 
 # Run the series of Python scripts with the provided DIR_PATH
-python3 quantitative/process_storm_output.py "$DIR_PATH"
+python3 process_storm_output.py "$DIR_PATH"
 python3 run_dtcontrol_quantitative.py "$DIR_PATH"
 python3 postprocess_quantitive.py "$DIR_PATH"
 
 # create the table
-python3 quantitative/create_table_storm.py "$DIR_PATH" latex
-python3 quantitative/create_table2_csv_table_size_storm.py "$DIR_PATH" latex
+python3 create_table_storm.py "$DIR_PATH" latex
+python3 create_table2_csv_table_size_storm.py "$DIR_PATH" latex

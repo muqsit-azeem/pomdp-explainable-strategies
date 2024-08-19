@@ -15,7 +15,7 @@ This will create a directory `quantitative/explainable-fsc` with the DT-FSCs for
 
 # Heart Disease Case Study
 
-See the readme file in the directory `quantitative/heart` for more details.
+See the readme file in the directory `quantitative/paper-case-study-heart` for more details.
 
 - The PRISM file model : `heart-disease.prism`
 - The FSC generated : `quantitative/heart/storm-mealy-machines/heart-disease.dot`
@@ -25,7 +25,7 @@ See the readme file in the directory `quantitative/heart` for more details.
 
 To rerun the experiments, use the following command:
 ```bash
-./run_quantitative.sh quantitative/heart
+./run_quantitative.sh quantitative/paper-case-study-paper-case-study-heart
 ```
 
 This will create a directory `quantitative/heart/explainable-fsc` with the DT-FSCs for the heart disease case study and also print the results in the terminal.

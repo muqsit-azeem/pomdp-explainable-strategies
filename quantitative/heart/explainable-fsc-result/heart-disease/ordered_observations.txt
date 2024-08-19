@@ -1,7 +1,0 @@
-start
-done
-restEKGResult
-stressTestResult
-angiogramResult
-chestPain
-isCured

@@ -41,7 +41,7 @@ def analyze_dot_files(dir_path):
 
 
 def generate_table(base_dir):
-    exprainableFSC_dir = os.path.join(base_dir, "explainable-fsc")
+    exprainableFSC_dir = os.path.join(base_dir, "explainable-mealy-machine")
     if not os.path.exists(exprainableFSC_dir):
         print(f"Winning region directory does not exist: {exprainableFSC_dir}", file=sys.stderr)
         sys.exit(1)
@@ -78,8 +78,8 @@ def generate_latex_table(benchmarks):
     for benchmark, dt_num, scheduler_total_nodes, scheduler_min_nodes, scheduler_max_nodes, memory_total_nodes, memory_min_nodes, memory_max_nodes in benchmarks:
         print(f"{benchmark} & {dt_num} & {scheduler_total_nodes} ({scheduler_min_nodes}, {scheduler_max_nodes}) & {memory_total_nodes} ({memory_min_nodes}, {memory_max_nodes}) \\\\ \\hline")
     print("\\end{tabular}")
-    print("\\caption{CAV 21 results}")
-    print("\\label{tab:cav-benchmark}")
+    print("\\caption{quantitative benchmarks}")
+    print("\\label{tab:quantitative-benchmark}")
     print("\\end{table}")
 
 

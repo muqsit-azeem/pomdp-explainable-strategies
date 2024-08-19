@@ -1,8 +1,0 @@
-digraph {
-0 [label="in <= 0.5"];
-1 [label="{0.5 -> r | 0.5 -> l }"];
-0 -> 1 [label="True"];
-2 [label="in"];
-0 -> 2 [style="dashed", label="False"];
-
-}

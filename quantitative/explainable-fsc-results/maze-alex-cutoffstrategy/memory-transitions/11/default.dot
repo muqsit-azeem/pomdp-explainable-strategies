@@ -1,8 +1,0 @@
-digraph {
-0 [label="l <= 0.5"];
-1 [label="15"];
-0 -> 1 [label="True"];
-2 [label="3"];
-0 -> 2 [style="dashed", label="False"];
-
-}

@@ -69,7 +69,7 @@ See the readme file in the directory `quantitative/heart` for more details.
 
 To rerun the experiments, use the following command:
 ```bash
-./run_quantitative.sh quantitative/heart
+./run_quantitative.sh quantitative/paper-case-study-paper-case-study-heart
 ```
 This will create a directory `quantitative/heart/explainable-fsc` with the DT-FSCs for the heart disease case study and also print the results in the terminal.
 
