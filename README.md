@@ -48,9 +48,13 @@ pomdp-explainable-policy/
 
 ## Qualitative Analysis
 
+- **Benchmarks Directory:** `qualitative-benchmarks/`
+- **Description:** Contains benchmarks and scripts for qualitative analysis using iterative SAT-based method.
+- **Generated Files:** FSCs (Tabular format), DT-FSCs, and skip-DT-FSCs.
+
 ### 1. **DT-FSC for Paper Case Studies (Qualitative - Iterative SAT-based Method)**
 - **Directory:** `paper-case-studies-iterative/`
-- **Description:** Contains scripts for generating explainable DT-FSCs using the iterative SAT-based method.
+- **Description:** Contains scripts for generating explainable DT-FSCs using iterative SAT-based method.
 - **Generated Files:**
   - DT-FSCs (explainable Mealy machines) and corresponding results.
 
@@ -68,11 +72,9 @@ pomdp-explainable-policy/
 
 ## Quantitative Analysis
 
-### 1. **General Quantitative Benchmarks**
-- **Directory:** `benchmarks/`
+- **Benchmarks Directory:** `benchmarks/`
 - **Description:** Contains benchmarks and scripts for quantitative analysis, focusing on general cases with a cutoff strategy.
-- **Generated Files:**
-  - FSCs (Tabular format) and DT-FSCs for each benchmark.
+- **Generated Files:** FSCs (Tabular format) and DT-FSCs for each benchmark.
 
 ### 2. **Heart Disease Case Study**
 - **Directory:** `paper-case-study-heart/`
