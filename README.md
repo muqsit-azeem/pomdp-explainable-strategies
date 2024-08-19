@@ -82,7 +82,7 @@ pomdp-explainable-policy/
 
 ### 3. **Storm FSC Output**
 - **Directory:** `storm-fsc-output/`
-- **Description:** Contains output files from the TACAS 24 approach, including \`.dot\` files representing FSCs.
+- **Description:** Contains output files from the Bork et. al. (TACAS 24) approach, including \`.dot\` files representing FSCs.
 
 ## Running the Experiments
 
