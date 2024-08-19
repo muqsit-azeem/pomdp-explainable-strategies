@@ -78,16 +78,16 @@ def main():
 
     benchmarks = [
         ("obstacle.nm", {"N": 6}),
-        # ("obstacle.nm", {"N": 8}),
-        # ("rocks2.nm", {"N": 4}),
-        # ("avoid.nm", {"N": 6, "RADIUS": 3}),
-        # ("avoid.nm", {"N": 7, "RADIUS": 4}),
-        # ("evade.nm", {"N": 6, "RADIUS": 2}),
-        # ("evade.nm", {"N": 7, "RADIUS": 2}),
-        # ("intercept.nm", {"N": 7, "RADIUS": 1}),
-        # ("intercept.nm", {"N": 7, "RADIUS": 2}),
-        # ("refuel.nm", {"N": 6, "ENERGY": 8}),
-        # ("refuel.nm", {"N": 7, "ENERGY": 7}),
+        ("obstacle.nm", {"N": 8}),
+        ("rocks2.nm", {"N": 4}),
+        ("avoid.nm", {"N": 6, "RADIUS": 3}),
+        ("avoid.nm", {"N": 7, "RADIUS": 4}),
+        ("evade.nm", {"N": 6, "RADIUS": 2}),
+        ("evade.nm", {"N": 7, "RADIUS": 2}),
+        ("intercept.nm", {"N": 7, "RADIUS": 1}),
+        ("intercept.nm", {"N": 7, "RADIUS": 2}),
+        ("refuel.nm", {"N": 6, "ENERGY": 8}),
+        ("refuel.nm", {"N": 7, "ENERGY": 7}),
     ]
 
     for model, params in benchmarks:
