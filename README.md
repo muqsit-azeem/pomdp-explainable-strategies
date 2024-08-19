@@ -56,13 +56,13 @@ pomdp-explainable-policy/
 
 ### 2. **DT-FSC for all Qualitative Benchmarks**
 - **Directory:** `vanilla-dt-fsc/`
-- **Description:** Contains scripts and results for generating vanilla DT-FSCs.
+- **Description:** Contains scripts for generating DT-FSCs.
 - **Generated Files:**
   - DT-FSCs (explainable Mealy machines) and corresponding results.
  
 ### 3. **Skip DT-FSC for all Qualitative Benchmarks**
 - **Directory:** `skip-dt-fsc/`
-- **Description:** Contains scripts and results for generating Skip DT-FSCs using the iterative SAT-based method.
+- **Description:** Contains scripts for generating Skip DT-FSCs using the iterative SAT-based method.
 - **Generated Files:**
   - Skip DT-FSCs (explainable Mealy machines with skip) and corresponding results.
 
@@ -72,7 +72,7 @@ pomdp-explainable-policy/
 - **Directory:** `benchmarks/`
 - **Description:** Contains benchmarks and scripts for quantitative analysis, focusing on general cases with a cutoff strategy.
 - **Generated Files:**
-  - FSCs and DT-FSCs for each benchmark.
+  - FSCs (Tabular format) and DT-FSCs for each benchmark.
 
 ### 2. **Heart Disease Case Study**
 - **Directory:** `paper-case-study-heart/`
