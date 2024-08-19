@@ -59,7 +59,7 @@ See the readme file in the directory `quantitative/heart` for more details.
 
 - The PRISM model file: `heart-disease.prism`
 - The FSC generated: `quantitative/heart/storm-mealy-machines/heart-disease.dot`
-- The DT-FSCs: `quantitative/heart/explainable-fsc-results/heart-disease`
+- The DT-FSC: `quantitative/heart/explainable-fsc-results/heart-disease`
 
 ### Running the Experiments
 
@@ -69,15 +69,17 @@ To rerun the experiments, use the following command:
 ```
 This will create a directory `quantitative/heart/explainable-fsc` with the DT-FSCs for the heart disease case study and also print the results in the terminal.
 
-## Overview
-
+# Maze
+See the readme file in the directory `pomdp-benchmark-Xstrat` for more details. 
+- The FSC generated: `Illustrative-example/storm-mealy-machines`
+- The DT-FSC: `Illustrative-example/explainable-fsc-results`
 
 
 ## Directory Structure
 
 TODO
 
-Due to limited arifact size, we only provide already generated results here and give a public anonymous link to a docker image with detailed instruction where one can download and run all the different approaches.
+Due to limited artifact size, we only provide already generated results here and give a public anonymous link to a docker image with detailed instruction where one can download and run all the different approaches.
 
 ## Docker Image
 
