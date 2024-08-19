@@ -12,7 +12,7 @@ This repository contains `.dot` file results from `iterative` and `quantitative`
 
 This section provides details for benchmarks related to the iterative DT-FSC method.
 
-- The benchmarks are in the directory `pomdp-benchmark-Xstrat/`. For each benchmark, there is a PRISM model file, we check the same propery `notbad U goal` for all the models.
+- The benchmarks are in the directory `pomdp-benchmark-Xstrat/`. For each benchmark, there is a PRISM model file, we check the same propery `P_max >= 1 (notbad U goal)` for all the models.
 - The FSCs (mealy machine in the form of tables) are in the directory `iterative/storm-mealy-machines/`.
 - The DT-FSCs are in the directory `iterative/explainable-dt-fsc-results/`.
 
@@ -27,7 +27,7 @@ This will create a directory `vanilla-dt-fsc/explainable-fsc-results` with the D
 
 This section provides details for benchmarks related to the Skip DT-FSC method.
 
-- The benchmarks are the same `pomdp-benchmark-Xstrat/`. For each benchmark, there is a PRISM model file, we check the same propery `notbad U goal` for all the models.
+- The benchmarks are the same `pomdp-benchmark-Xstrat/`. For each benchmark, there is a PRISM model file, we check the same propery `P_max >= 1 (notbad U goal)` for all the models.
 - The FSCs (mealy machine in the form of tables) are in the directory `iterative/storm-mealy-machines/`.
 - The skip-DT-FSCs are in the directory `iterative/explainable-skip-dt-fsc-results/`.
 
