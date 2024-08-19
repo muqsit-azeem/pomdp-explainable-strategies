@@ -78,7 +78,7 @@ pomdp-explainable-policy/
 - **Directory:** `paper-case-study-heart/`
 - **Description:** Specific case study focusing on heart disease, with related benchmarks and results.
 - **Generated Files:**
-  - FSCs (Tabular format), and DT-FSCs for the heart disease study.
+  - FSCs (Tabular format), and DT-FSCs (explainable Mealy machines) for the heart disease study.
 
 ### 3. **Storm FSC Output**
 - **Directory:** `storm-fsc-output/`
