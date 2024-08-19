@@ -79,7 +79,7 @@ This will create a directory `quantitative/heart/explainable-fsc` with the DT-FS
 
 TODO
 
-Due to limited artifact size, we only provide already generated results here and give a public anonymous link to a docker image with detailed instruction where one can download and run all the different approaches.
+Due to limited artifact size, we only provide already generated results here that generates the experimental data presented in the submitted paper. Further, we provide a public anonymous link to a docker image with detailed instruction where one can download and run all the different approaches.
 
 ## Docker Image
 
