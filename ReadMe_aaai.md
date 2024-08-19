@@ -77,7 +77,7 @@ This will create a directory `quantitative/heart/explainable-fsc` with the DT-FS
 
 ## Directory Structure
 
-TODO
+TODO @Sudeep do we need this... I kind of already told everything
 
 Due to limited artifact size, we only provide already generated results here for the experimental data presented in the submitted paper. Further, we provide a public anonymous link to a docker image with detailed instruction where one can download and run all the different approaches.
 
