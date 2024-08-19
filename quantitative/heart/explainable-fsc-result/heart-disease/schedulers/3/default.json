@@ -15,18 +15,40 @@
                                     "children": [
                                         {
                                             "actual_label": [
-                                                "8"
+                                                "4"
                                             ],
                                             "children": [],
                                             "split": null,
                                             "edge_label": "true"
                                         },
                                         {
-                                            "actual_label": [
-                                                "18"
+                                            "actual_label": null,
+                                            "children": [
+                                                {
+                                                    "actual_label": [
+                                                        "12"
+                                                    ],
+                                                    "children": [],
+                                                    "split": null,
+                                                    "edge_label": "true"
+                                                },
+                                                {
+                                                    "actual_label": [
+                                                        "8"
+                                                    ],
+                                                    "children": [],
+                                                    "split": null,
+                                                    "edge_label": "false"
+                                                }
                                             ],
-                                            "children": [],
-                                            "split": null,
+                                            "split": {
+                                                "lhs": {
+                                                    "coeff": 1,
+                                                    "var": "x_4"
+                                                },
+                                                "op": "<=",
+                                                "rhs": 0.5
+                                            },
                                             "edge_label": "false"
                                         }
                                     ],
@@ -42,7 +64,7 @@
                                 },
                                 {
                                     "actual_label": [
-                                        "17"
+                                        "10"
                                     ],
                                     "children": [],
                                     "split": null,
@@ -52,7 +74,7 @@
                             "split": {
                                 "lhs": {
                                     "coeff": 1,
-                                    "var": "x_2"
+                                    "var": "x_3"
                                 },
                                 "op": "<=",
                                 "rhs": 0.5
@@ -60,44 +82,14 @@
                             "edge_label": "true"
                         },
                         {
-                            "actual_label": [
-                                "12"
-                            ],
-                            "children": [],
-                            "split": null,
-                            "edge_label": "false"
-                        }
-                    ],
-                    "split": {
-                        "lhs": {
-                            "coeff": 1,
-                            "var": "x_3"
-                        },
-                        "op": "<=",
-                        "rhs": 0.5
-                    },
-                    "edge_label": "true"
-                },
-                {
-                    "actual_label": null,
-                    "children": [
-                        {
                             "actual_label": null,
                             "children": [
-                                {
-                                    "actual_label": [
-                                        "14"
-                                    ],
-                                    "children": [],
-                                    "split": null,
-                                    "edge_label": "true"
-                                },
                                 {
                                     "actual_label": null,
                                     "children": [
                                         {
                                             "actual_label": [
-                                                "13"
+                                                "11"
                                             ],
                                             "children": [],
                                             "split": null,
@@ -105,7 +97,7 @@
                                         },
                                         {
                                             "actual_label": [
-                                                "15"
+                                                "8"
                                             ],
                                             "children": [],
                                             "split": null,
@@ -115,38 +107,16 @@
                                     "split": {
                                         "lhs": {
                                             "coeff": 1,
-                                            "var": "x_2"
+                                            "var": "x_4"
                                         },
                                         "op": "<=",
                                         "rhs": 0.5
                                     },
-                                    "edge_label": "false"
-                                }
-                            ],
-                            "split": {
-                                "lhs": {
-                                    "coeff": 1,
-                                    "var": "x_3"
-                                },
-                                "op": "<=",
-                                "rhs": 0.5
-                            },
-                            "edge_label": "true"
-                        },
-                        {
-                            "actual_label": null,
-                            "children": [
-                                {
-                                    "actual_label": [
-                                        "11"
-                                    ],
-                                    "children": [],
-                                    "split": null,
                                     "edge_label": "true"
                                 },
                                 {
                                     "actual_label": [
-                                        "16"
+                                        "8"
                                     ],
                                     "children": [],
                                     "split": null,
@@ -167,11 +137,19 @@
                     "split": {
                         "lhs": {
                             "coeff": 1,
-                            "var": "x_4"
+                            "var": "x_2"
                         },
                         "op": "<=",
-                        "rhs": 1.5
+                        "rhs": 0.5
                     },
+                    "edge_label": "true"
+                },
+                {
+                    "actual_label": [
+                        "9"
+                    ],
+                    "children": [],
+                    "split": null,
                     "edge_label": "false"
                 }
             ],
@@ -181,7 +159,7 @@
                     "var": "x_4"
                 },
                 "op": "<=",
-                "rhs": 0.5
+                "rhs": 1.5
             },
             "edge_label": "true"
         },
