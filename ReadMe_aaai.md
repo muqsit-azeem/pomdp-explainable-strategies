@@ -4,7 +4,7 @@ There are two sets of benchmarks stored in separate directories, along with a sp
 
 This repository contains `.dot` file results from `iterative` and `quantitative` approaches  to Decision Tree equipped Finite State Controllers (DT-FSC):
 
-1. **DT-FSC for qualitative benchmarks (Iterative Method)**: The files generated using the iterative method.
+1. **DT-FSC for qualitative benchmarks (Iterative Method)**: The files generated using the vanilla DT-FSC method.
 2. **Skip DT-FSC for qualitative benchmarks (Iterative Method)**: The files generated using the Skip DT-FSC method.
 3. **DT-FSC for quantitative benchmarks (General approach)**: The files generated using a general case with a cutoff strategy.
 
