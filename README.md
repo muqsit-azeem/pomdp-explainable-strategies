@@ -1,8 +1,11 @@
-# Supplementary experimental data for the submission 7108: "Explainable Finite-Memory Policies for Partially Observable Markov Decision Processes"
+
+# Supplementary Experimental Data for Submission 7108: "Explainable Finite-Memory Policies for Partially Observable Markov Decision Processes"
+
+This repository contains supplementary experimental data and scripts related to the paper submission 7108. The repository is organized into directories for qualitative and quantitative analyses, each containing relevant benchmarks, scripts, and results.
 
 ## Directory Structure
 
-```bash
+\`\`\`bash
 pomdp-explainable-policy/
 ├── qualitative/
 │   ├── paper-case-studies-iterative/
@@ -41,102 +44,76 @@ pomdp-explainable-policy/
 │   ├── run_dtcontrol_quantitative.py
 │   └── run_quantitative.sh
 └── storm/
-```
+\`\`\`
 
+## Qualitative Analysis
 
-# Qualitative
-1. `qualitative-benchmarks`
-1. **DT-FSC for qualitative benchmarks (Iterative SAT-based Method)**: The files generated using the iterative method.
-  a. explainable DT-FSC in `explainable-mealy-machine` folder
-  b. storm fsc output in the form of csv table can be found in  `explainable-mealy-machine`
-3. **Skip DT-FSC for qualitative benchmarks (Iterative SAT-based Method)**: The files generated using the Skip DT-FSC method.
+### 1. **DT-FSC for Qualitative Benchmarks (Iterative SAT-based Method)**
+- **Directory:** `paper-case-studies-iterative/`
+- **Description:** Contains scripts and results for generating explainable DT-FSCs using the iterative SAT-based method.
+- **Generated Files:**
+  - FSCs (Mealy machines) and corresponding results.
 
+### 2. **Skip DT-FSC for Qualitative Benchmarks (Iterative SAT-based Method)**
+- **Directory:** `skip-dt-fsc/`
+- **Description:** Contains scripts and results for generating Skip DT-FSCs using the iterative SAT-based method.
+- **Generated Files:**
+  - Skip FSCs (Mealy machines) and corresponding results.
 
-# Quantitative
-1. `storm-fsc-output`: This folder contains `.dot` file resulted from TACAS 24 approach.
-2. Benchmarks are in the folder `benchmarks`: contains all the benchmarks from TACAS 24 paper
-3. **DT-FSC for quantitative benchmarks (General approach)**: The files generated using a general case with a cutoff strategy.
+### 3. **Vanilla DT-FSC for Qualitative Benchmarks**
+- **Directory:** `vanilla-dt-fsc/`
+- **Description:** Contains scripts and results for generating vanilla DT-FSCs.
+- **Generated Files:**
+  - Vanilla FSCs (Mealy machines) and corresponding results.
 
+## Quantitative Analysis
 
-Specific Python scripts to generate the corresponding tables.
+### 1. **General Quantitative Benchmarks**
+- **Directory:** `benchmarks/`
+- **Description:** Contains benchmarks and scripts for quantitative analysis, focusing on general cases with a cutoff strategy.
+- **Generated Files:**
+  - FSCs and DT-FSCs for each benchmark.
 
-This repository contains `.dot` file results from `iterative` and `quantitative` approaches  to Decision Tree equipped Finite State Controllers (DT-FSC):
+### 2. **Heart Disease Case Study**
+- **Directory:** `paper-case-study-heart/`
+- **Description:** Specific case study focusing on heart disease, with related benchmarks and results.
+- **Generated Files:**
+  - PRISM models, FSCs, and DT-FSCs for the heart disease study.
 
+### 3. **Storm FSC Output**
+- **Directory:** `storm-fsc-output/`
+- **Description:** Contains output files from the TACAS 24 approach, including \`.dot\` files representing FSCs.
 
-# DT-FSC for Almost sure reachability with iterative SAT-based approach
+## Running the Experiments
 
-This section provides details for benchmarks related to the iterative DT-FSC method.
-
-- The benchmarks are in the directory `pomdp-benchmark-Xstrat/`. For each benchmark, there is a PRISM model file, we check the same propery `notbad U goal` for all the models.
-- The FSCs (mealy machine in the form of tables) are in the directory `iterative/storm-mealy-machines/`.
-- The DT-FSCs are in the directory `iterative/explainable-dt-fsc-results/`.
-
-### Generate Experimental results
-To obtain the results from iterative DT-FSC data, use the following command:
-```bash
+### Qualitative DT-FSC Generation
+To generate DT-FSCs for qualitative benchmarks:
+\`\`\`bash
 ./create_table_vanilla_dt_fsc.sh iterative
-```
-This will create a directory `vanilla-dt-fsc/explainable-fsc-results` with the DT-FSCs for each benchmark and also print the results in the terminal.
+\`\`\`
 
-# Skip DT-FSC for Almost sure reachability with iterative SAT-based approach
-
-This section provides details for benchmarks related to the Skip DT-FSC method.
-
-- The benchmarks are the same `pomdp-benchmark-Xstrat/`. For each benchmark, there is a PRISM model file, we check the same propery `notbad U goal` for all the models.
-- The FSCs (mealy machine in the form of tables) are in the directory `iterative/storm-mealy-machines/`.
-- The skip-DT-FSCs are in the directory `iterative/explainable-skip-dt-fsc-results/`.
-
-### Generate Experimental Results
-To obtain the results from iterative Skip-DT-FSC data, use the following command:
-```bash
+### Skip DT-FSC Generation
+To generate Skip DT-FSCs for qualitative benchmarks:
+\`\`\`bash
 ./create_table_skip_dt_fsc.sh iterative
-```
-This will create a directory `iterative/explainable-skip-dt-fsc-results` with the DT-FSCs for each benchmark and also print the results in the terminal.
+\`\`\`
 
-# Quantitative Models Benchmarks
-
-See the readme file in the directory `quantitative` for more details.
-
-- The benchmarks are in the directory `quantitative/benchmarks/`. In each benchmark folder, there is a PRISM or explicit DRN model file and a properties file.
-- The FSCs are in the directory `quantitative/storm-mealy-machines/`.
-- The DT-FSCs are in the directory `quantitative/explainable-fsc-results/`.
-
-### Generate Experimental Results
-To rerun the experiments, use the following command:
-```bash
+### Quantitative Benchmark Execution
+To run the quantitative benchmarks:
+\`\`\`bash
 ./run_quantitative.sh quantitative
-```
-This will create a directory `quantitative/explainable-fsc` with the DT-FSCs for each benchmark and also print the results in the terminal.
+\`\`\`
 
-# Heart Disease Case Study
-See the readme file in the directory `quantitative/heart` for more details.
-
-- The PRISM model file: `heart-disease.prism`
-- The FSC generated: `quantitative/heart/storm-mealy-machines/heart-disease.dot`
-- The DT-FSC: `quantitative/heart/explainable-fsc-results/heart-disease`
-
-### Running the Experiments
-
-To rerun the experiments, use the following command:
-```bash
-./run_quantitative.sh quantitative/paper-case-study-paper-case-study-heart
-```
-This will create a directory `quantitative/heart/explainable-fsc` with the DT-FSCs for the heart disease case study and also print the results in the terminal.
-
-# Maze
-
-- The PRISM model file: `maze.nm`
-- The FSC generated: `Illustrative-example/storm-mealy-machines`
-- The DT-FSC: `Illustrative-example/explainable-fsc-results`
-
-
-Due to limited artifact size, we only provide already generated results here that generates the experimental data presented in the submitted paper. Further, we provide a public anonymous link to a docker image with detailed instruction where one can download and run all the different approaches.
+## Heart Disease Case Study
+To run the heart disease case study:
+\`\`\`bash
+./run_quantitative.sh quantitative/paper-case-study-heart
+\`\`\`
 
 ## Docker Image
 
-For a pre-configured environment that includes all necessary dependencies and scripts, you can use the Docker image available on Zenodo:
+For a pre-configured environment, use the Docker image available on Zenodo:
 
-- **Zenodo Link**: [10.5281/zenodo.13340154](https://doi.org/10.5281/zenodo.13340155)
+- **Zenodo Link:** [10.5281/zenodo.13340154](https://doi.org/10.5281/zenodo.13340155)
 
-This Docker image ensures a consistent and replicable environment for running the scripts and generating the tables.
-
+This Docker image includes all necessary dependencies and scripts to ensure a consistent and replicable environment.
