@@ -31,33 +31,33 @@ pomdp-explainable-policy/
 
 ## Qualitative Analysis
 
-- **Benchmarks Directory:** `qualitative-benchmarks/`
+- **Benchmarks Directory:** `qualitative/qualitative-benchmarks/`
 - **Description:** Contains benchmarks and scripts for qualitative analysis using iterative SAT-based method.
 - **Generated Files:** FSCs (Tabular format), DT-FSCs, and skip-DT-FSCs.
 
 ### 1. **DT-FSC for Paper Case Studies (Qualitative - Iterative SAT-based Method)**
-- **Directory:** `paper-case-studies-iterative/`
+- **Directory:** `qualitative/paper-case-studies-iterative/`
 - **Description:** Contains scripts for generating tables of DT-FSCs for the data in ```explainable-mealy-machines/```.
 - **Data Files:** FSCs (Tabular format) and DT-FSCs (explainable Mealy machines).
 
 ### 2. **DT-FSC for all Qualitative Benchmarks**
-- **Directory:** `basic-dt-fsc/`
+- **Directory:** `qualitative/basic-dt-fsc/`
 - **Description:** Contains scripts for generating tables of DT-FSCs for the data in ```explainable-mealy-machines/```
 - **Data Files:** FSCs (Tabular format) and DT-FSCs (explainable Mealy machines).
  
 ### 3. **Skip DT-FSC for all Qualitative Benchmarks**
-- **Directory:** `skip-dt-fsc/`
+- **Directory:** `qualitative/skip-dt-fsc/`
 - **Description:** Contains scripts for generating tables of DT-FSCs for the data in ```explainable-skip-mealy-machines/```
 - **Data Files:** FSCs (Tabular format) and Skip-DT-FSCs (explainable Skip Mealy machines).
 
 ## Quantitative Analysis
 
-- **Benchmarks Directory:** `benchmarks/`
+- **Benchmarks Directory:** `quantitative/benchmarks/`
 - **Description:** Contains benchmarks and scripts for quantitative analysis, focusing on general cases with a cutoff strategy.
 - **Generated Files:** FSCs (Tabular format) and DT-FSCs for each benchmark.
 
 ### 1. **Heart Disease Case Study**
-- **Directory:** `paper-case-study-heart/`
+- **Directory:** `quantitative/paper-case-study-heart/`
 - **Description:** Specific case study focusing on heart disease, with related benchmarks and results.
 - **Generated Files:** FSCs (Tabular format), and DT-FSCs (explainable Mealy machines) for the heart disease study.
 
@@ -93,13 +93,13 @@ python create_table_skip_iterative.py .
 ## Case Study Maze and Refuel(6,6)
 To create the table for #DT-nodes for the qualitative case studies from the paper:
 ```bash
-cd paper-case-studies-qualitative
+cd qualitative/paper-case-studies-qualitative
 python create_table_case_studies_basic.py .
 ```
 
 To create the table for #Rows for the qualitative case studies from the paper:
 ```bash
-cd paper-case-studies-qualitative
+cd qualitative/paper-case-studies-qualitative
 python create_table2_csv_table_size.py .
 ```
 
