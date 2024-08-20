@@ -49,17 +49,17 @@ def run_storm_pomdp(timeout, storm_pomdp_exe, input_file, params_dict):
 
 
 def run_dtcontrol(base_dir):
-    command = f"python3 -u run_dtcontrol_case_studies_vanilla.py {base_dir}"
+    command = f"python3 -u run_dtcontrol_case_studies_basic.py {base_dir}"
     run_command(command)
 
 
 def postprocess(base_dir):
-    command = f"python3 -u postprocess_case_studies_vanilla.py {base_dir}"
+    command = f"python3 -u postprocess_case_studies_basic.py {base_dir}"
     run_command(command)
 
 
 def create_table(base_dir):
-    command = f"python3 -u create_table_case_studies_vanilla.py {base_dir} latex"
+    command = f"python3 -u create_table_case_studies_basic.py {base_dir} latex"
     run_command(command)
 
 
