@@ -1,0 +1,8 @@
+started
+finish
+r1taken
+r1lastobs
+r2taken
+r2lastobs
+x
+y

@@ -1,0 +1,16 @@
+digraph {
+0 [label="blue <= 0.5"];
+1 [label="B"];
+0 -> 1 [label="True"];
+2 [label="oo0 <= 0.5"];
+3 [label="ooin <= 0.5"];
+4 [label="A"];
+3 -> 4 [label="True"];
+5 [label="in"];
+3 -> 5 [style="dashed", label="False"];
+2 -> 3 [label="True"];
+6 [label="R"];
+2 -> 6 [style="dashed", label="False"];
+0 -> 2 [style="dashed", label="False"];
+
+}

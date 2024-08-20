@@ -1,0 +1,20 @@
+digraph {
+0 [label="l <= 0.5"];
+1 [label="bad <= 0.5"];
+2 [label="r <= 0.5"];
+3 [label="{0.682687 -> down | 0.317313 -> up }"];
+2 -> 3 [label="True"];
+4 [label="right"];
+2 -> 4 [style="dashed", label="False"];
+1 -> 2 [label="True"];
+5 [label="up"];
+1 -> 5 [style="dashed", label="False"];
+0 -> 1 [label="True"];
+6 [label="r <= 0.5"];
+7 [label="left"];
+6 -> 7 [label="True"];
+8 [label="down"];
+6 -> 8 [style="dashed", label="False"];
+0 -> 6 [style="dashed", label="False"];
+
+}

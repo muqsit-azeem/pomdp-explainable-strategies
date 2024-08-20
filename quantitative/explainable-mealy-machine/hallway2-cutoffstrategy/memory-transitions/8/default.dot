@@ -1,0 +1,36 @@
+digraph {
+0 [label="obs <= 15.5"];
+1 [label="obs <= 11.5"];
+2 [label="obs <= 1.5"];
+3 [label="21"];
+2 -> 3 [label="True"];
+4 [label="obs <= 7.5"];
+5 [label="obs <= 3.5"];
+6 [label="obs <= 2.5"];
+7 [label="16"];
+6 -> 7 [label="True"];
+8 [label="21"];
+6 -> 8 [style="dashed", label="False"];
+5 -> 6 [label="True"];
+9 [label="16"];
+5 -> 9 [style="dashed", label="False"];
+4 -> 5 [label="True"];
+10 [label="obs <= 9.5"];
+11 [label="21"];
+10 -> 11 [label="True"];
+12 [label="obs <= 10.5"];
+13 [label="16"];
+12 -> 13 [label="True"];
+14 [label="21"];
+12 -> 14 [style="dashed", label="False"];
+10 -> 12 [style="dashed", label="False"];
+4 -> 10 [style="dashed", label="False"];
+2 -> 4 [style="dashed", label="False"];
+1 -> 2 [label="True"];
+15 [label="16"];
+1 -> 15 [style="dashed", label="False"];
+0 -> 1 [label="True"];
+16 [label="18"];
+0 -> 16 [style="dashed", label="False"];
+
+}

@@ -1,0 +1,16 @@
+digraph {
+0 [label="obs <= 1.5"];
+1 [label="obs <= 0.5"];
+2 [label="(W0)"];
+1 -> 2 [label="True"];
+3 [label="(E0)"];
+1 -> 3 [style="dashed", label="False"];
+0 -> 1 [label="True"];
+4 [label="obs <= 2.5"];
+5 [label="(N0)"];
+4 -> 5 [label="True"];
+6 [label="(W0)"];
+4 -> 6 [style="dashed", label="False"];
+0 -> 4 [style="dashed", label="False"];
+
+}

@@ -1,0 +1,8 @@
+digraph {
+0 [label="l <= 0.5"];
+1 [label="{0.0688749 -> left | 0.818476 -> down | 0.0688749 -> right | 0.0437743 -> up }"];
+0 -> 1 [label="True"];
+2 [label="down"];
+0 -> 2 [style="dashed", label="False"];
+
+}

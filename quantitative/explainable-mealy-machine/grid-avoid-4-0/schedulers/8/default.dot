@@ -1,0 +1,8 @@
+digraph {
+0 [label="o <= 2.0"];
+1 [label="{0.276822 -> south | 0.220626 -> north | 0.19508 -> west | 0.307472 -> east }"];
+0 -> 1 [label="True"];
+2 [label="bad"];
+0 -> 2 [style="dashed", label="False"];
+
+}

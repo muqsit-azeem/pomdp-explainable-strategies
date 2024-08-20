@@ -1,0 +1,8 @@
+digraph {
+0 [label="fuel <= 17.5"];
+1 [label="east"];
+0 -> 1 [label="True"];
+2 [label="south"];
+0 -> 2 [style="dashed", label="False"];
+
+}

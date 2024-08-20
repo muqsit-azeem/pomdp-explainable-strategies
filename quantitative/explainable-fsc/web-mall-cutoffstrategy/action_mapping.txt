@@ -1,0 +1,4 @@
+(adv-skates) <-> 0
+(adv-ties) <-> 1
+(monitor) <-> 2
+(init) <-> 3
