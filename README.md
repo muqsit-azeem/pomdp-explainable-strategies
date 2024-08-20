@@ -29,6 +29,17 @@ pomdp-explainable-policy/
 └── storm/
 ```
 
+## Data Files
+For respective analysis (Qualitative/Quantitative), for each benchmark, the folder ```explainable-mealy-machines/``` has two sub-folders. ```schedulers``` and ```memory-transitions```.
+- **FSCs (Mealy Machines Tabular Format):** 
+   - For each *reachable* node i in the FSC, ```schedulers/``` contains the corresponding stationary-policy ```i.csv``` in tabular format.
+   - For each *reachable* node i in the FSC, ```memory-transitions/``` contains the corresponding transitions ```i.csv``` in tabular format.
+- **DT-FSCs/skip-DT-FSC (Explainable Mealy Machines):**
+  - For each *reachable* node i in the FSC, ```schedulers/``` contains the corresponding explainable-stationary-policy ```i/default.dot``` as DT.
+  - For each *reachable* node i in the FSC, ```memory-transitions/``` contains the corresponding explainable-transitions ```i/default.dot``` as DT.
+- **Storm FSC Output (Bork et. al. Approach):**
+    - The ```storm-fsc-output/``` directory contains the output files from [1] representing FSCs.
+
 ## Qualitative Analysis
 
 - **Benchmarks Directory:** `qualitative/qualitative-benchmarks/`
@@ -63,7 +74,7 @@ pomdp-explainable-policy/
 
 ### 2. **Storm FSC Output**
 - **Directory:** `storm-fsc-output/`
-- **Description:** Contains output files from the Bork et. al. (TACAS 24) approach, including \`.dot\` files representing FSCs.
+- **Description:** Contains output files from the approach [1], including `.dot` files representing FSCs.
 
 
 ## Generating Tables
