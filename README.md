@@ -134,76 +134,8 @@ python create_table2_csv_table_size_storm.py paper-case-study-heart
 
 # Docker Artifact
 
-To facilitate a consistent and replicable environment, we provide a pre-configured Docker artifact available on Zenodo. This artifact includes all necessary dependencies and scripts required to reproduce the experiments described in this repository.
+To facilitate a consistent and replicable environment, we provide a pre-configured Docker artifact available on Zenodo. This artifact includes all necessary dependencies and scripts required to reproduce the experiments described in this repository. You can access the Docker artifact using the following Zenodo link:
 
-### Prerequisites
+- **Zenodo Link:** [10.5281/zenodo.13340154](https://doi.org/10.5281/zenodo.13340154)
 
-Ensure that Docker is installed on your system. You can download and install Docker from the [official website](https://www.docker.com/get-started).
-
-### Steps to Use the Docker Artifact
-
-1. **Download the Docker Artifact**
-
-   You can access the Docker artifact using the following Zenodo link:
-
-   - **Zenodo Link:** [10.5281/zenodo.13340154](https://doi.org/10.5281/zenodo.13340154)
-
-   Download the artifact and follow the instructions provided on the Zenodo page to load it into Docker.
-
-2. **Load the Docker Image**
-
-   After downloading the Docker artifact, load it into Docker using:
-
-   ```bash
-   docker load pomdp-dt-fsc.tar
-   ```
-
-
-3. **Run the Docker Container**
-
-   Run a Docker container in interactive mode from the loaded image:
-
-   ```bash
-   docker run -it pomdp-dt-fsc:lastest /bin/bash
-   ```
-
-
-4. **Navigate to the Working Directory**
-
-   Once inside the container, navigate to the directory where the project files are located:
-
-   ```bash
-   cd pomdp-explainable-policy/
-   ```
-
-5. **Run the Experiments**
-
-   Follow the instructions provided in the "Running the Experiments" section of the ```README``` in ```pomdp-explainable-policy/``` to execute the scripts for qualitative or quantitative benchmarks.
-
-   For example, to run all qualitative DT-FSC generation scripts:
-
-   ```bash
-   ./run_all.sh
-   ```
-
-6. **Exit the Docker Container**
-
-   After completing the experiments, you can exit the Docker container by typing:
-
-   ```bash
-   exit
-   ```
-
-### Mounting Local Directories
-
-If you wish to save output files directly to your local machine, you can mount a local directory to the Docker container. Use the following command to start the container with a mounted directory:
-
-```bash
-docker run -it -v /local/path/to/your/data:/container/path your-loaded-image-name /bin/bash
-```
-
-Replace `/local/path/to/your/data` with the path on your local machine and `/container/path` with the desired path inside the container.
-
-
-
-
+Download the artifact and follow the instructions provided on the Zenodo page to load it into Docker.
