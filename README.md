@@ -113,7 +113,7 @@ python create_table_storm.py .
 To create the table for #Rows for all the benchmarks from the paper (Table 4):
 ```bash
 cd quantitative
-python create_table2_csv_table_size_storm.py
+python create_table2_csv_table_size_storm.py .
 ```
 
 ## Heart Disease Case Study
