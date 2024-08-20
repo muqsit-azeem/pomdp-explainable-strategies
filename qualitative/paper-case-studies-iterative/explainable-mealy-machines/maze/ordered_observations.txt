@@ -1,0 +1,14 @@
+CanGoDown
+CanGoLeft
+CanGoRight
+CanGoUp
+bad
+clk
+goal
+CanGoDown'
+CanGoLeft'
+CanGoRight'
+CanGoUp'
+bad'
+clk'
+goal'

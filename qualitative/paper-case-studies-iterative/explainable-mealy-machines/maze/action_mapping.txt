@@ -1,0 +1,5 @@
+down <-> 3
+left <-> 4
+place <-> 1
+right <-> 0
+up <-> 2
