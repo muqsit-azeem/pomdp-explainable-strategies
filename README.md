@@ -140,6 +140,9 @@ cd quantitative
 python create_table2_csv_table_size_storm.py paper-case-study-heart
 ```
 
+[1] Bork, A. N., Chakraborty, D., Grover, K., Mohr, S., & Kretinsky, J. (2023). Artifact for Paper: Learning Explainable and Better Performing Representations of POMDP Strategies. Zenodo. https://doi.org/10.5281/zenodo.10437018
+
+
 
 # Docker Artifact
 
