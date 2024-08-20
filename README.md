@@ -11,38 +11,21 @@ pomdp-explainable-policy/
 │   ├── paper-case-studies-iterative/
 │   │   ├── create_table2_csv_table_size.py
 │   │   ├── create_table_case_studies_vanilla.py
-│   │   ├── postprocess_case_studies_vanilla.py
-│   │   ├── run_all.py
-│   │   ├── run_all.sh
-│   │   ├── run_dtcontrol_case_studies_vanilla.py
-│   │   └── run_storm_pomdp_explainable.py
+│   │   └── explainable-mealy-machines/
 │   ├── qualitative-benchmarks/
 │   ├── skip-dt-fsc/
 │   │   ├── create_table2_csv_table_size.py
 │   │   ├── create_table_skip_iterative.py
-│   │   ├── postprocess_skip.py
-│   │   ├── run_all.py
-│   │   ├── run_all.sh
-│   │   ├── run_dtcontrol_iterative_skip.py
-│   │   └── run_storm_pomdp_explainable.py
-│   └── vanilla-dt-fsc/
-│       ├── create_table2_csv_table_size.py
+│   │   └── explainable-mealy-machines/
+│   └── basic-dt-fsc/
 │       ├── create_table_vanilla_iterative.py
-│       ├── postprocess_vanilla.py
-│       ├── run_all.py
-│       ├── run_all.sh
-│       ├── run_dtcontrol_iterative_vanilla.py
-│       └── run_storm_pomdp_explainable.py
+│       └── explainable-skip-mealy-machines/
 ├── quantitative/
 │   ├── benchmarks/
 │   ├── paper-case-study-heart/
 │   ├── storm-fsc-output/
 │   ├── create_table2_csv_table_size_storm.py
-│   ├── create_table_storm.py
-│   ├── postprocess_quantitive.py
-│   ├── process_storm_output.py
-│   ├── run_dtcontrol_quantitative.py
-│   └── run_quantitative.sh
+│   └── explainable-mealy-machine/
 └── storm/
 ```
 
@@ -128,7 +111,7 @@ Ensure that Docker is installed on your system. You can download and install Doc
 
    You can access the Docker artifact using the following Zenodo link:
 
-   - **Zenodo Link:** [10.5281/zenodo.13340155](https://doi.org/10.5281/zenodo.13340155)
+   - **Zenodo Link:** [10.5281/zenodo.13340154](https://doi.org/10.5281/zenodo.13340154)
 
    Download the artifact and follow the instructions provided on the Zenodo page to load it into Docker.
 
@@ -160,7 +143,7 @@ Ensure that Docker is installed on your system. You can download and install Doc
 
 5. **Run the Experiments**
 
-   Follow the instructions provided in the "Running the Experiments" section of this README to execute the scripts for qualitative or quantitative benchmarks.
+   Follow the instructions provided in the "Running the Experiments" section of the ```README``` in ```pomdp-explainable-policy/``` to execute the scripts for qualitative or quantitative benchmarks.
 
    For example, to run all qualitative DT-FSC generation scripts:
 
