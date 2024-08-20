@@ -47,7 +47,7 @@ pomdp-explainable-policy/
  
 ### 3. **Skip DT-FSC for all Qualitative Benchmarks**
 - **Directory:** `skip-dt-fsc/`
- **Description:** Contains scripts for generating tables of DT-FSCs for the data in ```explainable-skip-mealy-machines/```
+- **Description:** Contains scripts for generating tables of DT-FSCs for the data in ```explainable-skip-mealy-machines/```
 - **Data Files:** FSCs (Tabular format) and Skip-DT-FSCs (explainable Skip Mealy machines).
 
 ## Quantitative Analysis
