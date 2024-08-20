@@ -10,11 +10,11 @@ pomdp-explainable-policy/
 ├── qualitative/
 │   ├── paper-case-studies-iterative/
 │   │   ├── create_table2_csv_table_size.py
-│   │   ├── create_table_case_studies_vanilla.py
-│   │   ├── postprocess_case_studies_vanilla.py
+│   │   ├── create_table_case_studies_basic.py
+│   │   ├── postprocess_case_studies_basic.py
 │   │   ├── run_all.py
 │   │   ├── run_all.sh
-│   │   ├── run_dtcontrol_case_studies_vanilla.py
+│   │   ├── run_dtcontrol_case_studies_basic.py
 │   │   └── run_storm_pomdp_explainable.py
 │   ├── qualitative-benchmarks/
 │   ├── skip-dt-fsc/
@@ -25,13 +25,13 @@ pomdp-explainable-policy/
 │   │   ├── run_all.sh
 │   │   ├── run_dtcontrol_iterative_skip.py
 │   │   └── run_storm_pomdp_explainable.py
-│   └── vanilla-dt-fsc/
+│   └── basic-dt-fsc/
 │       ├── create_table2_csv_table_size.py
-│       ├── create_table_vanilla_iterative.py
-│       ├── postprocess_vanilla.py
+│       ├── create_table_basic_iterative.py
+│       ├── postprocess_basic.py
 │       ├── run_all.py
 │       ├── run_all.sh
-│       ├── run_dtcontrol_iterative_vanilla.py
+│       ├── run_dtcontrol_iterative_basic.py
 │       └── run_storm_pomdp_explainable.py
 ├── quantitative/
 │   ├── benchmarks/
@@ -59,7 +59,7 @@ pomdp-explainable-policy/
   - DT-FSCs (explainable Mealy machines) and corresponding results.
 
 ### 2. **DT-FSC for all Qualitative Benchmarks**
-- **Directory:** `vanilla-dt-fsc/`
+- **Directory:** `baisc-dt-fsc/`
 - **Description:** Contains scripts for generating DT-FSCs.
 - **Generated Files:**
   - DT-FSCs (explainable Mealy machines) and corresponding results.
@@ -165,6 +165,7 @@ Ensure that Docker is installed on your system. You can download and install Doc
    For example, to run all qualitative DT-FSC generation scripts:
 
    ```bash
+   cd <dirname>
    ./run_all.sh
    ```
 
