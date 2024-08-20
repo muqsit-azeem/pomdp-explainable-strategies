@@ -1,5 +1,0 @@
-(listen) <-> 0
-(open-right) <-> 1
-(stand-up) <-> 2
-(open-left) <-> 3
-(init) <-> 4

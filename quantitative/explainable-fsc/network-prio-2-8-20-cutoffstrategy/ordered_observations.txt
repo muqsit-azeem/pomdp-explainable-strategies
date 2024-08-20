@@ -1,7 +1,0 @@
-k
-t
-sched
-packet1
-packet2
-priority1
-priority2

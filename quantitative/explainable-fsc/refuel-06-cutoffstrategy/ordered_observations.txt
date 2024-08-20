@@ -1,9 +1,0 @@
-start
-fuel
-amdone
-cangoeast
-cangonorth
-cangosouth
-cangowest
-hascrash
-refuelAllowed
