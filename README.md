@@ -1,6 +1,6 @@
 # Supplementary Experimental Data for Submission 7108: "Explainable Finite-Memory Policies for Partially Observable Markov Decision Processes"
 
-This repository contains supplementary experimental data and scripts related to the paper submission 7108. The repository is organized into directories for qualitative and quantitative analyses, each containing relevant benchmarks, scripts to generate the results.
+This repository already contains supplementary experimental data and scripts related to the paper submission 7108. The repository is organized into directories for qualitative and quantitative analyses, each containing relevant benchmarks, and scripts to generate the values from the paper. If you would like to regenerate the experimental data, please see the details below for our docker image.
 
 ## Directory Structure
 
@@ -27,6 +27,7 @@ pomdp-explainable-policy/
 │   └── explainable-mealy-machine/
 └── storm/
 ```
+
 
 ## Data Files
 For respective analysis (Qualitative/Quantitative), for each benchmark, the folder ```explainable-mealy-machines/``` has two sub-folders. ```schedulers``` and ```memory-transitions```.
