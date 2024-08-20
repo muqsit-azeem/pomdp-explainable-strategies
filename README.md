@@ -100,7 +100,7 @@ python create_table_skip_iterative.py .
 ```
 
 
-## Case Study Maze and Refuel(6,6)
+#### Case Study Maze and Refuel(6,6)
 To create the table for #DT-nodes for the qualitative case studies from the paper:
 ```bash
 cd qualitative/paper-case-studies-qualitative
@@ -126,7 +126,7 @@ cd quantitative
 python create_table2_csv_table_size_storm.py
 ```
 
-### Heart Disease Case Study
+#### Heart Disease Case Study [2]
 To create the table for #DT-nodes for the heart disease case study:
 ```bash
 cd quantitative
