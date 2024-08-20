@@ -1,0 +1,16 @@
+digraph {
+0 [label="nearr1' <= 0.5"];
+1 [label="nearr2' <= 0.5"];
+2 [label="r2lastobs' <= 0.5"];
+3 [label="3"];
+2 -> 3 [label="True"];
+4 [label="4"];
+2 -> 4 [style="dashed", label="False"];
+1 -> 2 [label="True"];
+5 [label="8"];
+1 -> 5 [style="dashed", label="False"];
+0 -> 1 [label="True"];
+6 [label="7"];
+0 -> 6 [style="dashed", label="False"];
+
+}

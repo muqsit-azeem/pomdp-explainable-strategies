@@ -1,0 +1,16 @@
+digraph {
+0 [label="dx <= 5.5"];
+1 [label="seedx <= 1.5"];
+2 [label="skip"];
+1 -> 2 [label="True"];
+3 [label="dx <= 4.5"];
+4 [label="east"];
+3 -> 4 [label="True"];
+5 [label="skip"];
+3 -> 5 [style="dashed", label="False"];
+1 -> 3 [style="dashed", label="False"];
+0 -> 1 [label="True"];
+6 [label="south"];
+0 -> 6 [style="dashed", label="False"];
+
+}

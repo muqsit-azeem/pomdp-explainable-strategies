@@ -1,0 +1,16 @@
+digraph {
+0 [label="dy <= 1.5"];
+1 [label="skip"];
+0 -> 1 [label="True"];
+2 [label="turn <= 0.5"];
+3 [label="seedy <= 4.5"];
+4 [label="adv"];
+3 -> 4 [label="True"];
+5 [label="skip"];
+3 -> 5 [style="dashed", label="False"];
+2 -> 3 [label="True"];
+6 [label="skip"];
+2 -> 6 [style="dashed", label="False"];
+0 -> 2 [style="dashed", label="False"];
+
+}

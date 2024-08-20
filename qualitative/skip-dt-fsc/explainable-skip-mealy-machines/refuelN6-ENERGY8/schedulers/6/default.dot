@@ -1,0 +1,32 @@
+digraph {
+0 [label="cangonorth <= 0.5"];
+1 [label="refuelAllowed <= 0.5"];
+2 [label="cangowest <= 0.5"];
+3 [label="start <= 0.5"];
+4 [label="placement"];
+3 -> 4 [label="True"];
+5 [label="south"];
+3 -> 5 [style="dashed", label="False"];
+2 -> 3 [label="True"];
+6 [label="west"];
+2 -> 6 [style="dashed", label="False"];
+1 -> 2 [label="True"];
+7 [label="refuel"];
+1 -> 7 [style="dashed", label="False"];
+0 -> 1 [label="True"];
+8 [label="fuelmeter <= 0.5"];
+9 [label="north"];
+8 -> 9 [label="True"];
+10 [label="cangosouth <= 0.5"];
+11 [label="east"];
+10 -> 11 [label="True"];
+12 [label="cangowest <= 0.5"];
+13 [label="east"];
+12 -> 13 [label="True"];
+14 [label="north"];
+12 -> 14 [style="dashed", label="False"];
+10 -> 12 [style="dashed", label="False"];
+8 -> 10 [style="dashed", label="False"];
+0 -> 8 [style="dashed", label="False"];
+
+}

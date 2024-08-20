@@ -1,0 +1,44 @@
+digraph {
+0 [label="turn <= 0.5"];
+1 [label="adv"];
+0 -> 1 [label="True"];
+2 [label="dx <= 4.5"];
+3 [label="dy <= 2.5"];
+4 [label="dx <= 3.5"];
+5 [label="seedx <= 1.0"];
+6 [label="south"];
+5 -> 6 [label="True"];
+7 [label="east"];
+5 -> 7 [style="dashed", label="False"];
+4 -> 5 [label="True"];
+8 [label="south"];
+4 -> 8 [style="dashed", label="False"];
+3 -> 4 [label="True"];
+9 [label="seedx <= 0.5"];
+10 [label="dy <= 3.5"];
+11 [label="seedy <= 5.5"];
+12 [label="north"];
+11 -> 12 [label="True"];
+13 [label="east"];
+11 -> 13 [style="dashed", label="False"];
+10 -> 11 [label="True"];
+14 [label="north"];
+10 -> 14 [style="dashed", label="False"];
+9 -> 10 [label="True"];
+15 [label="east"];
+9 -> 15 [style="dashed", label="False"];
+3 -> 9 [style="dashed", label="False"];
+2 -> 3 [label="True"];
+16 [label="dx <= 5.5"];
+17 [label="seedx <= 3.5"];
+18 [label="west"];
+17 -> 18 [label="True"];
+19 [label="north"];
+17 -> 19 [style="dashed", label="False"];
+16 -> 17 [label="True"];
+20 [label="east"];
+16 -> 20 [style="dashed", label="False"];
+2 -> 16 [style="dashed", label="False"];
+0 -> 2 [style="dashed", label="False"];
+
+}

@@ -1,0 +1,73 @@
+{
+    "actual_label": null,
+    "children": [
+        {
+            "actual_label": null,
+            "children": [
+                {
+                    "actual_label": null,
+                    "children": [
+                        {
+                            "actual_label": [
+                                "3"
+                            ],
+                            "children": [],
+                            "split": null,
+                            "edge_label": "true"
+                        },
+                        {
+                            "actual_label": [
+                                "4"
+                            ],
+                            "children": [],
+                            "split": null,
+                            "edge_label": "false"
+                        }
+                    ],
+                    "split": {
+                        "lhs": {
+                            "coeff": 1,
+                            "var": "x_21"
+                        },
+                        "op": "<=",
+                        "rhs": 0.5
+                    },
+                    "edge_label": "true"
+                },
+                {
+                    "actual_label": [
+                        "8"
+                    ],
+                    "children": [],
+                    "split": null,
+                    "edge_label": "false"
+                }
+            ],
+            "split": {
+                "lhs": {
+                    "coeff": 1,
+                    "var": "x_18"
+                },
+                "op": "<=",
+                "rhs": 0.5
+            },
+            "edge_label": "true"
+        },
+        {
+            "actual_label": [
+                "7"
+            ],
+            "children": [],
+            "split": null,
+            "edge_label": "false"
+        }
+    ],
+    "split": {
+        "lhs": {
+            "coeff": 1,
+            "var": "x_17"
+        },
+        "op": "<=",
+        "rhs": 0.5
+    }
+}

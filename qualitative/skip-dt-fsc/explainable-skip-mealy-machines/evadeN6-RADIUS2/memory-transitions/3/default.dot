@@ -1,0 +1,40 @@
+digraph {
+0 [label="dx' <= 2.5"];
+1 [label="3"];
+0 -> 1 [label="True"];
+2 [label="seedx' <= 0.5"];
+3 [label="dx' <= 4.5"];
+4 [label="dy' <= 3.5"];
+5 [label="1"];
+4 -> 5 [label="True"];
+6 [label="seedx' <= -0.5"];
+7 [label="1"];
+6 -> 7 [label="True"];
+8 [label="seedy' <= 1.5"];
+9 [label="3"];
+8 -> 9 [label="True"];
+10 [label="1"];
+8 -> 10 [style="dashed", label="False"];
+6 -> 8 [style="dashed", label="False"];
+4 -> 6 [style="dashed", label="False"];
+3 -> 4 [label="True"];
+11 [label="3"];
+3 -> 11 [style="dashed", label="False"];
+2 -> 3 [label="True"];
+12 [label="turn' <= 0.5"];
+13 [label="1"];
+12 -> 13 [label="True"];
+14 [label="seedx' <= 1.5"];
+15 [label="dy' <= 3.5"];
+16 [label="3"];
+15 -> 16 [label="True"];
+17 [label="0"];
+15 -> 17 [style="dashed", label="False"];
+14 -> 15 [label="True"];
+18 [label="0"];
+14 -> 18 [style="dashed", label="False"];
+12 -> 14 [style="dashed", label="False"];
+2 -> 12 [style="dashed", label="False"];
+0 -> 2 [style="dashed", label="False"];
+
+}

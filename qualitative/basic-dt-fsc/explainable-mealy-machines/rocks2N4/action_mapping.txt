@@ -1,0 +1,10 @@
+east <-> 3
+finish <-> 9
+north <-> 4
+placement <-> 0
+r1sample <-> 8
+r1sense <-> 2
+r2sample <-> 7
+r2sense <-> 1
+south <-> 6
+west <-> 5

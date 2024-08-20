@@ -1,0 +1,48 @@
+digraph {
+0 [label="seefinish' <= 0.5"];
+1 [label="r1lastobs' <= 0.5"];
+2 [label="r1taken' <= 0.5"];
+3 [label="nearr1' <= 0.5"];
+4 [label="3"];
+3 -> 4 [label="True"];
+5 [label="2"];
+3 -> 5 [style="dashed", label="False"];
+2 -> 3 [label="True"];
+6 [label="r2taken' <= 0.5"];
+7 [label="r2lastobs' <= 0.5"];
+8 [label="atr1' <= 0.5"];
+9 [label="nearr1' <= 0.5"];
+10 [label="1"];
+9 -> 10 [label="True"];
+11 [label="3"];
+9 -> 11 [style="dashed", label="False"];
+8 -> 9 [label="True"];
+12 [label="1"];
+8 -> 12 [style="dashed", label="False"];
+7 -> 8 [label="True"];
+13 [label="3"];
+7 -> 13 [style="dashed", label="False"];
+6 -> 7 [label="True"];
+14 [label="3"];
+6 -> 14 [style="dashed", label="False"];
+2 -> 6 [style="dashed", label="False"];
+1 -> 2 [label="True"];
+15 [label="atr1' <= 0.5"];
+16 [label="3"];
+15 -> 16 [label="True"];
+17 [label="2"];
+15 -> 17 [style="dashed", label="False"];
+1 -> 15 [style="dashed", label="False"];
+0 -> 1 [label="True"];
+18 [label="r1taken' <= 0.5"];
+19 [label="r2taken' <= 0.5"];
+20 [label="2"];
+19 -> 20 [label="True"];
+21 [label="0"];
+19 -> 21 [style="dashed", label="False"];
+18 -> 19 [label="True"];
+22 [label="0"];
+18 -> 22 [style="dashed", label="False"];
+0 -> 18 [style="dashed", label="False"];
+
+}

@@ -1,0 +1,12 @@
+digraph {
+0 [label="dy <= 0.5"];
+1 [label="adv"];
+0 -> 1 [label="True"];
+2 [label="seedx <= 2.0"];
+3 [label="north"];
+2 -> 3 [label="True"];
+4 [label="skip"];
+2 -> 4 [style="dashed", label="False"];
+0 -> 2 [style="dashed", label="False"];
+
+}

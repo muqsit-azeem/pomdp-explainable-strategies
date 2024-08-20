@@ -1,0 +1,8 @@
+digraph {
+0 [label="r2lastobs <= 0.5"];
+1 [label="north"];
+0 -> 1 [label="True"];
+2 [label="r2sense"];
+0 -> 2 [style="dashed", label="False"];
+
+}

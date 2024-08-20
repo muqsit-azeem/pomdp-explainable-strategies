@@ -1,0 +1,28 @@
+digraph {
+0 [label="nearr1 <= 0.5"];
+1 [label="r2lastobs <= 0.5"];
+2 [label="r1lastobs <= 0.5"];
+3 [label="r1taken <= 0.5"];
+4 [label="north"];
+3 -> 4 [label="True"];
+5 [label="east"];
+3 -> 5 [style="dashed", label="False"];
+2 -> 3 [label="True"];
+6 [label="r2taken <= 0.5"];
+7 [label="r2sense"];
+6 -> 7 [label="True"];
+8 [label="east"];
+6 -> 8 [style="dashed", label="False"];
+2 -> 6 [style="dashed", label="False"];
+1 -> 2 [label="True"];
+9 [label="south"];
+1 -> 9 [style="dashed", label="False"];
+0 -> 1 [label="True"];
+10 [label="r2lastobs <= 0.5"];
+11 [label="south"];
+10 -> 11 [label="True"];
+12 [label="r1sense"];
+10 -> 12 [style="dashed", label="False"];
+0 -> 10 [style="dashed", label="False"];
+
+}

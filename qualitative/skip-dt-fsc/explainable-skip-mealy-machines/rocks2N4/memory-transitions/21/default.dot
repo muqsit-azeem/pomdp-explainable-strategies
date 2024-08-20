@@ -1,0 +1,28 @@
+digraph {
+0 [label="nearr2' <= 0.5"];
+1 [label="r1lastobs' <= 0.5"];
+2 [label="r1taken' <= 0.5"];
+3 [label="4"];
+2 -> 3 [label="True"];
+4 [label="17"];
+2 -> 4 [style="dashed", label="False"];
+1 -> 2 [label="True"];
+5 [label="r2taken' <= 0.5"];
+6 [label="21"];
+5 -> 6 [label="True"];
+7 [label="17"];
+5 -> 7 [style="dashed", label="False"];
+1 -> 5 [style="dashed", label="False"];
+0 -> 1 [label="True"];
+8 [label="nearr1' <= 0.5"];
+9 [label="r1taken' <= 0.5"];
+10 [label="1"];
+9 -> 10 [label="True"];
+11 [label="17"];
+9 -> 11 [style="dashed", label="False"];
+8 -> 9 [label="True"];
+12 [label="17"];
+8 -> 12 [style="dashed", label="False"];
+0 -> 8 [style="dashed", label="False"];
+
+}

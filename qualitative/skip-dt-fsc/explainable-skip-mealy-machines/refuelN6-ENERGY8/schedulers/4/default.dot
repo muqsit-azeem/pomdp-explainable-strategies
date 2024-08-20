@@ -1,0 +1,16 @@
+digraph {
+0 [label="cangosouth <= 0.5"];
+1 [label="east"];
+0 -> 1 [label="True"];
+2 [label="fuelfull <= 0.5"];
+3 [label="refuelAllowed <= 0.5"];
+4 [label="south"];
+3 -> 4 [label="True"];
+5 [label="refuel"];
+3 -> 5 [style="dashed", label="False"];
+2 -> 3 [label="True"];
+6 [label="skip"];
+2 -> 6 [style="dashed", label="False"];
+0 -> 2 [style="dashed", label="False"];
+
+}

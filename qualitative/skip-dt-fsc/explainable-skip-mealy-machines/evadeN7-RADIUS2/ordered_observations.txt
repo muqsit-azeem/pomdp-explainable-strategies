@@ -1,0 +1,16 @@
+amdone
+dx
+dy
+hascrash
+seedx
+seedy
+start
+turn
+amdone'
+dx'
+dy'
+hascrash'
+seedx'
+seedy'
+start'
+turn'

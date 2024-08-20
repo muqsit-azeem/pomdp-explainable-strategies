@@ -1,0 +1,20 @@
+digraph {
+0 [label="turn <= 0.5"];
+1 [label="adv"];
+0 -> 1 [label="True"];
+2 [label="dir2 <= -0.5"];
+3 [label="dx <= 3.0"];
+4 [label="dir <= 0.5"];
+5 [label="south"];
+4 -> 5 [label="True"];
+6 [label="east"];
+4 -> 6 [style="dashed", label="False"];
+3 -> 4 [label="True"];
+7 [label="west"];
+3 -> 7 [style="dashed", label="False"];
+2 -> 3 [label="True"];
+8 [label="north"];
+2 -> 8 [style="dashed", label="False"];
+0 -> 2 [style="dashed", label="False"];
+
+}

@@ -1,0 +1,44 @@
+digraph {
+0 [label="nearr1 <= 0.5"];
+1 [label="r1lastobs <= 0.5"];
+2 [label="nearr2 <= 0.5"];
+3 [label="r1taken <= 0.5"];
+4 [label="r2lastobs <= 0.5"];
+5 [label="east"];
+4 -> 5 [label="True"];
+6 [label="south"];
+4 -> 6 [style="dashed", label="False"];
+3 -> 4 [label="True"];
+7 [label="r2lastobs <= 0.5"];
+8 [label="west"];
+7 -> 8 [label="True"];
+9 [label="east"];
+7 -> 9 [style="dashed", label="False"];
+3 -> 7 [style="dashed", label="False"];
+2 -> 3 [label="True"];
+10 [label="r1taken <= 0.5"];
+11 [label="west"];
+10 -> 11 [label="True"];
+12 [label="north"];
+10 -> 12 [style="dashed", label="False"];
+2 -> 10 [style="dashed", label="False"];
+1 -> 2 [label="True"];
+13 [label="r2taken <= 0.5"];
+14 [label="south"];
+13 -> 14 [label="True"];
+15 [label="west"];
+13 -> 15 [style="dashed", label="False"];
+1 -> 13 [style="dashed", label="False"];
+0 -> 1 [label="True"];
+16 [label="r1lastobs <= 0.5"];
+17 [label="north"];
+16 -> 17 [label="True"];
+18 [label="r2lastobs <= 0.5"];
+19 [label="north"];
+18 -> 19 [label="True"];
+20 [label="west"];
+18 -> 20 [style="dashed", label="False"];
+16 -> 18 [style="dashed", label="False"];
+0 -> 16 [style="dashed", label="False"];
+
+}

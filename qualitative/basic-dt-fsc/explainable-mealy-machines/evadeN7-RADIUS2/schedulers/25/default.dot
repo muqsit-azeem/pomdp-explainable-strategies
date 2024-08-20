@@ -1,0 +1,28 @@
+digraph {
+0 [label="turn <= 0.5"];
+1 [label="adv"];
+0 -> 1 [label="True"];
+2 [label="seedx <= 3.5"];
+3 [label="seedx <= 0.0"];
+4 [label="dx <= 4.5"];
+5 [label="east"];
+4 -> 5 [label="True"];
+6 [label="scan"];
+4 -> 6 [style="dashed", label="False"];
+3 -> 4 [label="True"];
+7 [label="seedx <= 2.5"];
+8 [label="east"];
+7 -> 8 [label="True"];
+9 [label="seedy <= 4.5"];
+10 [label="north"];
+9 -> 10 [label="True"];
+11 [label="east"];
+9 -> 11 [style="dashed", label="False"];
+7 -> 9 [style="dashed", label="False"];
+3 -> 7 [style="dashed", label="False"];
+2 -> 3 [label="True"];
+12 [label="north"];
+2 -> 12 [style="dashed", label="False"];
+0 -> 2 [style="dashed", label="False"];
+
+}

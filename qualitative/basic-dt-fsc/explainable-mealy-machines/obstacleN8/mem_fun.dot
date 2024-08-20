@@ -1,0 +1,13 @@
+digraph MemoryTransitions {
+    "initial" [label="", style=invis, width=0];
+    "initial" -> "10";
+    "1" -> "1" [label="0,0'"];
+    "2" -> "1" [label="0,0'"];
+    "3" -> "2" [label="0,0'"];
+    "6" -> "3" [label="0,0'"];
+    "7" -> "6" [label="0,0'"];
+    "8" -> "7" [label="0,0'"];
+    "9" -> "8" [label="0,0'"];
+    "10" -> "9" [label="0,0'; 2,0'"];
+    "10" -> "10" [label="0,2'; 2,2'"];
+}

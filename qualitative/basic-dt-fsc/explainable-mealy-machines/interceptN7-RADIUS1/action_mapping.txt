@@ -1,0 +1,6 @@
+adv <-> 1
+east <-> 2
+north <-> 3
+placement <-> 5
+south <-> 0
+west <-> 4
