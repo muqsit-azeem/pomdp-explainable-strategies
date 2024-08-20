@@ -126,21 +126,23 @@ cd quantitative
 python create_table2_csv_table_size_storm.py
 ```
 
-## Heart Disease Case Study
+### Heart Disease Case Study
 To create the table for #DT-nodes for the heart disease case study:
 ```bash
 cd quantitative
 python create_table_storm.py paper-case-study-heart
 ```
 
-## Heart Disease Case Study
-To create the table for #DT-nodes for the heart disease case study:
+To create the table for #Row for the heart disease case study:
 ```bash
 cd quantitative
 python create_table2_csv_table_size_storm.py paper-case-study-heart
 ```
 
 [1] Bork, A. N., Chakraborty, D., Grover, K., Mohr, S., & Kretinsky, J. (2023). Artifact for Paper: Learning Explainable and Better Performing Representations of POMDP Strategies. Zenodo. https://doi.org/10.5281/zenodo.10437018
+
+[2] Hauskrecht, M.; and Fraser, H. 2000. Planning treatment of ischemic heart disease with partially observable Markov decision processes. Artificial intelligence in medicine, 18(3): 221–244.
+
 
 
 
