@@ -1,0 +1,16 @@
+Done <-> 0
+{0.911453 -> pcta | 0.0885471 -> medicine } <-> 1
+{0.682466 -> pcta | 0.317534 -> medicine } <-> 2
+{0.682465 -> pcta | 0.317535 -> medicine } <-> 3
+INIT <-> 4
+{0.253833 -> medicine | 0.746167 -> stressTest } <-> 5
+{0.838026 -> stressTest | 0.161974 -> ekgTest } <-> 6
+stressTest <-> 7
+{0.571429 -> pcta | 0.428571 -> medicine } <-> 8
+{0.666666 -> pcta | 0.333334 -> medicine } <-> 9
+{0.571428 -> pcta | 0.428572 -> medicine } <-> 10
+{0.428572 -> medicine | 0.571428 -> stressTest } <-> 11
+{0.666667 -> stressTest | 0.333333 -> ekgTest } <-> 12
+pcta <-> 13
+ekgTest <-> 14
+medicine <-> 15
