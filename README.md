@@ -37,21 +37,18 @@ pomdp-explainable-policy/
 
 ### 1. **DT-FSC for Paper Case Studies (Qualitative - Iterative SAT-based Method)**
 - **Directory:** `paper-case-studies-iterative/`
-- **Description:** Contains scripts for generating explainable DT-FSCs using iterative SAT-based method.
-- **Generated Files:**
-  - DT-FSCs (explainable Mealy machines) and corresponding results.
+- **Description:** Contains scripts for generating tables of DT-FSCs for the data in ```explainable-mealy-machines/```.
+- **Data Files:** FSCs (Tabular format) and DT-FSCs (explainable Mealy machines).
 
 ### 2. **DT-FSC for all Qualitative Benchmarks**
 - **Directory:** `basic-dt-fsc/`
-- **Description:** Contains scripts for generating DT-FSCs.
-- **Generated Files:**
-  - DT-FSCs (explainable Mealy machines) and corresponding results.
+- **Description:** Contains scripts for generating tables of DT-FSCs for the data in ```explainable-mealy-machines/```
+- **Data Files:** FSCs (Tabular format) and DT-FSCs (explainable Mealy machines).
  
 ### 3. **Skip DT-FSC for all Qualitative Benchmarks**
 - **Directory:** `skip-dt-fsc/`
-- **Description:** Contains scripts for generating Skip DT-FSCs using the iterative SAT-based method.
-- **Generated Files:**
-  - Skip DT-FSCs (explainable Mealy machines with skip) and corresponding results.
+ **Description:** Contains scripts for generating tables of DT-FSCs for the data in ```explainable-skip-mealy-machines/```
+- **Data Files:** FSCs (Tabular format) and Skip-DT-FSCs (explainable Skip Mealy machines).
 
 ## Quantitative Analysis
 
@@ -62,37 +59,75 @@ pomdp-explainable-policy/
 ### 1. **Heart Disease Case Study**
 - **Directory:** `paper-case-study-heart/`
 - **Description:** Specific case study focusing on heart disease, with related benchmarks and results.
-- **Generated Files:**
-  - FSCs (Tabular format), and DT-FSCs (explainable Mealy machines) for the heart disease study.
+- **Generated Files:** FSCs (Tabular format), and DT-FSCs (explainable Mealy machines) for the heart disease study.
 
 ### 2. **Storm FSC Output**
 - **Directory:** `storm-fsc-output/`
 - **Description:** Contains output files from the Bork et. al. (TACAS 24) approach, including \`.dot\` files representing FSCs.
 
-## Running the Experiments
+
+## Generating Tables
 
 ### Qualitative DT-FSC Generation
-To generate DT-FSCs, Skip DT-FSCs for qualitative benchmarks, in the respective folder, do:
+To create the table for #DT-nodes for all the benchmarks from the paper (Table 1):
 ```bash
-./run_all.sh
+cd qualitative/basic-dt-fsc
+python create_table_basic_iterative.py .
 ```
 
-## Case Study Maze and Refuel(6,6)
-To generate DT-FSCs, in ```paper-case-studies-qualitative```:
+To create the table for #Rows for all the benchmarks from the paper (Table 1):
 ```bash
-./run_all.sh
+cd qualitative/basic-dt-fsc
+python create_table2_csv_table_size.py .
+```
+
+
+### Qualitative Skip-DT-FSC Generation
+To create the table for #DT-nodes for all the benchmarks from the paper (Table 2):
+```bash
+cd qualitative/skip-dt-fsc
+python create_table_skip_iterative.py .
+```
+
+
+## Case Study Maze and Refuel(6,6)
+To create the table for #DT-nodes for the qualitative case studies from the paper:
+```bash
+cd paper-case-studies-qualitative
+python create_table_case_studies_basic.py .
+```
+
+To create the table for #Rows for the qualitative case studies from the paper:
+```bash
+cd paper-case-studies-qualitative
+python create_table2_csv_table_size.py .
 ```
 
 ### Quantitative Benchmark Execution
-To run the quantitative benchmarks:
+To create the table for #DT-nodes for all the benchmarks from the paper (Table 4):
 ```bash
-./run_quantitative.sh
+cd quantitative
+python create_table_storm.py .
+```
+
+To create the table for #Rows for all the benchmarks from the paper (Table 4):
+```bash
+cd quantitative
+python create_table2_csv_table_size_storm.py
 ```
 
 ## Heart Disease Case Study
-To run the heart disease case study:
+To create the table for #DT-nodes for the heart disease case study:
 ```bash
-./run_quantitative.sh paper-case-study-heart
+cd quantitative
+python create_table_storm.py paper-case-study-heart
+```
+
+## Heart Disease Case Study
+To create the table for #DT-nodes for the heart disease case study:
+```bash
+cd quantitative
+python create_table2_csv_table_size_storm.py paper-case-study-heart
 ```
 
 
