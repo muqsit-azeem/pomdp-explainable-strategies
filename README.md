@@ -36,18 +36,18 @@ pomdp-explainable-policy/
 - **Generated Files:** FSCs (Tabular format), DT-FSCs, and skip-DT-FSCs.
 
 ### 1. **DT-FSC for Paper Case Studies (Qualitative - Iterative SAT-based Method)**
-- **Directory:** `qualitative/paper-case-studies-iterative/`
+- **Directory:** `qualitative/paper-case-studies-iterative/`.
 - **Description:** Contains scripts for generating tables of DT-FSCs for the data in ```explainable-mealy-machines/```.
 - **Data Files:** FSCs (Tabular format) and DT-FSCs (explainable Mealy machines).
 
 ### 2. **DT-FSC for all Qualitative Benchmarks**
 - **Directory:** `qualitative/basic-dt-fsc/`
-- **Description:** Contains scripts for generating tables of DT-FSCs for the data in ```explainable-mealy-machines/```
+- **Description:** Contains scripts for generating tables of DT-FSCs for the data in ```explainable-mealy-machines/```.
 - **Data Files:** FSCs (Tabular format) and DT-FSCs (explainable Mealy machines).
  
 ### 3. **Skip DT-FSC for all Qualitative Benchmarks**
 - **Directory:** `qualitative/skip-dt-fsc/`
-- **Description:** Contains scripts for generating tables of DT-FSCs for the data in ```explainable-skip-mealy-machines/```
+- **Description:** Contains scripts for generating tables of DT-FSCs for the data in ```explainable-skip-mealy-machines/```.
 - **Data Files:** FSCs (Tabular format) and Skip-DT-FSCs (explainable Skip Mealy machines).
 
 ## Quantitative Analysis
