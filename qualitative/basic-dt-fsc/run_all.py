@@ -1,6 +1,6 @@
 import os
 import subprocess
-import sys
+import sys, time
 
 
 def check_directory_exists(directory):
@@ -98,7 +98,10 @@ def main():
         input_file_path = os.path.join(model_dir, model)
         storm_pomdp_exec = os.path.join(storm_build_dir, "bin", "storm-pomdp")
         print("model: ", model, "params: ", params)
+        start_time = time.time()
         run_storm_pomdp(timeout, storm_pomdp_exec, input_file_path, params)
+        end_time = time.time()
+        print(f"Time taken by STORM for {model}: {end_time - start_time} seconds")
 
     run_dtcontrol(os.getcwd())
     postprocess(os.getcwd())

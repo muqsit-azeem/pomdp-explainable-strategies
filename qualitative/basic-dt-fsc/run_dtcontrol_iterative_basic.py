@@ -1,6 +1,6 @@
 import os
 import subprocess
-import sys
+import sys, time
 
 
 def check_directory_exists(directory):
@@ -46,19 +46,22 @@ def process_model_files(model_folder):
 
     transition_dir = os.path.join(model_folder, "memory-transitions")
     check_directory_exists(transition_dir)
-
+    scheduler_start_time = time.time()
     for filename in os.listdir(schedulers_dir):
         if filename.endswith(".csv"):
             csv_path = os.path.join(schedulers_dir, filename)
             print(f"Processing scheduler file: {csv_path}")
             run_dtcontrol(csv_path, schedulers_dir)
-
+    scheduler_end_time = time.time()
+    print(f"Time taken by DTcontrol for all scheduler files {model_folder}: {scheduler_end_time - scheduler_start_time}")
+    transition_start_time = time.time()
     for filename in os.listdir(transition_dir):
         if filename.endswith(".csv"):
             csv_path = os.path.join(transition_dir, filename)
             print(f"Processing transition file: {csv_path}")
             run_dtcontrol(csv_path, transition_dir)
-
+    transition_end_time = time.time()
+    print(f"Time taken by DTcontrol for all transition files {model_folder}: {transition_end_time - transition_end_time}")
 
 def main(base_dir):
     winningregion_dir = os.path.join(base_dir, "explainable-mealy-machines")
