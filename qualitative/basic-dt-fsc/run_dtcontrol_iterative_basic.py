@@ -42,6 +42,8 @@ def process_model_files(model_folder):
     check_directory_exists(model_folder)
 
     schedulers_dir = os.path.join(model_folder, "schedulers")
+    scheduler_time_file = os.path.join(model_folder, "scheduler_time.txt")
+    transtion_time_file= os.path.join(model_folder, "transition_time.txt")
     check_directory_exists(schedulers_dir)
 
     transition_dir = os.path.join(model_folder, "memory-transitions")
@@ -54,6 +56,8 @@ def process_model_files(model_folder):
             run_dtcontrol(csv_path, schedulers_dir)
     scheduler_end_time = time.time()
     print(f"Time taken by DTcontrol for all scheduler files {model_folder}: {scheduler_end_time - scheduler_start_time}")
+    open(scheduler_time_file, "a").write(f"{model_folder} {scheduler_end_time - scheduler_start_time}\n")
+
     transition_start_time = time.time()
     for filename in os.listdir(transition_dir):
         if filename.endswith(".csv"):
@@ -61,7 +65,8 @@ def process_model_files(model_folder):
             print(f"Processing transition file: {csv_path}")
             run_dtcontrol(csv_path, transition_dir)
     transition_end_time = time.time()
-    print(f"Time taken by DTcontrol for all transition files {model_folder}: {transition_end_time - transition_end_time}")
+    print(f"Time taken by DTcontrol for all transition files {model_folder}: {transition_end_time - transition_start_time}")
+    open(transtion_time_file, "a").write(f"{model_folder} {transition_end_time - transition_start_time}\n")
 
 def main(base_dir):
     winningregion_dir = os.path.join(base_dir, "explainable-mealy-machines")

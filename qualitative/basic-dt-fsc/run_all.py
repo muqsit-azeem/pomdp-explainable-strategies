@@ -94,6 +94,7 @@ def main():
         ("refuel.nm", {"N": 7, "ENERGY": 7}),
     ]
 
+    storm_time_file = os.path.join(model_dir, "storm_time.txt")
     for model, params in benchmarks:
         input_file_path = os.path.join(model_dir, model)
         storm_pomdp_exec = os.path.join(storm_build_dir, "bin", "storm-pomdp")
@@ -102,12 +103,13 @@ def main():
         run_storm_pomdp(timeout, storm_pomdp_exec, input_file_path, params)
         end_time = time.time()
         print(f"Time taken by STORM for {model}: {end_time - start_time} seconds")
+        open(storm_time_file, "a").write(f"{model} {end_time - start_time}\n")
 
     run_dtcontrol(os.getcwd())
-    postprocess(os.getcwd())
+    # postprocess(os.getcwd())
 
-    create_table(os.getcwd())
-    create_table2_csv_table_size(os.getcwd())
+    # create_table(os.getcwd())
+    # create_table2_csv_table_size(os.getcwd())
     print("All scripts ran successfully.")
 
 
