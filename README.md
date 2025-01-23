@@ -59,7 +59,7 @@ pomdp-explainable-policy/
   - DT-FSCs (explainable Mealy machines) and corresponding results.
 
 ### 2. **DT-FSC for all Qualitative Benchmarks**
-- **Directory:** `baisc-dt-fsc/`
+- **Directory:** `basic-dt-fsc/`
 - **Description:** Contains scripts for generating DT-FSCs.
 - **Generated Files:**
   - DT-FSCs (explainable Mealy machines) and corresponding results.
