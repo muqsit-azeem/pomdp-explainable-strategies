@@ -1,0 +1,6 @@
+amdone
+hascrash
+start
+amdone'
+hascrash'
+start'

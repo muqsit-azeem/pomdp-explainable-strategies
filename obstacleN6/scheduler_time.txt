@@ -1,0 +1,1 @@
+/opt/pomdp-explainable-strategies/qualitative/basic-dt-fsc/explainable-mealy-machines/obstacleN6 10.469521045684814

@@ -1,0 +1,4 @@
+east <-> 3
+placement <-> 0
+south <-> 1
+west <-> 2
