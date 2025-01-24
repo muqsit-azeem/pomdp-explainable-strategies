@@ -1,7 +1,7 @@
 
-# Supplementary Experimental Data for Submission 7108: "Explainable Representation of Finite-Memory Policies for POMDPs"
+# Supplementary Experimental Data for Submission "Explainable Representation of Finite-Memory Policies for POMDPs"
 
-This repository contains supplementary experimental data and scripts related to the paper submission 7108. The repository is organized into directories for qualitative and quantitative analyses, each containing relevant benchmarks, scripts to generate the results.
+This repository contains supplementary experimental data and scripts related to the paper submission. The repository is organized into directories for qualitative and quantitative analyses, each containing relevant benchmarks, scripts to generate the results.
 
 ## Directory Structure
 
