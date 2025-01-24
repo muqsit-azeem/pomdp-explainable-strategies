@@ -128,7 +128,7 @@ Ensure that Docker is installed on your system. You can download and install Doc
 
    You can access the Docker artifact using the following Zenodo link:
 
-   - **Zenodo Link:** [10.5281/zenodo.13340155](https://doi.org/10.5281/zenodo.13340155)
+   - **Zenodo Link:** [10.5281/zenodo.13347129](https://doi.org/10.5281/zenodo.13347129)
 
    Download the artifact and follow the instructions provided on the Zenodo page to load it into Docker.
 
