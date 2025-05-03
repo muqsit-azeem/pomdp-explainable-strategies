@@ -1,6 +1,6 @@
-# Supplementary Experimental Data for Submission 7108: "Explainable Finite-Memory Policies for Partially Observable Markov Decision Processes"
+# Supplementary Experimental Data for Submission 0262
 
-This repository contains supplementary experimental data and scripts related to the paper submission 7108. The repository is organized into directories for qualitative and quantitative analyses, each containing relevant benchmarks, and scripts to generate the values from the paper. If you would like to regenerate the experimental data, please see the details below for our docker image.
+This repository contains supplementary experimental data and scripts related to our paper "Explainable Representation of Finite-Memory Policies for POMDPs using Decision Trees". The repository is organized into directories for qualitative and quantitative analyses, each containing relevant benchmarks, and scripts to generate the values from the paper. If you would like to regenerate the experimental data, please see the details below for our docker image.
 
 ## Directory Structure
 
@@ -154,8 +154,6 @@ python create_table2_csv_table_size_storm.py paper-case-study-heart
 
 # Docker Artifact
 
-To facilitate a consistent and replicable environment, we provide a pre-configured Docker artifact available on Zenodo. This artifact includes all necessary dependencies and scripts required to reproduce the experiments described in this repository. You can access the Docker artifact using the following Zenodo link:
-
-- **Zenodo Link:** [10.5281/zenodo.13340154](https://doi.org/10.5281/zenodo.13340154)
+To facilitate a consistent and replicable environment, we provide a pre-configured Docker artifact available on Zenodo. This artifact includes all necessary dependencies and scripts required to reproduce the experiments described in this repository. You can access the Docker artifact using the following Zenodo link (omitted for review).
 
 Download the artifact and follow the instructions provided on the Zenodo page to load it into Docker.
