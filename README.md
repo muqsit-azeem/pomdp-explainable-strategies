@@ -161,7 +161,7 @@ To facilitate a consistent and replicable environment, we provide a pre-configur
 All data files in this artifact were generated using a modified version of the [Storm model checker](https://github.com/moves-rwth/storm), where we implemented custom functionality required for our method.  
 This modified version is included under the `storm/` directory.
 
-You do **not** need to build or run Storm to reproduce our results — all precomputed data files are included.
+You do **not** need to build or run Storm to reproduce our results -- all precomputed data files are included.
 
 However, if you wish to regenerate the raw data from scratch, you must:
 
