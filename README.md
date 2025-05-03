@@ -43,7 +43,7 @@ pomdp-explainable-policy/
 │   ├── run_dtcontrol_quantitative.py
 │   └── run_quantitative.sh
 └── storm/
-
+```
 
 ## Data Files
 For respective analysis (Qualitative/Quantitative), for each benchmark, the folder ```explainable-mealy-machines/``` has two sub-folders. ```schedulers``` and ```memory-transitions```.
