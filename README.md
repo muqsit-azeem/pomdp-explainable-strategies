@@ -165,7 +165,7 @@ You do **not** need to build or run Storm to reproduce our results — all preco
 
 However, if you wish to regenerate the raw data from scratch, you must:
 
-1. Restore Storm’s `resources/` directory, which is excluded from this package to reduce its size. To restore the `resources/` folder, run:
+1. Restore Storm’s `resources/` directory, which we had to excluded from this package because of the size limitation. To restore the `resources/` folder, run:
 ```bash
 cd storm
 bash get_resources.sh
