@@ -26,7 +26,7 @@ pomdp-explainable-policy/
 │   │   ├── run_storm_pomdp_explainable.py
 │   │   └── explainable-mealy-machines/
 │   └── basic-dt-fsc/
-│       ├── create_table_vanilla_iterative.py
+│       ├── create_table_basic_iterative.py
 │       ├── create_table2_csv_table_size.py
 │       ├── postprocess_basic.py
 │       ├── run_all.py
