@@ -200,7 +200,7 @@ bash get_resources.sh
    ```
    cd qualitative 
    ```
-   go to the respective folder and run:
+   Pick the desired folder and run:
    ```
    run_all.sh
    ```
