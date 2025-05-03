@@ -11,10 +11,10 @@ pomdp-explainable-policy/
 │   │   ├── create_table2_csv_table_size.py
 │   │   ├── create_table_case_studies_basic.py
 │   │   ├── postprocess_case_studies_basic.py
-│   │   ├── run_all.py
 │   │   ├── run_all.sh
 │   │   ├── run_dtcontrol_case_studies_basic.py
-│   │   └── run_storm_pomdp_explainable.py
+│   │   ├── run_storm_pomdp_explainable.py
+│   │   └── explainable-mealy-machines/
 │   ├── qualitative-benchmarks/
 │   ├── skip-dt-fsc/
 │   │   ├── create_table2_csv_table_size.py
@@ -23,15 +23,17 @@ pomdp-explainable-policy/
 │   │   ├── run_all.py
 │   │   ├── run_all.sh
 │   │   ├── run_dtcontrol_iterative_skip.py
-│   │   └── run_storm_pomdp_explainable.py
+│   │   ├── run_storm_pomdp_explainable.py
+│   │   └── explainable-mealy-machines/
 │   └── basic-dt-fsc/
+│       ├── create_table_vanilla_iterative.py
 │       ├── create_table2_csv_table_size.py
-│       ├── create_table_basic_iterative.py
 │       ├── postprocess_basic.py
 │       ├── run_all.py
 │       ├── run_all.sh
 │       ├── run_dtcontrol_iterative_basic.py
-│       └── run_storm_pomdp_explainable.py
+│       ├── run_storm_pomdp_explainable.py
+│       └── explainable-mealy-machines/
 ├── quantitative/
 │   ├── benchmarks/
 │   ├── paper-case-study-heart/
@@ -41,9 +43,11 @@ pomdp-explainable-policy/
 │   ├── postprocess_quantitive.py
 │   ├── process_storm_output.py
 │   ├── run_dtcontrol_quantitative.py
-│   └── run_quantitative.sh
+│   ├── run_quantitative.sh
+│   └── explainable-mealy-machine/
 └── storm/
 ```
+
 
 ## Data Files
 For respective analysis (Qualitative/Quantitative), for each benchmark, the folder ```explainable-mealy-machines/``` has two sub-folders. ```schedulers``` and ```memory-transitions```.
