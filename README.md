@@ -174,7 +174,7 @@ python create_table2_csv_table_size_storm.py paper-case-study-heart
 
 # Docker Artifact
 
-To facilitate a consistent and replicable environment, we provide a pre-configured Docker artifact available on Zenodo. This artifact includes all necessary dependencies and scripts required to reproduce the experiments described in this repository. You can access the Docker artifact using the following Zenodo link (omitted for review -- see Note on Storm below).
+To facilitate a consistent and replicable environment, we provide a pre-configured Docker artifact available on Zenodo. This artifact includes all necessary dependencies and scripts required to reproduce the experiments described in this repository. You can access the Docker artifact using the following Zenodo link (**omitted for review -- see Note on Storm below**).
 
 # Note on Storm
 
