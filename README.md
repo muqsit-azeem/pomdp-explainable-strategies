@@ -9,24 +9,40 @@ pomdp-explainable-policy/
 ├── qualitative/
 │   ├── paper-case-studies-iterative/
 │   │   ├── create_table2_csv_table_size.py
-│   │   ├── create_table_case_studies_vanilla.py
-│   │   └── explainable-mealy-machines/
+│   │   ├── create_table_case_studies_basic.py
+│   │   ├── postprocess_case_studies_basic.py
+│   │   ├── run_all.py
+│   │   ├── run_all.sh
+│   │   ├── run_dtcontrol_case_studies_basic.py
+│   │   └── run_storm_pomdp_explainable.py
 │   ├── qualitative-benchmarks/
 │   ├── skip-dt-fsc/
 │   │   ├── create_table2_csv_table_size.py
 │   │   ├── create_table_skip_iterative.py
-│   │   └── explainable-mealy-machines/
+│   │   ├── postprocess_skip.py
+│   │   ├── run_all.py
+│   │   ├── run_all.sh
+│   │   ├── run_dtcontrol_iterative_skip.py
+│   │   └── run_storm_pomdp_explainable.py
 │   └── basic-dt-fsc/
-│       ├── create_table_vanilla_iterative.py
-│       └── explainable-skip-mealy-machines/
+│       ├── create_table2_csv_table_size.py
+│       ├── create_table_basic_iterative.py
+│       ├── postprocess_basic.py
+│       ├── run_all.py
+│       ├── run_all.sh
+│       ├── run_dtcontrol_iterative_basic.py
+│       └── run_storm_pomdp_explainable.py
 ├── quantitative/
 │   ├── benchmarks/
 │   ├── paper-case-study-heart/
 │   ├── storm-fsc-output/
 │   ├── create_table2_csv_table_size_storm.py
-│   └── explainable-mealy-machine/
+│   ├── create_table_storm.py
+│   ├── postprocess_quantitive.py
+│   ├── process_storm_output.py
+│   ├── run_dtcontrol_quantitative.py
+│   └── run_quantitative.sh
 └── storm/
-```
 
 
 ## Data Files
