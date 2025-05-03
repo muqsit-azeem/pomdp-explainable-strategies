@@ -190,6 +190,20 @@ However, if you wish to regenerate the raw data from scratch, you must:
 cd storm
 bash get_resources.sh
 ```
-2. Install our modified version of Storm (`storm/`)
+2. Install our modified version of Storm (`storm/`).
+   a. For quantitative, run:
+   ```bash
+   cd quantitative 
+   run_quantitative.sh
+   ```
+   b. For qualitative, run:
+   ```
+   cd qualitative 
+   ```
+   go to the respective folder and run:
+   ```
+   run_all.sh
+   ```
+   
 
 
