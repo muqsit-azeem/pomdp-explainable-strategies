@@ -1,4 +1,4 @@
-# Supplementary Experimental Data for Submission 0262
+# Experimental Data & Code for Submission 0262
 
 This repository contains supplementary experimental data and scripts related to our paper "Explainable Representation of Finite-Memory Policies for POMDPs using Decision Trees". The repository is organized into directories for qualitative and quantitative analyses, each containing relevant benchmarks, and scripts to generate the values from the paper. If you would like to regenerate the experimental data, please see the details below for our docker image.
 
