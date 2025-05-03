@@ -154,6 +154,22 @@ python create_table2_csv_table_size_storm.py paper-case-study-heart
 
 # Docker Artifact
 
-To facilitate a consistent and replicable environment, we provide a pre-configured Docker artifact available on Zenodo. This artifact includes all necessary dependencies and scripts required to reproduce the experiments described in this repository. You can access the Docker artifact using the following Zenodo link (omitted for review).
+To facilitate a consistent and replicable environment, we provide a pre-configured Docker artifact available on Zenodo. This artifact includes all necessary dependencies and scripts required to reproduce the experiments described in this repository. You can access the Docker artifact using the following Zenodo link (omitted for review -- see Note on Storm below).
 
-Download the artifact and follow the instructions provided on the Zenodo page to load it into Docker.
+# Note on Storm
+
+All data files in this artifact were generated using a modified version of the [Storm model checker](https://github.com/moves-rwth/storm), where we implemented custom functionality required for our method.  
+This modified version is included under the `storm/` directory.
+
+You do **not** need to build or run Storm to reproduce our results — all precomputed data files are included.
+
+However, if you wish to regenerate the raw data from scratch, you must:
+
+1. Restore Storm’s `resources/` directory, which is excluded from this package to reduce its size. To restore the `resources/` folder, run:
+```bash
+cd storm
+bash get_resources.sh
+```
+2. Install our modified version of Storm (`storm/`)
+
+
