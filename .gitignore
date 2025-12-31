@@ -171,3 +171,6 @@ benchmark.json
 
 # vscode
 .idea/
+
+# mac
+.DS_Store
